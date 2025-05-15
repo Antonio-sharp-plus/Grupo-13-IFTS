@@ -1,8 +1,8 @@
-const API_TMDB = "4063bb0f4fe2de3c505e5c64207fbc3e";
-const url_popular = `https://api.themoviedb.org/3/movie/popular?api_key=${API_TMDB}&language=es-ES&region=ES`;
+const API_KEY_TMDB = "4063bb0f4fe2de3c505e5c64207fbc3e";
+const url_popular = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY_TMDB}&language=es-ES&region=ES`;
 
-async function BuscarPorNombre(nombre) {
-  const url_busqueda_nombre = `https://api.themoviedb.org/3/search/movie?api_key=${API_TMDB}&query=${encodeURIComponent(nombre)}&language=es-ES`;
+async function BuscarPeliPorNombre(nombre) {
+  const url_busqueda_nombre = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY_TMDB}&query=${encodeURIComponent(nombre)}&language=es-ES`;
   const response = await fetch(url_busqueda_nombre);
   if (!response.ok) throw new Error("Error al buscar la película.");
   const peliDatos = await response.json();
@@ -18,7 +18,7 @@ BuscarPorNombre("El padrino")
 Código para mostrar el JSON en consola
 */
 
-async function BuscarPopulares(){
+async function BuscarPelisPopulares(){
     try
     {
         const response = await fetch(url_popular);
