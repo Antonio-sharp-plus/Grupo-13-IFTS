@@ -1,24 +1,32 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+const express = require('express');
+const app = express();
 
 const PORT = 3000;
 const HOSTNAME = '127.0.0.1';
 
+let path = require('path');
+const api = require("./public/back/api.js");
 
-const server = http.createServer((req, res) => { //para el routing dice gpt que nos conviene usar express en vez de http, despues lo vemos
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('El servidor se inició correctamente.');
+
+app.use(express.static(path.join(__dirname, 'public', 'front', 'paginaPrincipal')));
+
+app.get('/api/peliculas', async (req, res) => {
+  try{
+    const data = await api.BuscarPelisPopulares();
+    res.send(data);
+  }
+  catch(Error)
+  {
+    console.error('Error al cargar películas en server:', Error);
+  }
 });
 
-server.listen(PORT, HOSTNAME, () => {
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'front', 'paginaPrincipal', 'main.html'));
+});
+
+app.listen(PORT, HOSTNAME, () => {
   console.log(`El servidor está corriendo en http://${HOSTNAME}:${PORT}/`);
 });
 
 
-/*Server.listen(PORT, HOSTNAME, () => {
-    console.log('El servidor está corriendo en http://${HOSTNAME}:${PORT}/')
-});
-Supuestamente esto no va así xd pero después lo vemos
-*/

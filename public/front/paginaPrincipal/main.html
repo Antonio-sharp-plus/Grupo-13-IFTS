@@ -8,9 +8,6 @@
 
     <link rel="stylesheet" href="./estilosMain.css">
     
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
     <!-- Fuentes de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@600&display=swap" rel="stylesheet">
     
@@ -56,10 +53,10 @@
         <div class="movies-container">
             
             <h2 class="section-title">Películas populares</h2>
-            <div class="movies-grid">
+            <div class="movies-grid" id="movies-grid">
 
                 <div class="movie-card">
-                    <img src="https://via.placeholder.com/300x450" alt="Título de la película" class="movie-poster">
+                    <img class="movie-poster">
                     <div class="movie-info">
                         <h3 class="movie-title">Título de la película</h3>
                         <div class="movie-meta">
@@ -86,24 +83,6 @@
     </footer>
     
     <!-- JavaScript -->
-    <script>
-        // Aquí irá tu código para interactuar con la API de TMDB
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Página cargada, lista para interactuar con la API de TMDB');
-            
-            // Ejemplo básico de cómo podrías hacer una solicitud a la API
-            // Necesitarás tu propia clave API de TMDB
-            /*
-            const apiKey = 'TU_API_KEY';
-            fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=es-MX`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data.results);
-                    // Aquí procesarías los datos y los mostrarías en la página
-                })
-                .catch(error => console.error('Error:', error));
-            */
-        });
-    </script>
+    <script src="./main.js"></script>
 </body>
 </html>

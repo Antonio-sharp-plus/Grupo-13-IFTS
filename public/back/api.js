@@ -11,7 +11,7 @@ async function BuscarPeliPorNombre(nombre) {
 
 // Usar .then() y .catch()
 /*
-BuscarPorNombre("El padrino")
+BuscarPeliPorNombre("El padrino")
   .then(resultado => console.log(JSON.stringify(resultado, null, 2)))
   .catch(error => console.error("Error:", error));
 
@@ -19,22 +19,32 @@ Código para mostrar el JSON en consola
 */
 
 async function BuscarPelisPopulares(){
-    try
+    try 
     {
         const response = await fetch(url_popular);
-        const pelisPopulares = await response.json();
-        return pelisPopulares
-    }
-    catch
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const datos = await response.json();
+        return datos; 
+    } 
+    catch (error) 
     {
-        throw new Error("Error al obtener películas populares.")
+        throw new Error(`Error al obtener películas: ${error.message}`);
     }
 }
 
 /*
-BuscarPopulares()
-  .then(resultado => console.log(JSON.stringify(resultado, null, 2)))
+BuscarPelisPopulares()
+  .then(datos => {
+    console.log("Salió bien")
+    redatos = datos.results;
+    redatos.forEach(d => {
+    console.log('titulo' + d.title)
+});
+  })
   .catch(error => console.error("Error:", error));
-
-Código para mostrar JSON en consola
 */
+
+//Código para mostrar JSON en consola
+
+
+module.exports = {BuscarPeliPorNombre, BuscarPelisPopulares}
