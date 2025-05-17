@@ -47,4 +47,18 @@ BuscarPelisPopulares()
 //Código para mostrar JSON en consola
 
 
-module.exports = {BuscarPeliPorNombre, BuscarPelisPopulares}
+async function BuscarDetallePeli(movie_id){
+    try 
+    {
+        const response = await fetch("https://api.themoviedb.org/3/movie/" + movie_id);
+        const datos = await response.json();
+        return datos; 
+    } 
+    catch (error) 
+    {
+        throw new Error(`Error al obtener películas: ${error.message}`);
+    }
+}
+
+
+module.exports = {BuscarPeliPorNombre, BuscarPelisPopulares, BuscarDetallePeli}
