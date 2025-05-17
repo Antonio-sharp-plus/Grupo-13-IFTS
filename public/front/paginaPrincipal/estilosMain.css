@@ -1,9 +1,11 @@
 :root {
-            --primary-color: #01b4e4;
-            --secondary-color: #032541;
-            --dark-color: #1a1a1a;
+            --primary-color: #8e008b;
+            --secondary-color: #5c008b;
+            --dark-color: #2e005d;
             --light-color: #f8f9fa;
             --success-color: #4CAF50;
+            --alternative-color1: #ff8300;
+            --alternative-color2: #ff6200;
         }
         
         * {
@@ -13,7 +15,7 @@
         }
         
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Quicksand', sans-serif;
             background-color: var(--dark-color);
             color: var(--light-color);
             line-height: 1.6;
@@ -34,10 +36,20 @@
         }
         
         .logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.5rem;
+            -webkit-text-stroke: 0.4px var(--alternative-color1);
+            text-align: left;
             color: white;
             text-decoration: none;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Ajustá el espacio entre logo y texto */
         }
         
         .logo span {
@@ -126,7 +138,7 @@
         
         .section-title {
             margin: 1.5rem 0;
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Quicksand', sans-serif;
             font-size: 1.8rem;
             color: var(--primary-color);
         }
@@ -207,6 +219,11 @@
         
         .footer-links a:hover {
             color: var(--primary-color);
+        }
+
+        .LOGOAPP{
+            height: 125px;
+             width: auto;
         }
         
         @media (max-width: 768px) {

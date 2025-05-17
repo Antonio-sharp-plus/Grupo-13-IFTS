@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar</title>
+    <title>Empeza a Pochoclear</title>
 
     <link rel="stylesheet" href="./estilosRegistro.css">
 
@@ -19,22 +19,23 @@
     
 </head>
 <body>
-    <header>
-    <div class="divLogo">
-        <a href="#" class="logo">Pocho<span>Cleando</span></a>
+  <div class="registro-container">
+    <div class="registro-logo">
+      <img src="/public/images/LOGOAPP.png" alt="Logo" />
+      <h1>Pochocleando</h1>
     </div>
-    </header>
-    <div class="divFormularioRegistro">
-        <h1>Registrate en Pochocleando</h1>
-        <form>
-            <input type="text" placeholder="Nombre de usuario" required>
-            <input type="email" placeholder="Correo eletrónico" required>
-            <input type="password" placeholder="Contraseña" required>
-            <input type="password" placeholder="Confirmar contraseña" required>
-            <button class="botonCrearCuenta" type="submit">Crear Cuenta</button>
-            <br>
-            <p class="redireccionLogin">¿Ya tenes una cuenta? <a class="linkRedirLogin" href="../Login/login.html">Iniciar Sesión</a></p>
-        </form>
+    <div class="registro-formulario">
+      <h2>Empeza a Pochoclear</h2>
+      <form>
+        <input type="text" placeholder="Nombre" required />
+        <input type="text" placeholder="Apellido" required />
+        <input type="number" placeholder="Edad" required />
+        <input type="text" placeholder="Usuario" required />
+        <input type="password" placeholder="Contraseña" required />
+        <button type="submit" formaction="/public/front/paginaPrincipal/main.html" formmethod="get">Crear Cuenta</button>
+        <p class="redireccionInicioDeSesion">¿Ya tenés cuenta? <a class="linkRedirInicioDeSesion" href="/public/front/Login/login.html">Iniciar Sesión</a></p>
+      </form>
     </div>
+  </div>
 </body>
 </html>

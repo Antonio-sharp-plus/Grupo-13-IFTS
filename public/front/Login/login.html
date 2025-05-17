@@ -17,20 +17,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
-</body>
-    <header>
-        <div class="divLogo">
-        <a href="#" class="logo">Pocho<span>Cleando</span></a>
-        </div>
-    </header>
-    <div class="divIniciarSesion">
-        <h1>Iniciar Sesión</h1>
-        <form>
-            <input type="text" placeholder="Usuario" required>
-            <input type="password" placeholder="Contraseña" required>
-            <button class="botonIniciarSesion" type="submit">Entrar</button>
-            <p class="redireccionRegistro">¿No tenés cuenta? <a class="linkRedirRegistro" href="registro.html">Registrate</a></p>
-        </form>
+<body>
+  <div class="container">
+    <!-- Mitad de la pantalla izquierda -->
+    <div class="login-section">
+      <h2>Inicia Sesión</h2>
+      <form>
+        <input type="text" placeholder="Usuario" required />
+        <input type="password" placeholder="Contraseña" required />
+        <button type="submit" formaction="/public/front/paginaPrincipal/main.html" formmethod="get">A Pochoclear</button>
+        <p class="redireccionRegistro">¿No tenés cuenta? <a class="linkRedirRegistro" href="/public/front/Registro/registro.html">Registrate</a></p>
+      </form>
     </div>
+
+    <!--Mitad de la pantalla derecha -->
+    <div class="logo-section">
+      <img src="/public/images/Pochi IS.png" alt="Logo de Pochocleando" class="logo" />
+      <h1>Pochocleando</h1>
+    </div>
+  </div>
 </body>
 </html>

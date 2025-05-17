@@ -1,92 +1,103 @@
 :root {
-    --primary-color: #01b4e4;
-    --secondary-color: #032541;
-    --dark-color: #1a1a1a;
-    --light-color: #f8f9fa;
-    --success-color: #4CAF50;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+     --primary-color: #8e008b;
+     --secondary-color: #5c008b;
+     --dark-color: #2e005d;
+     --light-color: #f8f9fa;
+     --success-color: #4CAF50;
+     --alternative-color1: #ff8300;
+     --alternative-color2: #ff6200;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    line-height: 1.6;
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #2e005d;
+  color: white;
 }
 
-.divFormularioRegistro {
-    width: 90%;
-    max-width: 500px;
-    margin: 5rem auto;
-    padding: 2rem;
-    background-color: var(--secondary-color);
-    color: var(--light-color);
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    text-align: center;
+.registro-container {
+  display: flex;
+  height: 100vh;
 }
 
-.divFormularioRegistro h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 2rem;
+.registro-logo {
+  flex: 1;
+  background-color: #69007c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 2rem 2rem 0;
 }
 
-.divFormularioRegistro input {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: var(--light-color);
-    color: #000;
-    transition: box-shadow 0.3s ease;
+.registro-logo img {
+  width: 150px;
+  margin-bottom: 1rem;
 }
 
-.divFormularioRegistro input:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px var(--primary-color);
+.registro-logo h1 {
+  font-size: 2.5rem;
+  margin: 0;
 }
 
-.botonCrearCuenta {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s;
+.registro-formulario {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.botonCrearCuenta:hover {
-    background-color: #0294c4;
-    transform: scale(1.02);
+.registro-formulario h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
-.redireccionLogin {
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
-    color: var(--light-color);
+.redireccionInicioDeSesion {
+  margin-top: 1rem;
+  font-size: 1.2rem;
 }
 
-.linkRedirLogin {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
+.linkRedirInicioDeSesion {
+  color: var(--alternative-color1);
+  text-decoration: none;
 }
 
-.linkRedirLogin:hover {
-    text-decoration: underline;
+form {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #4e007e;
+  color: white;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #d3a1e2;
+}
+
+button {
+  padding: 1rem;
+  background-color: #d4550f;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b7430a;
 }
 
 @media (max-width: 480px) {
@@ -103,27 +114,4 @@ body {
     }
 }
 
-header {
-    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
 
-.divLogo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
-    color: white;
-    text-decoration: none;
-}
-
-.logo span {
-    color: var(--primary-color);
-}
