@@ -5,11 +5,11 @@ const PORT = 3000;
 const HOSTNAME = '127.0.0.1';
 
 let path = require('path');
-const api = require("./public/back/api.js");
+const api = require("../public__/back/api.js");
 
 
-app.use(express.static(path.join(__dirname, 'public', 'front', 'paginaPrincipal')));
-app.use(express.static(path.join(__dirname, 'public', 'front', 'detallePelícula')));
+app.use(express.static(path.join(__dirname, 'public__', 'front', 'paginaPrincipal')));
+app.use(express.static(path.join(__dirname, 'public__', 'front', 'detallePelícula')));
 
 app.get('/api/peliculas', async (req, res) => {
   try{
@@ -33,7 +33,7 @@ app.get('/api/detalles', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'front', 'paginaPrincipal', 'main.html'));
+  res.sendFile(path.join(__dirname, 'public__', 'front', 'paginaPrincipal', 'main.html'));
 });
 
 app.listen(PORT, HOSTNAME, () => {
