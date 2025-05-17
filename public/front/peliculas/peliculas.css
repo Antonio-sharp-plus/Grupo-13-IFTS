@@ -1,13 +1,20 @@
 :root {
-            --primary-color: #8e008b;
-            --secondary-color: #5c008b;
-            --dark-color: #2e005d;
-            --light-color: #f8f9fa;
-            --success-color: #4CAF50;
-            --alternative-color1: #ff8300;
-            --alternative-color2: #ff6200;
-        }
-        
+    --primary-color: #8e008b;
+    --secondary-color: #5c008b;
+    --dark-color: #2e005d;
+    --light-color: #f8f9fa;
+    --success-color: #4CAF50;
+    --alternative-color1: #ff8300;
+    --alternative-color2: #ff6200;
+}
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background-color: var(--dark-color);
+  color: white;
+}
+
         * {
             margin: 0;
             padding: 0;
@@ -55,8 +62,11 @@
         .logo span {
             color: var(--primary-color);
         }
-        
-        nav ul {
+          .LOGOAPP{
+            height: 125px;
+             width: auto;
+        }
+                nav ul {
             display: flex;
             list-style: none;
         }
@@ -114,6 +124,8 @@
             gap: 1rem;
             margin-bottom: 1.5rem;
             flex-wrap: wrap;
+            justify-content: center
+            
         }
         
         .filter-btn {
@@ -129,7 +141,6 @@
         .filter-btn:hover, .filter-btn.active {
             background-color: var(--primary-color);
         }
-        
         .movies-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -191,52 +202,68 @@
             color: gold;
             font-weight: bold;
         }
-        
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1rem 0;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary-color);
-        }
 
-        .LOGOAPP{
-            height: 125px;
-             width: auto;
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 1rem;
-            }
-            
-            .movies-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-        }
+
+
+.container {
+  padding: 30px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  border-left: 4px solid #ff8c00;
+  padding-left: 10px;
+}
+
+.movie-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.movie-card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 200px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: transform 0.2s;
+}
+
+.movie-card:hover {
+  transform: scale(1.03);
+}
+
+.movie-card img {
+  width: 100%;
+  display: block;
+}
+
+.movie-title {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.movie-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat i {
+  font-size: 14px;
+}
+
+.views i { color: #4caf50; }
+.comments i { color: #03a9f4; }
+.likes i { color: #ff9800; }

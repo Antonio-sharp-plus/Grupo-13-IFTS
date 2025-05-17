@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pochocleando - Recomendaciones de Películas</title>
-    <meta name="description" content="Descubre las mejores películas recomendadas según tus gustos">
-
-    <link rel="stylesheet" href="./estilosMain.css">
-    
-    <!-- Fuentes de Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@600&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome para íconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Películas Populares</title>
+  <link rel="stylesheet" href="peliculas.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome para íconos -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -24,7 +18,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
+                <li><a href="/public/front/paginaPrincipal/main.html">Inicio</a></li>
                 <li><a href="/public/front/peliculas/peliculas.html">Películas</a></li>
                 <li><a href="#">Series</a></li>
                 <li><a href="#">Géneros</a></li>
@@ -34,17 +28,10 @@
         </nav>
     </div>
 </header>
-    
-    <main>
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="Buscar películas...">
-                <button class="search-btn"><i class="fas fa-search"></i> Buscar</button>
-            </div>
-            
-            <div class="filter-options">
-                <button class="filter-btn active">Todas</button>
-                <button class="filter-btn">Populares</button>
+
+  <div class="container">
+    <div class="filter-options">
+                    <button class="filter-btn active">Populares</button>
                 <button class="filter-btn">Mejor valoradas</button>
                 <button class="filter-btn">Estrenos</button>
                 <button class="filter-btn">Acción</button>
@@ -52,9 +39,7 @@
                 <button class="filter-btn">Drama</button>
                 <button class="filter-btn">Ciencia ficción</button>
             </div>
-        </div>
-        
-        <div class="movies-container">
+   <div class="movies-container">
             
             <h2 class="section-title">Películas populares</h2>
             <div class="movies-grid" id="movies-grid">
@@ -73,20 +58,7 @@
             </div>
             
         </div>
-    </main>
-    
-    <footer>
-        <div class="footer-content">
-            <p>IFTS 11 - Proyecto FrontEnd y BackEnd - Ningún Derecho Reservado</p>
-            <div class="footer-links">
-                <a href="#">Contacto</a>
-                <a href="#">API de TMDB</a>
-            </div>
-            <p>Este producto utiliza la API de TMDB pero no está respaldado ni certificado por TMDB.</p>
-        </div>
-    </footer>
-    
-    <!-- JavaScript -->
-    <script src="./main.js"></script>
+  </div>
+
 </body>
 </html>
