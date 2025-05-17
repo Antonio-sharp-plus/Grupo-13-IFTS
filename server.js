@@ -9,6 +9,7 @@ const api = require("./public/back/api.js");
 
 
 app.use(express.static(path.join(__dirname, 'public', 'front', 'paginaPrincipal')));
+app.use(express.static(path.join(__dirname, 'public', 'front', 'detallePelícula')));
 
 app.get('/api/peliculas', async (req, res) => {
   try{
@@ -18,6 +19,16 @@ app.get('/api/peliculas', async (req, res) => {
   catch(Error)
   {
     console.error('Error al cargar películas en server:', Error);
+  }
+});
+
+app.get('/api/detalles', async (req, res) => {
+  try{
+    const data = await api.BuscarDetallePeli();
+    res.send(data);
+  }
+  catch(Error){
+    console.error('No se recibieron los detalles de la película:', Error);
   }
 });
 
