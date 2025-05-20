@@ -1,15 +1,24 @@
 const express = require('express');
 const app = express();
 
+const cors = require('cors');
+
+
 const PORT = 3000;
 const HOSTNAME = '127.0.0.1';
 
 let path = require('path');
-const api = require("../public/back/api.js");
+const api = require("./public/back/api.js");
 
 
 app.use(express.static(path.join(__dirname, 'public', 'front', 'paginaPrincipal')));
 app.use(express.static(path.join(__dirname, 'public', 'front', 'detallePelícula')));
+
+app.use(cors({
+  origin: 'http://localhost:4200/', // Reemplaza con tu URL de Angular
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.get('/api/peliculas', async (req, res) => {
   try{
