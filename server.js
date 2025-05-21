@@ -8,7 +8,7 @@ const HOSTNAME = '127.0.0.1';
 
 const path = require('path')
 const api = require('./public/back/api.js');
-/*
+
 app.use((req, res, next) => {
   // Elimina políticas restrictivas para desarrollo
   res.removeHeader('Content-Security-Policy');
@@ -20,7 +20,7 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-*/
+
 /*
 app.get('/api/test', (req, res) => {
   res.json({ message: "¡Backend funciona!" });

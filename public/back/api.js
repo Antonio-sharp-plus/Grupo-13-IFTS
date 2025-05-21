@@ -16,15 +16,6 @@ async function BuscarPeliPorNombre(nombre) {
   return peliDatos;
 }
 
-// Usar .then() y .catch()
-/*
-BuscarPeliPorNombre("El padrino")
-  .then(resultado => console.log(JSON.stringify(resultado, null, 2)))
-  .catch(error => console.error("Error:", error));
-
-Código para mostrar el JSON en consola
-*/
-
 async function BuscarPelisPopulares(){
     try 
     {
@@ -122,20 +113,6 @@ async function BuscarPelisCienciaFiccion(){
         throw new Error(`Error al obtener películas: ${error.message}`);
     }
 }
-
-/*
-BuscarPelisPopulares()
-  .then(datos => {
-    console.log("Salió bien")
-    redatos = datos.results;
-    redatos.forEach(d => {
-    console.log('titulo' + d.title)
-});
-  })
-  .catch(error => console.error("Error:", error));
-*/
-
-//Código para mostrar JSON en consola
 
 
 async function BuscarDetallePeli(movie_id){

@@ -16,11 +16,8 @@ export class AppComponent implements OnInit{
   async ngOnInit() {
     try{
       const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/populares');
-      console.log("Recibe los datos");
-      console.log(respuesta);
       const jsonOriginal = await respuesta.json();
       this.datos = jsonOriginal.results;
-      console.log(this.datos);
       return this.datos;
     }
     catch(error){
