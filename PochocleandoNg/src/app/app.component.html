@@ -43,33 +43,35 @@
                 <input type="text" class="search-input" placeholder="Buscar películas...">
                 <button class="search-btn"><i class="fas fa-search"></i> Buscar</button>
             </div>
-            
+            <!--
             <div class="filter-options">
-                <button class="filter-btn active">Todas</button>
-                <button class="filter-btn">Populares</button>
-                <button class="filter-btn">Mejor valoradas</button>
-                <button class="filter-btn">Estrenos</button>
-                <button class="filter-btn">Acción</button>
-                <button class="filter-btn">Comedia</button>
-                <button class="filter-btn">Drama</button>
-                <button class="filter-btn">Ciencia ficción</button>
+                <button id="botonPopulares" class={{botones[0]}} (click)="PeliculasPopulares(0)">Populares</button>
+                <button id="botonValoradas" class={{botones[1]}} (click)="PeliculasMejorValoradas(1)">Mejor valoradas</button>
+                <button id="botonEstrenos" class={{botones[2]}} (click)="PelisEstreno(2)">Estrenos</button>
+                <button id="botonAcciones" class={{botones[3]}} (click)="PelisAccion(3)">Acción</button>
+                <button id="botonComedia" class={{botones[4]}} (click)="PeliculasComedia(4)">Comedia</button>
+                <button id="botonDrama" class={{botones[5]}} (click)="PelisDrama(5)">Drama</button>
+                <button id="botonCiencia" class={{botones[6]}} (click)="PelisCiencia(6)">Ciencia ficción</button>
             </div>
+            -->
         </div>
         
-        <div class="movies-container">
+        <div class="movies-container" *ngIf="datos">
             
-            <h2 class="section-title">Películas populares</h2>
-            <div class="movies-grid" id="movies-grid" *ngIf="datos">
+            <h2 class="section-title">{{tituloDeContainer}}</h2>
+            <div class="movies-grid" id="movies-grid">
 
                 <div class="movie-card" *ngFor="let item of datos">
-                    <img class="movie-poster">
+
+                    <img class="movie-poster" src='https://image.tmdb.org/t/p/w200' + {{item.poster_path}}>
                     <div class="movie-info">
                         <h3 class="movie-title">{{item.title}}</h3>
                         <div class="movie-meta">
-                            <span>2023</span>
-                            <span class="movie-rating"><i class="fas fa-star"></i> 7.8</span>
+                            <span>{{item.release_date}}</span>
+                            <span class="movie-rating"><i class="fas fa-star"></i> {{item.vote_average}}</span>
                         </div>
                     </div>
+
                 </div>
 
             </div>

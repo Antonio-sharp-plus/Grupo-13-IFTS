@@ -3,7 +3,6 @@ const app = express();
 
 const cors = require('cors');
 
-
 const PORT = 3000;
 const HOSTNAME = '127.0.0.1';
 
@@ -11,16 +10,13 @@ let path = require('path');
 const api = require("./public/back/api.js");
 
 
-app.use(express.static(path.join(__dirname, 'public', 'front', 'paginaPrincipal')));
-app.use(express.static(path.join(__dirname, 'public', 'front', 'detallePelícula')));
-
 app.use(cors({
-  origin: 'http://localhost:4200/', // Reemplaza con tu URL de Angular
+  origin: 'http://localhost:4200/', 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-app.get('/api/peliculas', async (req, res) => {
+app.get('/api/pelicula/populares', async (req, res) => {
   try{
     const data = await api.BuscarPelisPopulares();
     res.send(data);
@@ -31,13 +27,79 @@ app.get('/api/peliculas', async (req, res) => {
   }
 });
 
-app.get('/api/detalles', async (req, res) => {
+app.get('/api/pelicula/detalles', async (req, res) => {
   try{
     const data = await api.BuscarDetallePeli();
     res.send(data);
   }
   catch(Error){
     console.error('No se recibieron los detalles de la película:', Error);
+  }
+});
+
+app.get('/api/pelicula/masValoradas', async (req, res) => {
+  try{
+    const data = await api.BuscarPelisMejorValoradas();
+    res.send(data);
+  }
+  catch(Error)
+  {
+    console.error('Error al cargar películas mas valoradas en server:', Error);
+  }
+});
+
+app.get('/api/pelicula/estrenos', async (req, res) => {
+  try{
+    const data = await api.BuscarEstrenos();
+    res.send(data);
+  }
+  catch(Error)
+  {
+    console.error('Error al cargar películas en server:', Error);
+  }
+});
+
+app.get('/api/pelicula/accion', async (req, res) => {
+  try{
+    const data = await api.BuscarPelisAccion();
+    res.send(data);
+  }
+  catch(Error)
+  {
+    console.error('Error al cargar películas en server:', Error);
+  }
+});
+
+app.get('/api/pelicula/comedia', async (req, res) => {
+  try{
+    const data = await api.BuscarPelisComedia();
+    res.send(data);
+  }
+  catch(Error)
+  {
+    console.error('Error al cargar películas en server:', Error);
+  }
+});
+
+app.get('/api/pelicula/drama', async (req, res) => {
+  try{
+    const data = await api.BuscarPelisDrama();
+    res.send(data);
+  }
+  catch(Error)
+  {
+    console.error('Error al cargar películas en server:', Error);
+  }
+});
+
+app.get('/api/pelicula/cienciaficcion', async (req, res) => {
+  try{
+    const data = await api.BuscarPelisCienciaFiccion();
+    res.send(data);
+  }
+  catch(Error)
+  {
+    console.error('Error al cargar películas en server:', Error);
   }
 });
 
