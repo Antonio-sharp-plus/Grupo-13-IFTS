@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
-  jsonOriginal: any;
   datos: any = { results: [] };
 
   constructor(){}
@@ -17,8 +16,10 @@ export class AppComponent implements OnInit{
   async ngOnInit() {
     try{
       const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/populares');
-      this.jsonOriginal = await respuesta.json();
-      this.datos = this.jsonOriginal.results;
+      console.log("Recibe los datos");
+      console.log(respuesta);
+      const jsonOriginal = await respuesta.json();
+      this.datos = jsonOriginal.results;
       console.log(this.datos);
       return this.datos;
     }
@@ -26,10 +27,10 @@ export class AppComponent implements OnInit{
       console.error("No se encontraron los datos", error);
     }
   }
+  tituloDeContainer = "Películas Populares";
+  
 
   botones = ["filter-btn active", "filter-btn", "filter-btn", "filter-btn", "filter-btn", "filter-btn", "filter-btn"]
-
-  tituloDeContainer = "Películas Populares";
 
   async PeliculasPopulares(boton: number): Promise<void>{
     this.tituloDeContainer = "Películas Populares";
@@ -49,7 +50,7 @@ export class AppComponent implements OnInit{
       console.error("No se encontraron los datos", error);
     }
   }
-/*
+
   async PeliculasMejorValoradas(boton: number): Promise<void>{
     this.tituloDeContainer = "Películas Mejor Valoradas";
 
@@ -163,6 +164,6 @@ export class AppComponent implements OnInit{
       console.error("No se encontraron los datos", error);
     }
   }
- */   
+  
 }
 

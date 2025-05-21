@@ -28,14 +28,14 @@ Código para mostrar el JSON en consola
 async function BuscarPelisPopulares(){
     try 
     {
-        const response = await fetch(url_popular);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        const datos = await response.json();
-        return datos; 
+      const response = await fetch(url_popular);
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const datos = await response.json();
+      return datos; 
     } 
     catch (error) 
     {
-        throw new Error(`Error al obtener películas: ${error.message}`);
+      throw new Error(`Error al obtener películas: ${error.message}`);
     }
 }
 
@@ -152,4 +152,4 @@ async function BuscarDetallePeli(movie_id){
 }
 
 
-module.exports = {BuscarPeliPorNombre, BuscarPelisPopulares, BuscarDetallePeli}
+module.exports = {BuscarPeliPorNombre, BuscarPelisPopulares, BuscarDetallePeli, BuscarPelisMejorValoradas, BuscarEstrenos, BuscarPelisAccion, BuscarPelisComedia, BuscarPelisDrama, BuscarPelisCienciaFiccion}

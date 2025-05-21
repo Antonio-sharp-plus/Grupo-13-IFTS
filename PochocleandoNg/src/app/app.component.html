@@ -43,7 +43,7 @@
                 <input type="text" class="search-input" placeholder="Buscar películas...">
                 <button class="search-btn"><i class="fas fa-search"></i> Buscar</button>
             </div>
-            <!--
+            
             <div class="filter-options">
                 <button id="botonPopulares" class={{botones[0]}} (click)="PeliculasPopulares(0)">Populares</button>
                 <button id="botonValoradas" class={{botones[1]}} (click)="PeliculasMejorValoradas(1)">Mejor valoradas</button>
@@ -51,9 +51,9 @@
                 <button id="botonAcciones" class={{botones[3]}} (click)="PelisAccion(3)">Acción</button>
                 <button id="botonComedia" class={{botones[4]}} (click)="PeliculasComedia(4)">Comedia</button>
                 <button id="botonDrama" class={{botones[5]}} (click)="PelisDrama(5)">Drama</button>
-                <button id="botonCiencia" class={{botones[6]}} (click)="PelisCiencia(6)">Ciencia ficción</button>
+                <button id="botonCiencia" class={{botones[6]}} (click)="PelisCiencia(6)">Ciencia Ficción</button>
             </div>
-            -->
+
         </div>
         
         <div class="movies-container" *ngIf="datos">
@@ -63,11 +63,11 @@
 
                 <div class="movie-card" *ngFor="let item of datos">
 
-                    <img class="movie-poster" src='https://image.tmdb.org/t/p/w200' + {{item.poster_path}}>
+                    <img class="movie-poster" src="https://image.tmdb.org/t/p/w200{{item.poster_path}}">
                     <div class="movie-info">
                         <h3 class="movie-title">{{item.title}}</h3>
                         <div class="movie-meta">
-                            <span>{{item.release_date}}</span>
+                            <span>{{item.release_date.substring(0, 4)}}</span>
                             <span class="movie-rating"><i class="fas fa-star"></i> {{item.vote_average}}</span>
                         </div>
                     </div>

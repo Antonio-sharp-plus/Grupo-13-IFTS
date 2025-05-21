@@ -6,20 +6,31 @@ const cors = require('cors');
 const PORT = 3000;
 const HOSTNAME = '127.0.0.1';
 
-let path = require('path');
-const api = require("./public/back/api.js");
-
+const path = require('path')
+const api = require('./public/back/api.js');
+/*
+app.use((req, res, next) => {
+  // Elimina políticas restrictivas para desarrollo
+  res.removeHeader('Content-Security-Policy');
+  next();
+});
 
 app.use(cors({
-  origin: 'http://localhost:4200/', 
+  origin: 'http://localhost:4200', 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+*/
+/*
+app.get('/api/test', (req, res) => {
+  res.json({ message: "¡Backend funciona!" });
+});
+*/
 
 app.get('/api/pelicula/populares', async (req, res) => {
   try{
     const data = await api.BuscarPelisPopulares();
-    res.send(data);
+    res.json(data);
   }
   catch(Error)
   {
