@@ -114,6 +114,19 @@ app.get('/api/pelicula/cienciaficcion', async (req, res) => {
   }
 });
 
+/*
+app.get('/api/pelicula/buscar/:id', async (req, res) => {
+  try{
+    const id = req.params.id;
+    const data = await api.BuscarPeliPorNombre(id);
+    res.send(data);
+  }
+  catch(Error){
+    console.error('Error al buscar película:', Error);
+  }
+});
+*/
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'front', 'paginaPrincipal', 'main.html'));
 });

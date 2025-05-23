@@ -114,7 +114,7 @@ async function BuscarPelisCienciaFiccion(){
     }
 }
 
-
+/*
 async function BuscarDetallePeli(movie_id){
     try 
     {
@@ -127,6 +127,7 @@ async function BuscarDetallePeli(movie_id){
         throw new Error(`Error al obtener películas: ${error.message}`);
     }
 }
+    */
 
 
-module.exports = {BuscarPeliPorNombre, BuscarPelisPopulares, BuscarDetallePeli, BuscarPelisMejorValoradas, BuscarEstrenos, BuscarPelisAccion, BuscarPelisComedia, BuscarPelisDrama, BuscarPelisCienciaFiccion}
+module.exports = {BuscarPeliPorNombre, BuscarPelisPopulares, BuscarPelisMejorValoradas, BuscarEstrenos, BuscarPelisAccion, BuscarPelisComedia, BuscarPelisDrama, BuscarPelisCienciaFiccion}

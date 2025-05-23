@@ -161,6 +161,26 @@ export class AppComponent implements OnInit{
       console.error("No se encontraron los datos", error);
     }
   }
-  
+  /*
+  async BuscarPeli(id: string): Promise<void>{
+    this.tituloDeContainer = "";
+
+    for (let i = 0; i <= 6; i++) {
+      this.botones[i] = "filter-btn";
+    }
+
+    try{
+      let url = "http://127.0.0.1:3000/api/pelicula/buscar/"
+      let url_con_id = url + id;
+      const respuesta = await fetch(url_con_id);
+      const jsonOriginal = await respuesta.json();
+      this.datos = jsonOriginal.results;
+      return this.datos;
+    }
+    catch(error){
+      console.error("No se encontraron los datos", error);
+    }
+  }
+  */
 }
 
