@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, CommonModule],
@@ -161,8 +160,8 @@ export class AppComponent implements OnInit{
       console.error("No se encontraron los datos", error);
     }
   }
-  /*
-  async BuscarPeli(id: string): Promise<void>{
+  
+  async BuscarPeli(nombre: string): Promise<void>{
     this.tituloDeContainer = "";
 
     for (let i = 0; i <= 6; i++) {
@@ -171,8 +170,8 @@ export class AppComponent implements OnInit{
 
     try{
       let url = "http://127.0.0.1:3000/api/pelicula/buscar/"
-      let url_con_id = url + id;
-      const respuesta = await fetch(url_con_id);
+      let url_con_nombre = url + nombre;
+      const respuesta = await fetch(url_con_nombre);
       const jsonOriginal = await respuesta.json();
       this.datos = jsonOriginal.results;
       return this.datos;
@@ -181,6 +180,6 @@ export class AppComponent implements OnInit{
       console.error("No se encontraron los datos", error);
     }
   }
-  */
+  
 }
 
