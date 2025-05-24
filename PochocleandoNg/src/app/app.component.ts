@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { MatDialog } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, CommonModule],
@@ -9,8 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent implements OnInit{
   datos: any = { results: [] };
-
-  constructor(){}
+  constructor(private snackBar: MatSnackBar, private dialog: MatDialog){}
 
   async ngOnInit() {
     try{
@@ -162,11 +165,21 @@ export class AppComponent implements OnInit{
   }
   
   async BuscarPeli(nombre: string): Promise<void>{
-    this.tituloDeContainer = "";
+    
+    
+    if (nombre.length === 0) {
+      console.log("Entró a la función");
+      this.snackBar.open("Se debe introducir un nombre a la búsqueda", 'Cerrar', {
+      duration: 5000,
+      });
+      return;
+    }
 
+    this.tituloDeContainer = "";
     for (let i = 0; i <= 6; i++) {
       this.botones[i] = "filter-btn";
     }
+
 
     try{
       let url = "http://127.0.0.1:3000/api/pelicula/buscar/"

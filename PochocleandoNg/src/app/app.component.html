@@ -41,7 +41,7 @@
         <div class="search-container">
             <div class="search-box">
                 <input #inputBusqueda type="text" class="search-input" placeholder="Buscar películas..." (keyup.enter)="BuscarPeli(inputBusqueda.value)">
-                <button class="search-btn"><i class="fas fa-search"></i> Buscar</button>
+                <button class="search-btn" (click)="BuscarPeli(inputBusqueda.value)"><i class="fas fa-search"></i> Buscar</button>
             </div>
             
             <div class="filter-options">
