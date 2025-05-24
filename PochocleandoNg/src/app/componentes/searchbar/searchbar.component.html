@@ -1,0 +1,23 @@
+<div class="search-container">
+
+    <div class="search-alineado">
+
+        <div class="search-barra">
+            <input 
+                type="text" 
+                class="search-input" 
+                [(ngModel)]="busqueda" 
+                (input)="onEscribir()"
+                placeholder="buscar..." />
+            <button class="search-boton" (click)="onEscribir()">🔍</button>
+        </div>
+
+        <div class="sugerencias" *ngIf="sugerencias.length > 0">
+            <ul>
+                <li *ngFor="let opcion of sugerencias">{{ opcion.title || opcion.name }}</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>

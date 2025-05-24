@@ -1,0 +1,17 @@
+<section class="tarjetas-container">
+    
+    <app-searchbar tipo="peliculas"></app-searchbar>
+
+    <h2 class="titulo-seccion">estrenos</h2>
+
+    <div class="tarjeta-grid">
+        <app-tarjeta
+        *ngFor="let pelicula of peliculas | slice:0:10"
+        [titulo] = "pelicula.title"
+        [anio]="pelicula.release_date | date: 'yyyy'"
+        [puntuacion] = "pelicula.vote_average"
+        [poster] = "'https://image.tmdb.org/t/p/w500' + pelicula.poster_path"
+        ></app-tarjeta>
+    </div>
+    
+</section>
