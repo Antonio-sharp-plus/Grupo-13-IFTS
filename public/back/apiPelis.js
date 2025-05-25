@@ -8,6 +8,14 @@ const url_pelis_drama = `https://api.themoviedb.org/3/discover/movie?api_key=${A
 const url_pelis_cienciaficcion = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY_TMDB}&with_genres=878&language=es-ES&sort_by=popularity.desc&page=1`;
 
 
+async function BusquedaGeneral(nombre) {
+  const url_busqueda_general = `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY_TMDB}&query=${encodeURIComponent(nombre)}&language=es-ES`;
+  const response = await fetch(url_busqueda_general);
+  if (!response.ok) throw new Error("Error al buscar la película.");
+  const peliDatos = await response.json();
+  return peliDatos;
+}
+
 async function BuscarPeliPorNombre(nombre) {
   const url_busqueda_nombre = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY_TMDB}&query=${encodeURIComponent(nombre)}&language=es-ES`;
   const response = await fetch(url_busqueda_nombre);

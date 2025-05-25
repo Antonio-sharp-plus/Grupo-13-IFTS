@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, Subject, switchMap } from 'rxjs';
-import { TmdbService } from '../../servicios/tmdb.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -21,7 +20,7 @@ export class SearchbarComponent implements OnInit {
   // escucha los cambios en la búsqueda y los maneja con debounceTime
   private busquedaSubject = new Subject<string>();
 
-  constructor(private tmdbService: TmdbService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.busquedaSubject.pipe(
