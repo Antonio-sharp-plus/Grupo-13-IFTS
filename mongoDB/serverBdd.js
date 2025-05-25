@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const conectarBaseDeDatos = require('./configuracion/baseDeDatos');
@@ -19,3 +20,4 @@ app.use('/api/reseñas', rutasReseña);
 
 const PORT = 4000;
 app.listen(PORT, () => console.log(`Servidor MongoDB escuchando en puerto ${PORT}`));
+
