@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, Subject, switchMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-searchbar',
@@ -20,12 +21,12 @@ export class SearchbarComponent implements OnInit {
   // escucha los cambios en la búsqueda y los maneja con debounceTime
   private busquedaSubject = new Subject<string>();
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.busquedaSubject.pipe(
       debounceTime(300),
-      switchMap((nombreBuscado) => this.tmdbService.buscar(this.tipo, nombreBuscado))
+      switchMap(async (nombreBuscado) => this.http.get("")
     ).subscribe((resultados) => {
       this.sugerencias = resultados.slice(0, 3); // sólo 3 sugerencias
       this.resultados.emit(this.sugerencias);
