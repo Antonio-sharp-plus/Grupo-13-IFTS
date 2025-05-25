@@ -28,6 +28,16 @@ app.get('/api/test', (req, res) => {
 });
 */
 
+app.get("/api/busqueda", async (req, res) => {
+  try{
+    const data = await apiPelis.BusquedaGeneral(req.tipo, req.termino);
+    res.json(data)
+  }
+  catch{
+
+  }
+});
+
 app.get("/api/series/populares", async (req, res) => {
   try {
     const data = await apiSeries.BuscarSeriesPopulares();
