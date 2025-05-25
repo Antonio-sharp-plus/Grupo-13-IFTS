@@ -2,6 +2,8 @@
 
     <app-searchbar tipo="ambos"></app-searchbar>
 
+    <div *ngIf="noHayBusqueda">
+        
     <h2 class="titulo-seccion">Películas Populares</h2>
 
     <div class="tarjeta-grid">
@@ -24,6 +26,8 @@
         [puntuacion] = "serie.vote_average"
         [poster] = "'https://image.tmdb.org/t/p/w500' + serie.poster_path"
         ></app-tarjeta>
+    </div>
+
     </div>
     
 </section>
