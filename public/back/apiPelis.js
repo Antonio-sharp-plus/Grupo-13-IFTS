@@ -1,5 +1,3 @@
-const map = require("rxjs");
-
 const API_KEY_TMDB = "4063bb0f4fe2de3c505e5c64207fbc3e";
 const url_popular = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY_TMDB}&language=es-ES`;
 const url_mejor_valoradas = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY_TMDB}&language=es-ES`;
@@ -13,11 +11,11 @@ const url_pelis_cienciaficcion = `https://api.themoviedb.org/3/discover/movie?ap
 async function BusquedaGeneral(tipo, termino) {
     let url = "";
     if (tipo === 'peliculas') {
-    url = `https://api.themoviedb.org/3/search/movie?query=${termino}&api_key=${this.apiKey}&language=es-ES`;
+    url = `https://api.themoviedb.org/3/search/movie?query=${termino}&api_key=${API_KEY_TMDB}&language=es-ES`;
     } else if (tipo === 'series') {
-    url = `https://api.themoviedb.org/3/search/tv?query=${termino}&api_key=${this.apiKey}&language=es-ES`;
+    url = `https://api.themoviedb.org/3/search/tv?query=${termino}&api_key=${API_KEY_TMDB}&language=es-ES`;
     } else {
-    url = `https://api.themoviedb.org/3/search/multi?query=${termino}&api_key=${this.apiKey}&language=es-ES`;
+    url = `https://api.themoviedb.org/3/search/multi?query=${termino}&api_key=${API_KEY_TMDB}&language=es-ES`;
     }
 
     const response = await fetch(url);

@@ -28,13 +28,13 @@ app.get('/api/test', (req, res) => {
 });
 */
 
-app.get("/api/busqueda", async (req, res) => {
+app.get("/api/busqueda/:tipo/:termino", async (req, res) => {
   try{
-    const data = await apiPelis.BusquedaGeneral(req.tipo, req.termino);
+    const data = await apiPelis.BusquedaGeneral(req.params.tipo, req.params.termino);
     res.json(data)
   }
-  catch{
-
+  catch (Error){
+    console.error('Error al cargar busquedas: ', Error);
   }
 });
 
