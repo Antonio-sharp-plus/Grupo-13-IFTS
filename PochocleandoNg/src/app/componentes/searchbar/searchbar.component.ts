@@ -26,7 +26,7 @@ export class SearchbarComponent implements OnInit {
   ngOnInit(): void {
     this.busquedaSubject.pipe(
       debounceTime(300),
-      switchMap(async (nombreBuscado) => this.http.get("")
+      switchMap(async (nombreBuscado) => this.http.get("http://localhost:4200/api/busqueda?tipo=${tipo}&termino=${nombreBuscado}"))
     ).subscribe((resultados) => {
       this.sugerencias = resultados.slice(0, 3); // sólo 3 sugerencias
       this.resultados.emit(this.sugerencias);
