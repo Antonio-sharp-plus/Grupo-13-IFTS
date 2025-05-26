@@ -1,0 +1,44 @@
+:root{
+    --primary-color: #8e008b;
+            --secondary-color: #5c008b;
+            --dark-color: #2e005d;
+            --light-color: #f8f9fa;
+            --success-color: #4CAF50;
+            --alternative-color1: #ff8300;
+            --alternative-color2: #ff6200;
+}
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.pie {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pie-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: white
+}
+
+a:hover {
+    color: #8e008b;
+}
+
+a:active {
+    color: #2e005d;
+}

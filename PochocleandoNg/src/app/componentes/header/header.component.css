@@ -1,0 +1,52 @@
+:root{
+    --primary-color: #8e008b;
+            --secondary-color: #5c008b;
+            --dark-color: #2e005d;
+            --light-color: #f8f9fa;
+            --success-color: #4CAF50;
+            --alternative-color1: #ff8300;
+            --alternative-color2: #ff6200;
+}
+header {
+    background: linear-gradient(to right, #5C008B, #8E008B);
+    padding: 0.5rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 125px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: white
+}
+
+a:hover {
+    color: #5C008B
+}
+
+a:active {
+    color: #2E005D
+}
+

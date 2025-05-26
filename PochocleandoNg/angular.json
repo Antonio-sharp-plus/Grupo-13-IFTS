@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "PochocleandoNg": {
+    "pochocleando_vbuni": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/pochocleando-ng",
+            "outputPath": "dist/pochocleando_vbuni",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -23,7 +23,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "./public/images"
+                "input": "public"
               }
             ],
             "styles": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "PochocleandoNg:build:production"
+              "buildTarget": "pochocleando_vbuni:build:production"
             },
             "development": {
-              "buildTarget": "PochocleandoNg:build:development"
+              "buildTarget": "pochocleando_vbuni:build:development"
             }
           },
           "defaultConfiguration": "development"

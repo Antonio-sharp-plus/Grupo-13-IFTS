@@ -1,0 +1,22 @@
+<section class="tarjetas-container">
+
+    <div class="search-container">
+        <div class="search-box">
+            <input #inputBusqueda type="text" class="search-input" placeholder="Buscar películas..." (keyup.enter)="BuscarPeli(inputBusqueda.value)">
+            <button class="search-btn" (click)="BuscarPeli(inputBusqueda.value)"><i class="fas fa-search"></i> Buscar</button>
+        </div>
+    </div>
+        
+    <h2 class="titulo-seccion">{{tituloSeccion}}</h2>
+
+    <div class="tarjeta-grid">
+        <app-tarjeta
+        *ngFor="let dato of datos"
+        [titulo] = "dato.title ?? dato.name"
+        [anio]="(dato.release_date ?? dato.first_air_date) | date: 'yyyy'"
+        [puntuacion] = "dato.vote_average"
+        [poster] = "'https://image.tmdb.org/t/p/w500' + dato.poster_path"
+        ></app-tarjeta>
+    </div>
+    
+</section>

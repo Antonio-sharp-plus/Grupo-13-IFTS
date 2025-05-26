@@ -8,12 +8,20 @@ const url_pelis_drama = `https://api.themoviedb.org/3/discover/movie?api_key=${A
 const url_pelis_cienciaficcion = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY_TMDB}&with_genres=878&language=es-ES&sort_by=popularity.desc&page=1`;
 
 
-async function BuscarPeliPorNombre(nombre) {
-  const url_busqueda_nombre = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY_TMDB}&query=${encodeURIComponent(nombre)}&language=es-ES`;
-  const response = await fetch(url_busqueda_nombre);
-  if (!response.ok) throw new Error("Error al buscar la película.");
-  const peliDatos = await response.json();
-  return peliDatos;
+async function BusquedaGeneral(tipo, termino) {
+    let url = "";
+    if (tipo === 'peliculas') {
+    url = `https://api.themoviedb.org/3/search/movie?query=${termino}&api_key=${API_KEY_TMDB}&language=es-ES`;
+    } else if (tipo === 'series') {
+    url = `https://api.themoviedb.org/3/search/tv?query=${termino}&api_key=${API_KEY_TMDB}&language=es-ES`;
+    } else {
+    url = `https://api.themoviedb.org/3/search/multi?query=${termino}&api_key=${API_KEY_TMDB}&language=es-ES`;
+    }
+    
+    const response = await fetch(url);
+    if(!response.ok) throw new Error("Error en la búsqueda.");
+    const datosBusqueda = await response.json();
+    return datosBusqueda;
 }
 
 async function BuscarPelisPopulares(){
@@ -130,4 +138,4 @@ async function BuscarDetallePeli(movie_id){
     */
 
 
-module.exports = {BuscarPeliPorNombre, BuscarPelisPopulares, BuscarPelisMejorValoradas, BuscarEstrenos, BuscarPelisAccion, BuscarPelisComedia, BuscarPelisDrama, BuscarPelisCienciaFiccion}
+module.exports = {BusquedaGeneral, BuscarPelisPopulares, BuscarPelisMejorValoradas, BuscarEstrenos, BuscarPelisAccion, BuscarPelisComedia, BuscarPelisDrama, BuscarPelisCienciaFiccion}
