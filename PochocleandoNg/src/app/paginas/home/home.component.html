@@ -6,7 +6,7 @@
         <app-tarjeta
         *ngFor="let dato of datos"
         [titulo] = "dato.title ?? dato.name"
-        [anio]="dato.release_date | date: 'yyyy'"
+        [anio]="(dato.release_date ?? dato.first_air_date) | date: 'yyyy'"
         [puntuacion] = "dato.vote_average"
         [poster] = "'https://image.tmdb.org/t/p/w500' + dato.poster_path"
         ></app-tarjeta>

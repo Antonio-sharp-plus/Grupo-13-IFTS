@@ -1,5 +1,14 @@
+:root{
+    --primary-color: #8e008b;
+            --secondary-color: #5c008b;
+            --dark-color: #2e005d;
+            --light-color: #f8f9fa;
+            --success-color: #4CAF50;
+            --alternative-color1: #ff8300;
+            --alternative-color2: #ff6200;
+}
 footer {
-    background-color: #5C008B;
+    background-color: var(--secondary-color);
     color: white;
     text-align: center;
     padding: 2rem;
@@ -23,13 +32,13 @@ a {
 }
 
 a:link, a:visited {
-    color: #FF8300
+    color: white
 }
 
 a:hover {
-    color: #FF6200
+    color: #8e008b;
 }
 
 a:active {
-    color: #2E005D
+    color: #2e005d;
 }

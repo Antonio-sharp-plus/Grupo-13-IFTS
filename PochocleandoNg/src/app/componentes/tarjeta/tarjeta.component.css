@@ -1,3 +1,12 @@
+:root :ng::deep{
+    --primary-color: #8e008b;
+            --secondary-color: #5c008b;
+            --dark-color: #2e005d;
+            --light-color: #f8f9fa;
+            --success-color: #4CAF50;
+            --alternative-color1: #ff8300;
+            --alternative-color2: #ff6200;
+}
 .tarjeta-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -5,7 +14,7 @@
 }
 
 .tarjeta {
-    background-color: #FF8300;
+    background-color: #5c008b;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
@@ -32,16 +41,20 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #2E005D;
+    color: #ff8300;
 }
 
 .meta {
     display: flex;
     justify-content: space-between;
-    color: #2E005D;
+    color: #8e008b;
     font-size: 0.9rem;
 }
 
+.anio{
+    color: #ff8300;
+    font-weight: bold;
+}
 .puntuacion {
     color: gold;
     font-weight: bold;
