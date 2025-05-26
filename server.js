@@ -9,15 +9,16 @@ const generalRouter = require('./routes/api.general');
 const PORT = 3000;
 const HOSTNAME = '127.0.0.1';
 
-app.use((req, res, next) => {
-  res.removeHeader('Content-Security-Policy');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.removeHeader('Content-Security-Policy');
+//   next();
+// });
 
 app.use(cors({
-  origin: 'http://localhost:4200',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: 'http://localhost:4200', 
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  exposedHeaders: ['Content-Length', 'X-Request-ID']
 }));
 
 // Montar los routers
