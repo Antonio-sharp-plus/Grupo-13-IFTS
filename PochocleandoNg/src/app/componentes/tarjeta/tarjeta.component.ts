@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-tarjeta',
   imports: [CommonModule],
   templateUrl: './tarjeta.component.html',
-  styleUrl: './tarjeta.component.css'
+  styleUrl: './tarjeta.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TarjetaComponent {
   @Input() titulo: string = '';

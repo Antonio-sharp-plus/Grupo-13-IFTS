@@ -1,13 +1,13 @@
 import { Component, OnInit} from '@angular/core';
-import { TarjetaComponent } from '../../componentes/tarjeta/tarjeta.component';
 import { CommonModule } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+import { TarjetaComponent } from '../../componentes/tarjeta/tarjeta.component';
 
 
 @Component({
   selector: 'app-peliculas',
-  imports: [TarjetaComponent, CommonModule],
+  imports: [ CommonModule, TarjetaComponent],
   templateUrl: './peliculas.component.html',
   styleUrl: './peliculas.component.css'
 })

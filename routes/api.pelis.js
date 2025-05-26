@@ -22,7 +22,7 @@ router.get('/detalles', async (req, res) => {
   }
 });
 
-router.get('/api/pelicula/masValoradas', async (req, res) => {
+router.get('/masValoradas', async (req, res) => {
   try {
     const data = await apiPelis.BuscarPelisMejorValoradas();
     res.send(data);
@@ -32,7 +32,7 @@ router.get('/api/pelicula/masValoradas', async (req, res) => {
   }
 });
 
-router.get('/api/pelicula/estrenos', async (req, res) => {
+router.get('/estrenos', async (req, res) => {
   try {
     const data = await apiPelis.BuscarEstrenos();
     res.send(data);
@@ -42,7 +42,7 @@ router.get('/api/pelicula/estrenos', async (req, res) => {
   }
 });
 
-router.get('/api/pelicula/accion', async (req, res) => {
+router.get('/accion', async (req, res) => {
   try {
     const data = await apiPelis.BuscarPelisAccion();
     res.send(data);
@@ -52,7 +52,7 @@ router.get('/api/pelicula/accion', async (req, res) => {
   }
 });
 
-router.get('/api/pelicula/comedia', async (req, res) => {
+router.get('/comedia', async (req, res) => {
   try {
     const data = await apiPelis.BuscarPelisComedia();
     res.send(data);
@@ -62,7 +62,7 @@ router.get('/api/pelicula/comedia', async (req, res) => {
   }
 });
 
-router.get('/api/pelicula/drama', async (req, res) => {
+router.get('/drama', async (req, res) => {
   try {
     const data = await apiPelis.BuscarPelisDrama();
     res.send(data);
@@ -72,7 +72,7 @@ router.get('/api/pelicula/drama', async (req, res) => {
   }
 });
 
-router.get('/api/pelicula/cienciaficcion', async (req, res) => {
+router.get('/cienciaficcion', async (req, res) => {
   try {
     const data = await apiPelis.BuscarPelisCienciaFiccion();
     res.send(data);
