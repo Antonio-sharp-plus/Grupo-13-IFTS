@@ -5,7 +5,7 @@
     <div class="tarjeta-grid">
         <app-tarjeta
         *ngFor="let dato of datos"
-        [titulo] = dato.title
+        [titulo] = "dato.title ?? dato.name"
         [anio]="dato.release_date | date: 'yyyy'"
         [puntuacion] = "dato.vote_average"
         [poster] = "'https://image.tmdb.org/t/p/w500' + dato.poster_path"
