@@ -1,33 +1,15 @@
 <section class="tarjetas-container">
-
-    <app-searchbar tipo="ambos"></app-searchbar>
-
-    <div *ngIf="noHayBusqueda">
         
-    <h2 class="titulo-seccion">Películas Populares</h2>
+    <h2 class="titulo-seccion">{{tituloSeccion}}</h2>
 
     <div class="tarjeta-grid">
         <app-tarjeta
-        *ngFor="let pelicula of peliculas | slice:0:10"
-        [titulo] = "pelicula.title"
-        [anio]="pelicula.release_date | date: 'yyyy'"
-        [puntuacion] = "pelicula.vote_average"
-        [poster] = "'https://image.tmdb.org/t/p/w500' + pelicula.poster_path"
+        *ngFor="let dato of datos"
+        [titulo] = "datos.title"
+        [anio]="datos.release_date | date: 'yyyy'"
+        [puntuacion] = "datos.vote_average"
+        [poster] = "'https://image.tmdb.org/t/p/w500' + datos.poster_path"
         ></app-tarjeta>
-    </div>
-
-    <h2 class="titulo-seccion">Series Populares</h2>
-
-    <div class="tarjeta-grid">
-        <app-tarjeta
-        *ngFor="let serie of series | slice:0:10"
-        [titulo] = "serie.name"
-        [anio]="serie.first_air_date | date: 'yyyy'"
-        [puntuacion] = "serie.vote_average"
-        [poster] = "'https://image.tmdb.org/t/p/w500' + serie.poster_path"
-        ></app-tarjeta>
-    </div>
-
     </div>
     
 </section>

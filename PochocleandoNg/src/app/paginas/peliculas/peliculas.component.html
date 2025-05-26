@@ -1,12 +1,50 @@
 <section class="tarjetas-container">
     
-    <app-searchbar tipo="peliculas"></app-searchbar>
+        <div class="search-container">
+            <div class="search-box">
+                <input #inputBusqueda type="text" class="search-input" placeholder="Buscar películas..." (keyup.enter)="BuscarPeli(inputBusqueda.value)">
+                <button class="search-btn" (click)="BuscarPeli(inputBusqueda.value)"><i class="fas fa-search"></i> Buscar</button>
+            </div>
+            
+            <div class="filter-options">
+                <button id="botonPopulares" class={{botones[0]}} (click)="PeliculasPopulares(0)">Populares</button>
+                <button id="botonValoradas" class={{botones[1]}} (click)="PeliculasMejorValoradas(1)">Mejor valoradas</button>
+                <button id="botonEstrenos" class={{botones[2]}} (click)="PelisEstreno(2)">Estrenos</button>
+                <button id="botonAcciones" class={{botones[3]}} (click)="PelisAccion(3)">Acción</button>
+                <button id="botonComedia" class={{botones[4]}} (click)="PeliculasComedia(4)">Comedia</button>
+                <button id="botonDrama" class={{botones[5]}} (click)="PelisDrama(5)">Drama</button>
+                <button id="botonCiencia" class={{botones[6]}} (click)="PelisCiencia(6)">Ciencia Ficción</button>
+            </div>
 
-    <h2 class="titulo-seccion">Estrenos</h2>
+        </div>
+        
+        <div class="movies-container" *ngIf="datos">
+            
+            <h2 class="section-title">{{tituloSeccion}}</h2>
+            <div class="movies-grid" id="movies-grid">
+
+                <div class="movie-card" *ngFor="let item of datos">
+
+                    <img class="movie-poster" src='https://image.tmdb.org/t/p/w200{{item.poster_path}}'>
+                    <div class="movie-info">
+                        <h3 class="movie-title">{{item.title}}</h3>
+                        <div class="movie-meta">
+                            <span>{{item.release_date.substring(0, 4)}}</span>
+                            <span class="movie-rating"><i class="fas fa-star"></i> {{item.vote_average}}</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+
+    <h2 class="titulo-seccion">{{tituloSeccion}}</h2>
 
     <div class="tarjeta-grid">
         <app-tarjeta
-        *ngFor="let pelicula of peliculas | slice:0:10"
+        *ngFor="let pelicula of datos"
         [titulo] = "pelicula.title"
         [anio]="pelicula.release_date | date: 'yyyy'"
         [puntuacion] = "pelicula.vote_average"
