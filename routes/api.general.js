@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const apiSeries = require('../public/back/apiSeries');
+const apiPelis = require('../public/back/apiPelis');
+
 
 router.get('/trending', async (req, res) => {
   try {

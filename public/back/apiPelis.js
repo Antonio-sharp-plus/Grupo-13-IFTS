@@ -1,4 +1,4 @@
-const API_KEY_TMDB = "4063bb0f4fe2de3c505e5c64207fbc3e";
+const API_KEY_TMDB = "0794702ad2b0918f600e5733c7ee0dea";
 const url_popular = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY_TMDB}&language=es-ES`;
 const url_mejor_valoradas = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY_TMDB}&language=es-ES`;
 const url_estrenos = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY_TMDB}&language=es-ES`;

@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
     }
     catch(error){
       console.error("No se encontraron los datos", error);
+      this.tituloSeccion = "Error en la búsqueda, intente más tarde.";
     }
   }
 
@@ -43,7 +44,7 @@ export class HomeComponent implements OnInit {
     this.tituloSeccion = "";
 
     try{
-      let url = "http://127.0.0.1:3000/api/busqueda/pelicula/"
+      let url = "http://127.0.0.1:3000/api/busqueda/ambos/"
       let url_con_nombre = url + nombre;
       const respuesta = await fetch(url_con_nombre);
       const jsonOriginal = await respuesta.json();
@@ -52,6 +53,7 @@ export class HomeComponent implements OnInit {
     }
     catch(error){
       console.error("No se encontraron los datos", error);
+      this.tituloSeccion = "Error en la búsqueda, intente más tarde.";
     }
   }
 

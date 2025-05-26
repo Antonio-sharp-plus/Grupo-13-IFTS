@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const apiPelis = require('../public/back/apiPelis.js');
+const apiPelis = require('../public/back/apiPelis');
 
 router.get('/populares', async (req, res) => {
   try {

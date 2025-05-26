@@ -1,6 +1,6 @@
-const API_KEY_TMDB = "4063bb0f4fe2de3c505e5c64207fbc3e";
+const API_KEY_TMDB = "0794702ad2b0918f600e5733c7ee0dea";
 const url_series_popular = `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY_TMDB}&language=es-ES`;
-const url_trending = "https://api.themoviedb.org/3/trending/all/week"
+const url_trending = `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY_TMDB}&language=es-ES`;
 
 async function Trending(){
   const response = await fetch(url_trending);
