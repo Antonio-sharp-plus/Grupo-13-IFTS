@@ -184,7 +184,7 @@ export class PeliculasComponent implements OnInit{
 
 
     try{
-      let url = "http://127.0.0.1:3000/api/busqueda/pelicula/"
+      let url = "http://127.0.0.1:3000/api/busqueda/peliculas/"
       let url_con_nombre = url + nombre;
       const respuesta = await fetch(url_con_nombre);
       const jsonOriginal = await respuesta.json();

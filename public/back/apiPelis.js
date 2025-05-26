@@ -17,7 +17,7 @@ async function BusquedaGeneral(tipo, termino) {
     } else {
     url = `https://api.themoviedb.org/3/search/multi?query=${termino}&api_key=${API_KEY_TMDB}&language=es-ES`;
     }
-
+    
     const response = await fetch(url);
     if(!response.ok) throw new Error("Error en la búsqueda.");
     const datosBusqueda = await response.json();

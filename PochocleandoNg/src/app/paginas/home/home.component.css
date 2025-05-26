@@ -1,3 +1,13 @@
+:host ::ng-deep {
+            --primary-color: #8e008b;
+            --secondary-color: #5c008b;
+            --dark-color: #2e005d;
+            --light-color: #f8f9fa;
+            --success-color: #4CAF50;
+            --alternative-color1: #ff8300;
+            --alternative-color2: #ff6200;
+        }
+
 .tarjetas-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -15,3 +25,60 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
 }
+
+
+.search-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+        
+.search-box {
+    display: flex;
+    margin-bottom: 2rem;
+}
+        
+.search-input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+}
+        
+.search-btn {
+    padding: 0 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+        
+.search-btn:hover {
+    background-color: #0294c4;
+}
+
+.filter-options {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--primary-color);
+}
+        
