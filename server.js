@@ -2,9 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-const peliculasRouter = require('./routes/api.pelis');
-const seriesRouter = require('./routes/api.series');
-const generalRouter = require('./routes/api.general');
+const peliculasRouter = require('./back/routes/api.pelis');
+const seriesRouter = require('./back/routes/api.series');
+const generalRouter = require('./back/routes/api.general');
 
 const PORT = 3000;
 const HOSTNAME = '127.0.0.1';
