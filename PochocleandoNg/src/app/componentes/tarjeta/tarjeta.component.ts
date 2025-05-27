@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-tarjeta',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './tarjeta.component.html',
   styleUrl: './tarjeta.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
