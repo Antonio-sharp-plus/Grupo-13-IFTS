@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const apiSeries = require('../metodosApi/apiSeries');
-const apiPelis = require('../metodosApi/apiPelis');
+const apiSeries = require('../controller/metodosApi/apiSeries');
+const apiPelis = require('../controller/metodosApi/apiPelis');
 
 
 router.get('/trending', async (req, res) => {

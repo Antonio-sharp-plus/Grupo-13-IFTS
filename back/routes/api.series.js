@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const apiSeries = require('../metodosApi/apiSeries');
+const apiSeries = require('../controller/metodosApi/apiSeries');
 
 router.get('/populares', async (req, res) => {
   try {
