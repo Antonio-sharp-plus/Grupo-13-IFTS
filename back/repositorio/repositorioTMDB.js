@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-export class repositorioTMDB {
+module.exports = class repositorioTMDB {
 
     constructor() {
         this.api = axios.create({
