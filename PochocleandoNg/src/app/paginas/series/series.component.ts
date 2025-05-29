@@ -61,7 +61,7 @@ export class SeriesComponent {
     this.botones[boton] = "filter-btn active";
 
     try{
-      const respuesta = await fetch('http://127.0.0.1:3000/api/series/masValoradas');
+      const respuesta = await fetch('http://127.0.0.1:3000/api/series/valoradas');
       const jsonOriginal = await respuesta.json();
       this.datos = jsonOriginal.results;
       return this.datos;
@@ -126,9 +126,8 @@ export class SeriesComponent {
 
 
     try{
-      let url = "http://127.0.0.1:3000/api/busqueda/series/"
-      let url_con_nombre = url + nombre;
-      const respuesta = await fetch(url_con_nombre);
+      let url = `http://127.0.0.1:3000/api/series/buscar/${nombre}`
+      const respuesta = await fetch(url);
       const jsonOriginal = await respuesta.json();
       this.datos = jsonOriginal.results;
       return this.datos;

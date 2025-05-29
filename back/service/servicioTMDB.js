@@ -1,174 +1,157 @@
 const repoTMDB = require('../repositorio/repositorioTMDB')
 
-async function BuscarTodo(nombre) {
-    const datos = repoTMDB.BusquedaGeneral("ambos", nombre);
+async function Trending() {
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.Trending();
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
+    }
+}
+
+async function BuscarTodo(nombre) {
+    try {
+        const datos = await repoTMDB.BusquedaGeneral("ambos", nombre);
+        return datos.results;
+    }
+    catch {
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarPelículas(nombre) {
-    const datos = repoTMDB.BusquedaGeneral("peliculas", nombre);
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.BusquedaGeneral("peliculas", nombre);
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarSeries(nombre) {
-    const datos = repoTMDB.BusquedaGeneral("series", nombre);
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.BusquedaGeneral("series", nombre);
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarPelículasPopulares() {
-    const datos = repoTMDB.PelisPopulares();
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.PelisPopulares();
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarPelículasValoradas() {
-    const datos = repoTMDB.PelisValoradas();
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.PelisValoradas();
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarPelículasEstreno() {
-    const datos = repoTMDB.PelisEstreno();
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.PelisEstreno();
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarPelículasAccion() {
-    const datos = repoTMDB.PelisAccion();
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.PelisAccion();
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarPelículasComedia() {
-    const datos = repoTMDB.PelisComedia();
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.PelisComedia();
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarPelículasDrama() {
-    const datos = repoTMDB.PelisDrama();
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.PelisDrama();
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarPelículasSciFi() {
-    const datos = repoTMDB.PelisSciFi();
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.PelisSciFi();
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarSeriesPopulares() {
-    const datos = repoTMDB.SeriesPopulares();
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.SeriesPopulares();
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarSeriesValoradas() {
-    const datos = repoTMDB.SeriesValoradas();
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.SeriesValoradas();
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarSeriesComedia() {
-    const datos = repoTMDB.SeriesComedia();
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.SeriesComedia();
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 async function BuscarSeriesDrama() {
-    const datos = repoTMDB.SeriesDrama();
     try {
-        let resultados = datos.results;
-        return resultados;
+        const datos = await repoTMDB.SeriesDrama();
+        return datos.results;
     }
     catch {
-        console.log("No se obtuvieron los datos de la API");
-        return;
+        return console.log("No se obtuvieron los datos de la API");
     }
 }
 
 module.exports = {
+    Trending,
     BuscarPelículas,
     BuscarPelículasAccion,
     BuscarPelículasComedia,

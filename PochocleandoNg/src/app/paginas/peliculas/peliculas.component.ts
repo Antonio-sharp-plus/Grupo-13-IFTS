@@ -21,10 +21,9 @@ export class PeliculasComponent implements OnInit{
 
   async ngOnInit() {
     try{
-      const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/populares');
-      const jsonOriginal = await respuesta.json();
-      this.datos = jsonOriginal.results;
-      return this.datos;
+      const response = await fetch('http://127.0.0.1:3000/api/pelicula/populares');
+      this.datos = await response.json()
+      return console.log("Cargadas pelis populares");
     }
     catch(error){
       console.error("No se encontraron los datos", error);
@@ -43,9 +42,8 @@ export class PeliculasComponent implements OnInit{
 
     try{
       const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/populares');
-      const jsonOriginal = await respuesta.json();
-      this.datos = jsonOriginal.results.values();
-      return this.datos;
+      this.datos = await respuesta.json();
+      return console.log("Cargadas pelis populares");
     }
     catch(error){
       console.error("No se encontraron los datos", error);
@@ -61,10 +59,9 @@ export class PeliculasComponent implements OnInit{
     this.botones[boton] = "filter-btn active";
 
     try{
-      const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/masValoradas');
-      const jsonOriginal = await respuesta.json();
-      this.datos = jsonOriginal.results;
-      return this.datos;
+      const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/valoradas');
+      this.datos = await respuesta.json;
+      return console.log("Cargadas pelis valoradas");
     }
     catch(error){
       console.error("No se encontraron los datos", error);
@@ -81,9 +78,8 @@ export class PeliculasComponent implements OnInit{
 
     try{
       const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/estrenos');
-      const jsonOriginal = await respuesta.json();
-      this.datos = jsonOriginal.results;
-      return this.datos;
+      this.datos = await respuesta.json();
+      return console.log("Cargadas pelis estreno");
     }
     catch(error){
       console.error("No se encontraron los datos", error);
@@ -156,7 +152,7 @@ export class PeliculasComponent implements OnInit{
     this.botones[boton] = "filter-btn active";
 
     try{
-      const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/cienciaficcion');
+      const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/scifi');
       const jsonOriginal = await respuesta.json();
       this.datos = jsonOriginal.results;
       return this.datos;
@@ -184,9 +180,8 @@ export class PeliculasComponent implements OnInit{
 
 
     try{
-      let url = "http://127.0.0.1:3000/api/busqueda/peliculas/"
-      let url_con_nombre = url + nombre;
-      const respuesta = await fetch(url_con_nombre);
+      let url = `http://127.0.0.1:3000/api/pelicula/buscar/${nombre}`;
+      const respuesta = await fetch(url);
       const jsonOriginal = await respuesta.json();
       this.datos = jsonOriginal.results;
       return this.datos;

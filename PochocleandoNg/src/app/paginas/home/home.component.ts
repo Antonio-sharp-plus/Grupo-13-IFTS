@@ -19,10 +19,9 @@ export class HomeComponent implements OnInit {
 
   async ngOnInit() {
     try{
-      const respuesta = await fetch('http://127.0.0.1:3000/api/trending');
-      const jsonOriginal = await respuesta.json();
-      this.datos = jsonOriginal.results;
-      return this.datos;
+      const response = await fetch('http://127.0.0.1:3000/api/trending');
+      this.datos = await response.json()
+      return console.log(this.datos);
     }
     catch(error){
       console.error("No se encontraron los datos", error);
@@ -44,12 +43,10 @@ export class HomeComponent implements OnInit {
     this.tituloSeccion = "";
 
     try{
-      let url = "http://127.0.0.1:3000/api/busqueda/ambos/"
-      let url_con_nombre = url + nombre;
-      const respuesta = await fetch(url_con_nombre);
-      const jsonOriginal = await respuesta.json();
-      this.datos = jsonOriginal.results;
-      return this.datos;
+      let url = `http://127.0.0.1:3000/api/buscar/${nombre}`;
+      const response = await fetch(url);
+      this.datos = await response.json()
+      return console.log(this.datos);
     }
     catch(error){
       console.error("No se encontraron los datos", error);
