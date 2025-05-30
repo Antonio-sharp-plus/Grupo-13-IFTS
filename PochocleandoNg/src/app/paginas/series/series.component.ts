@@ -12,7 +12,7 @@ import { TarjetaComponent } from '../../componentes/tarjeta/tarjeta.component';
 })
 export class SeriesComponent {
 
-  datos: any = { results: [] };
+  datos: any;
   tituloSeccion = "Series populares";
 
   constructor(
@@ -22,9 +22,8 @@ export class SeriesComponent {
   async ngOnInit() {
     try{
       const respuesta = await fetch('http://127.0.0.1:3000/api/series/populares');
-      const jsonOriginal = await respuesta.json();
-      this.datos = jsonOriginal.results;
-      return this.datos;
+      this.datos = await respuesta.json();
+      return console.log("Cargadas series populares");;
     }
     catch(error){
       console.error("No se encontraron los datos", error);
@@ -43,9 +42,8 @@ export class SeriesComponent {
 
     try{
       const respuesta = await fetch('http://127.0.0.1:3000/api/series/populares');
-      const jsonOriginal = await respuesta.json();
-      this.datos = jsonOriginal.results.values();
-      return this.datos;
+      this.datos = await respuesta.json();
+      return console.log("Cargadas series populares");
     }
     catch(error){
       console.error("No se encontraron los datos", error);
@@ -62,9 +60,8 @@ export class SeriesComponent {
 
     try{
       const respuesta = await fetch('http://127.0.0.1:3000/api/series/valoradas');
-      const jsonOriginal = await respuesta.json();
-      this.datos = jsonOriginal.results;
-      return this.datos;
+      this.datos = await respuesta.json();
+      return console.log("Cargadas series valoradas");
     }
     catch(error){
       console.error("No se encontraron los datos", error);
@@ -81,9 +78,8 @@ export class SeriesComponent {
 
     try{
       const respuesta = await fetch('http://127.0.0.1:3000/api/series/comedia');
-      const jsonOriginal = await respuesta.json();
-      this.datos = jsonOriginal.results;
-      return this.datos;
+      this.datos = await respuesta.json();
+      return console.log("Cargadas series comedia");
     }
     catch(error){
       console.error("No se encontraron los datos", error);
@@ -100,9 +96,8 @@ export class SeriesComponent {
 
     try{
       const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/drama');
-      const jsonOriginal = await respuesta.json();
-      this.datos = jsonOriginal.results;
-      return this.datos;
+      this.datos = await respuesta.json();
+      return console.log("Cargadas series drama");
     }
     catch(error){
       console.error("No se encontraron los datos", error);
@@ -128,9 +123,8 @@ export class SeriesComponent {
     try{
       let url = `http://127.0.0.1:3000/api/series/buscar/${nombre}`
       const respuesta = await fetch(url);
-      const jsonOriginal = await respuesta.json();
-      this.datos = jsonOriginal.results;
-      return this.datos;
+      this.datos = await respuesta.json();
+      return console.log("Cargadas busqueda de series");
     }
     catch(error){
       console.error("No se encontraron los datos", error);

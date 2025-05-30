@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-  datos: any = { results: [] };
+  datos: any ;
   tituloSeccion = "Lo más popular"
 
   constructor(private snackBar: MatSnackBar, private dialog: MatDialog) {}
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     try{
       const response = await fetch('http://127.0.0.1:3000/api/trending');
       this.datos = await response.json()
-      return console.log(this.datos);
+      return console.log("Cargada la busqueda de lo mas popular");
     }
     catch(error){
       console.error("No se encontraron los datos", error);
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
     
     
     if (nombre.length === 0) {
-      console.log("Entró a la función");
+      console.log("Búsqueda vacía");
       this.snackBar.open("Se debe introducir un nombre a la búsqueda", 'Cerrar', {
       duration: 5000,
       });
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
       let url = `http://127.0.0.1:3000/api/buscar/${nombre}`;
       const response = await fetch(url);
       this.datos = await response.json()
-      return console.log(this.datos);
+      return console.log("Cargada la búsqueda de contenido");
     }
     catch(error){
       console.error("No se encontraron los datos", error);
