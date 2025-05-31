@@ -17,7 +17,6 @@ async function BusquedaGeneral(tipo, query) {
 
 }
 
-
 async function Trending() {
     const response = await fetch(`${base_url}/trending/all/week?api_key=${api_key}&language=${lenguaje}`);
     return response.json();
