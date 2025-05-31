@@ -1,1 +1,44 @@
-<p>registro works!</p>
+<section class="form-container">
+    <div class="registroDiv">
+        <h2>Registro</h2>
+        <form (ngSubmit)="onSubmit()">
+            <div class="formulariosDiv">
+                <label for="username">Nombre de usuario:</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    [(ngModel)]="username" 
+                    name="username" 
+                    required>
+            </div>
+
+            <div class="formulariosDiv">
+                <label for="email">Email:</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    [(ngModel)]="email" 
+                    name="email" 
+                    required>
+            </div>
+            
+            <div class="formulariosDiv">
+                <label for="password">Contraseña:</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    [(ngModel)]="password" 
+                    name="password" 
+                    required>
+            </div>
+
+            <div *ngIf="error" class="errorMensaje">
+                {{ error }}
+            </div>
+
+            <button type="submit">Registrarse</button>
+        </form>
+
+        <p class="loginP">¿Ya tenés cuenta? <a routerLink="/login">Iniciá sesión acá</a></p>
+    </div>
+</section>
