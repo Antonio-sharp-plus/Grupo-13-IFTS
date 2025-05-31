@@ -6,7 +6,8 @@ const app = express();
 //rutas API
 const peliculasRouter = require('./back/router/routerPeliAPI');
 const seriesRouter = require('./back/router/routerSerieAPI');
-const generalRouter = require('./back/router/routergeneralAPI');
+const generalRouter = require('./back/router/routerGeneralAPI');
+const authRouter = require('./back/router/routerAuth');
 
 
 //variables de entorno
@@ -30,9 +31,9 @@ app.use('/api', generalRouter);
 app.use('/api/pelicula', peliculasRouter);
 app.use('/api/series', seriesRouter);
 
-// mongo.connect(connection_string)
-// .then(console.log("Conectado a DB en Atlas"))
-// .catch(err => console.error("Error de conexión:", err));
+mongo.connect(connection_string)
+.then(console.log("Conectado a DB en Atlas"))
+.catch(err => console.error("Error de conexión:", err));
 
 app.use((err, req, res, next) => {
   console.error('Error:', err.stack);
