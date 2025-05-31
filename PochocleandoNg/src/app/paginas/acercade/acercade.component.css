@@ -1,0 +1,42 @@
+.acerca-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  color: white;
+  background-color: #290052;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  font-family: 'Poppins', sans-serif;
+}
+
+.acerca-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ff9800;
+}
+
+.equipo, .app-info {
+  margin-bottom: 30px;
+}
+
+.equipo h2, .app-info h2 {
+  font-size: 1.8rem;
+  color: #e0b3ff;
+  margin-bottom: 10px;
+}
+
+.equipo p, .app-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.app-info ul {
+  margin: 10px 0 20px 20px;
+  padding-left: 20px;
+}
+
+.app-info ul li {
+  margin-bottom: 8px;
+  list-style: disc;
+}
