@@ -14,4 +14,5 @@ export class TarjetaComponent {
   @Input() anio: string | null = 'año desconocido';
   @Input() puntuacion: number = 0;
   @Input() poster: string = '';
+  @Input() link: string = '';
 }
