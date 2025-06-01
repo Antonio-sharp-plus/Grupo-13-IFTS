@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { TarjetaComponent } from '../../componentes/tarjeta/tarjeta.component';
+import { ApiService } from '../../servicios/api.service';
 
 
 @Component({
@@ -16,18 +17,12 @@ export class PeliculasComponent implements OnInit{
   tituloSeccion = "Películas populares";
 
   constructor(
-    private snackBar: MatSnackBar, private dialog: MatDialog
+    private snackBar: MatSnackBar, private dialog: MatDialog,
+    private apiService: ApiService
   ) {}
 
   async ngOnInit() {
-    try{
-      const response = await fetch('http://127.0.0.1:3000/api/pelicula/populares');
-      this.datos = await response.json()
-      return console.log("Cargadas pelis populares");
-    }
-    catch(error){
-      console.error("No se encontraron los datos", error);
-    }
+    this.datos = this.apiService.getPeliculasPopulares().subscribe(data => this.datos = data);
   }
 
   botones = ["filter-btn active", "filter-btn", "filter-btn", "filter-btn", "filter-btn", "filter-btn", "filter-btn"]
@@ -40,14 +35,7 @@ export class PeliculasComponent implements OnInit{
     }
     this.botones[boton] = "filter-btn active";
 
-    try{
-      const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/populares');
-      this.datos = await respuesta.json();
-      return console.log("Cargadas pelis populares");
-    }
-    catch(error){
-      console.error("No se encontraron los datos", error);
-    }
+    this.datos = this.apiService.getPeliculasPopulares().subscribe(data => this.datos = data);
   }
 
   async PeliculasMejorValoradas(boton: number): Promise<void>{
@@ -58,14 +46,7 @@ export class PeliculasComponent implements OnInit{
     }
     this.botones[boton] = "filter-btn active";
 
-    try{
-      const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/valoradas');
-      this.datos = await respuesta.json();
-      return console.log("Cargadas pelis valoradas");
-    }
-    catch(error){
-      console.error("No se encontraron los datos", error);
-    }
+    this.datos = this.apiService.getPeliculasMejorValoradas().subscribe(data => this.datos = data);
   }
 
   async PelisEstreno(boton: number): Promise<void>{
@@ -76,14 +57,7 @@ export class PeliculasComponent implements OnInit{
     }
     this.botones[boton] = "filter-btn active";
 
-    try{
-      const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/estrenos');
-      this.datos = await respuesta.json();
-      return console.log("Cargadas pelis estreno");
-    }
-    catch(error){
-      console.error("No se encontraron los datos", error);
-    }
+    this.apiService.getPeliculasEstreno().subscribe(data => this.datos = data);
   }
 
   async PelisAccion(boton: number): Promise<void>{
@@ -94,14 +68,7 @@ export class PeliculasComponent implements OnInit{
     }
     this.botones[boton] = "filter-btn active";
 
-    try{
-      const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/accion');
-      this.datos = await respuesta.json();
-      return console.log("Cargadas pelis accion");
-    }
-    catch(error){
-      console.error("No se encontraron los datos", error);
-    }
+    this.apiService.getPeliculasAccion().subscribe(data => this.datos = data);
   }
 
   async PeliculasComedia(boton: number): Promise<void>{
@@ -111,15 +78,7 @@ export class PeliculasComponent implements OnInit{
       this.botones[i] = "filter-btn";
     }
     this.botones[boton] = "filter-btn active";
-
-    try{
-      const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/comedia');
-      this.datos = await respuesta.json();
-      return console.log("Cargadas pelis comedia");
-    }
-    catch(error){
-      console.error("No se encontraron los datos", error);
-    }
+    this.apiService.getPeliculasComedia().subscribe(data => this.datos = data);
   }
 
   async PelisDrama(boton: number): Promise<void>{
@@ -130,17 +89,10 @@ export class PeliculasComponent implements OnInit{
     }
     this.botones[boton] = "filter-btn active";
 
-    try{
-      const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/drama');
-      this.datos = await respuesta.json();
-      return console.log("Cargadas pelis drama");
-    }
-    catch(error){
-      console.error("No se encontraron los datos", error);
-    }
+    this.apiService.getPeliculasDrama().subscribe(data => this.datos = data);
   }
 
-  async PelisCiencia(boton: number): Promise<void>{
+    async PelisCiencia(boton: number): Promise<void>{
     this.tituloSeccion = "Películas de Ciencia Ficción";
 
     for (let i = 0; i <= 6; i++) {
@@ -148,19 +100,11 @@ export class PeliculasComponent implements OnInit{
     }
     this.botones[boton] = "filter-btn active";
 
-    try{
-      const respuesta = await fetch('http://127.0.0.1:3000/api/pelicula/scifi');
-      this.datos = await respuesta.json();
-      return console.log("Cargadas pelis scifi");
-    }
-    catch(error){
-      console.error("No se encontraron los datos", error);
-    }
+    this.apiService.getPeliculasSciFi().subscribe(data => this.datos = data);
   }
   
   async BuscarPeli(nombre: string): Promise<void>{
-    
-    
+  
     if (nombre.length === 0) {
       console.log("Entró a la función");
       this.snackBar.open("Se debe introducir un nombre a la búsqueda", 'Cerrar', {
@@ -186,3 +130,6 @@ export class PeliculasComponent implements OnInit{
   }
 
 }
+
+
+
