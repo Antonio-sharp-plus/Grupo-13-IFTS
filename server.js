@@ -9,7 +9,6 @@ const seriesRouter = require('./back/router/routerSerieAPI');
 const generalRouter = require('./back/router/routerGeneralAPI');
 const authRouter = require('./back/router/routerAuth');
 
-
 //variables de entorno
 const PORT = 3000;
 const HOSTNAME = '127.0.0.1';
@@ -25,11 +24,11 @@ app.use(cors({
   exposedHeaders: ['Content-Length', 'X-Request-ID']
 }));
 
-
 // routers de las paginas
 app.use('/api', generalRouter);
 app.use('/api/pelicula', peliculasRouter);
 app.use('/api/series', seriesRouter);
+app.use('/api/auth', authRouter);
 
 mongo.connect(connection_string)
 .then(console.log("Conectado a DB en Atlas"))
