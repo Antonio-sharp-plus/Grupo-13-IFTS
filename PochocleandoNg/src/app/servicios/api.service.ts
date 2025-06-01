@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
+
+// Servicio para peliculas
 @Injectable({
   providedIn: 'root'
 })
-
-// Servicio para peliculas
-
-
 export class ApiService {
   private apiUrl = 'http://localhost:3000/api/pelicula'; 
 
@@ -56,7 +55,7 @@ export class ApiService {
 }
 
 //servicio para series
-
+@Injectable({ providedIn: 'root' })
 export class SeriesService {
   private apiUrl = 'http://localhost:3000/api/series';
 
@@ -86,4 +85,5 @@ export class SeriesService {
   buscarSerie(nombre: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/buscar/${nombre}`);
   }
+  
 }
