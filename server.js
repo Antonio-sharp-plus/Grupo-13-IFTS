@@ -3,6 +3,9 @@ const mongo = require('mongoose');
 const cors = require('cors');
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));//envia los req.body como JSON
+
 //rutas API
 const peliculasRouter = require('./back/router/routerPeliAPI');
 const seriesRouter = require('./back/router/routerSerieAPI');
