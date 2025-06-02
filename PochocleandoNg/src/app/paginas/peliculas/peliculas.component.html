@@ -21,6 +21,8 @@
     <div class="tarjeta-grid">
         <app-tarjeta
         *ngFor="let dato of datos"
+        [id] = "dato.id"
+        [tipo] = "tipo"
         [titulo] = "dato.title ?? dato.name"
         [anio]="(dato.release_date ?? dato.first_air_date) | date: 'yyyy'"
         [puntuacion] = "dato.vote_average"

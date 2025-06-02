@@ -1,5 +1,17 @@
 const servicioTMDB = require('../service/servicioTMDB');
 
+async function BuscarId(req, res){
+    try{
+        const id = req.params.id;
+        const tipo = req.params.tipo;
+        const datos = await servicioTMDB.BuscarId(id, tipo);
+        res.json(datos);
+    }
+    catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
 async function BuscarTodo(req, res) {
     try {
         const nombre = req.params.nombre;
@@ -154,6 +166,7 @@ async function BuscarSeriesDrama(req, res) {
 }
 
 module.exports = {
+    BuscarId,
     Trending,
     BuscarTodo,
     BuscarPelículas,

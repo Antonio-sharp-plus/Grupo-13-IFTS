@@ -1,24 +1,24 @@
 import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
 import { TarjetaComponent } from '../../componentes/tarjeta/tarjeta.component';
 import { ApiService } from '../../servicios/api.service';
-
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-peliculas',
-  imports: [ CommonModule, TarjetaComponent],
+  imports: [ CommonModule, TarjetaComponent, RouterModule],
   templateUrl: './peliculas.component.html',
   styleUrl: './peliculas.component.css'
 })
 export class PeliculasComponent implements OnInit{
   datos: any = [{}]
   tituloSeccion = "Películas populares";
+  tipo = 'movie';
 
   constructor(
-    private snackBar: MatSnackBar, private dialog: MatDialog,
-    private apiService: ApiService
+    private snackBar: MatSnackBar, 
+    private apiService: ApiService,
   ) {}
 
   async ngOnInit() {

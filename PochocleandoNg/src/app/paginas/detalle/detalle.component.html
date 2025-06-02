@@ -1,0 +1,52 @@
+<div class="detalle-container" *ngIf="data">
+    <!-- Portada y detalles principales -->
+    <div class="header-section">
+
+        <!-- Contenido principal -->
+        <div class="main-data">
+            <!-- Poster -->
+            <img [src]="'https://image.tmdb.org/t/p/w500' + data.poster_path" onerror="this.src='images/notFound.png'"
+                class="poster">
+
+            <!-- Detalles -->
+            <div class="details">
+                <div class="tituloyfecha">
+                    <h1 class="titulo">{{ data.title || data.name }}</h1>
+                    <span class="fecha">{{ data.release_date | date:'yyyy' }}</span>
+                </div>
+
+                <div class="divparaalinear">
+                    <!-- Metadata: Año, Duración, Géneros -->
+                    <div class="metadata">
+                        <br>
+                        <div class="duracion">
+                            <span>Duracion: {{ data.runtime }} minutos</span>
+                        </div>
+                        <br>
+                        <div>
+                            Género:
+                            @for(genre of data.genres; track genre){
+                                <span class="genero"> {{ genre.name }} -</span>
+                            }
+                        </div>
+                        <br>
+                        <div>
+                            <span class="votos">{{ data.vote_average?.toFixed(1) }}/10 </span>
+                            <span>({{ data.vote_count }} votos)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="divFavoritos">
+                        <button class="BotonFavoritos">Agregar a Favoritos</button>
+                    </div>
+                </div>
+
+                <!-- Sinopsis -->
+                <div class="resumen">
+                    <p>Sinopsis: <br>{{ data.overview }}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

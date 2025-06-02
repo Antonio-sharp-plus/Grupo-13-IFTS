@@ -5,6 +5,7 @@ import { RegistroComponent } from './paginas/registro/registro.component';
 import { PeliculasComponent } from './paginas/peliculas/peliculas.component';
 import { SeriesComponent } from './paginas/series/series.component';
 import { AcercadeComponent } from './paginas/acercade/acercade.component';
+import { DetalleComponent } from './paginas/detalle/detalle.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent }, //ruta principal
@@ -12,5 +13,6 @@ export const routes: Routes = [
     { path: 'registro', component: RegistroComponent },
     { path: 'peliculas', component: PeliculasComponent },
     { path: 'series', component: SeriesComponent },
-    { path: 'acercade', component: AcercadeComponent }
+    { path: 'acercade', component: AcercadeComponent },
+    { path: 'detalles/:id/:tipo', component: DetalleComponent }
 ]

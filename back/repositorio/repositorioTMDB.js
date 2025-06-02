@@ -2,6 +2,11 @@ base_url = 'https://api.themoviedb.org/3';
 api_key = '0794702ad2b0918f600e5733c7ee0dea';
 lenguaje = 'es-ES';
 
+async function BuscarId(id, tipo){
+    const response = await fetch(`${base_url}/${tipo}/${id}?api_key=${api_key}&language=${lenguaje}`);
+    return response.json();
+}
+
 async function BusquedaGeneral(tipo, query) {
 
     if (tipo === "peliculas") {
@@ -79,6 +84,7 @@ async function SeriesDrama() {
 }
 
 module.exports = {
+    BuscarId,
     BusquedaGeneral,
     Trending,
     PelisPopulares,

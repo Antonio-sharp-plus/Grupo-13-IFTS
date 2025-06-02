@@ -1,5 +1,6 @@
-<div class="tarjeta" (click)="link">
-    <a routerLink="/"><img class="poster" [src]="poster" onerror="this.src='images/notFound.png'"></a>  
+<div class="tarjeta">
+<a [routerLink]="link">
+    <img class="poster" [src]="poster" onerror="this.src='images/notFound.png'">
     <div class="info">
         <h3 class="titulo">{{ titulo }}</h3>
         <div class="meta">
@@ -9,4 +10,5 @@
             </span>
         </div>
     </div>
+</a>
 </div>

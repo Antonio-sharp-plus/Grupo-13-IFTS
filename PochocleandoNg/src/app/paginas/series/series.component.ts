@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
 import { TarjetaComponent } from '../../componentes/tarjeta/tarjeta.component';
 import { SeriesService } from '../../servicios/api.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-series',
-  imports: [CommonModule, TarjetaComponent],
+  imports: [CommonModule, TarjetaComponent, RouterModule],
   templateUrl: './series.component.html',
   styleUrl: './series.component.css'
 })
@@ -15,10 +15,11 @@ export class SeriesComponent implements OnInit{
 
   datos: any = [{}]; 
   tituloSeccion = "Series populares";
+  tipo = 'tv';
 
   constructor(
-    private snackBar: MatSnackBar, private dialog: MatDialog,
-    private seriesService: SeriesService
+    private snackBar: MatSnackBar, 
+    private seriesService: SeriesService,
   ) {}
 
   async ngOnInit() {
