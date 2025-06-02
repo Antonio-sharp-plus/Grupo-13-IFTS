@@ -16,6 +16,10 @@ export class ApiGeneral{
   BusquedaGeneral(nombre: string): Observable<any>{
     return this.http.get(`${this.apiUrl}/buscar/${nombre}`);
   }
+
+  BusquedaId(id: string, tipo: string): Observable<any>{
+    return this.http.get(`${this.apiUrl}/buscarid/${id}/${tipo}`);
+  }
 }
 
 // Servicio para peliculas

@@ -1,4 +1,17 @@
-const repoTMDB = require('../repositorio/repositorioTMDB')
+const repoTMDB = require('../repositorio/repositorioTMDB');
+
+async function BuscarId(id, type) {
+    try {
+        let tipo = "";
+        if(type === 'movie'){tipo = 'movie'}
+        if(type === 'tv'){tipo = 'tv'}
+        const datos = await repoTMDB.BuscarId(id, tipo);
+        return datos;
+    }
+    catch {
+        return console.log("No se obtuvieron los datos de la API");
+    }
+}
 
 async function Trending() {
     try {
@@ -151,6 +164,7 @@ async function BuscarSeriesDrama() {
 }
 
 module.exports = {
+    BuscarId,
     Trending,
     BuscarPelículas,
     BuscarPelículasAccion,

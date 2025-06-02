@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));//envia los req.body como JSON
 //rutas API
 const peliculasRouter = require('./back/router/routerPeliAPI');
 const seriesRouter = require('./back/router/routerSerieAPI');
-const generalRouter = require('./back/router/routerGeneralAPI');
+const generalRouter = require('./back/router/routergeneralAPI');
 const authRouter = require('./back/router/routerAuth');
 
 //variables de entorno
