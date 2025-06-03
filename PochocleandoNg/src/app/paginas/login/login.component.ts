@@ -34,6 +34,7 @@ export class LoginComponent {
           setTimeout(() => this.router.navigate(['/']), 2000);
         },
         error: (err) => {
+          this.isLoading = false;
           this.error = 'Error al iniciar sesión';
           this.snackBar.open('Error al iniciar sesión', 'Cerrar', { duration: 2000 });
           console.error(err);
