@@ -28,7 +28,12 @@
 
   <!-- logo -->
   <div class="logo-section">
-    <img src="/PochocleandoNg/public/images/Pochi IS.png" alt="Logo de Pochocleando" class="logo" />
+    <img src="/PochocleandoNg/public/images/Pochi IS.png" alt="Logo de Pochocleando" class="logo" /> <!-- falla la img -->
     <h1>Pochocleando</h1>
   </div>
+</div>
+<!-- pantalla de carga -->
+<div class="loading-overlay" *ngIf="isLoading">
+  <img src="/PochocleandoNg/public/images/LOGOAPP.png" alt="Pochocleando logo" class="loading-logo" /> <!-- falla la img -->
+  <p class="loading-text">Cargando...</p>
 </div>

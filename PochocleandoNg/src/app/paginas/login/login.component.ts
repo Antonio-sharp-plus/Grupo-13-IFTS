@@ -16,6 +16,7 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   error: string = '';
+  isLoading: boolean = false; //pantalla de carga
 
   constructor(
     private loginService: LoginService,
@@ -24,6 +25,8 @@ export class LoginComponent {
   ) { }
 
   onSubmit(): void {
+    this.isLoading = true;
+
     this.loginService.iniciarSesion(this.email, this.password)
       .subscribe({
         next: () => {
