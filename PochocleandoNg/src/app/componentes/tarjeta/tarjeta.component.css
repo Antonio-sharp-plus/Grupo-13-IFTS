@@ -1,12 +1,13 @@
 :root :ng::deep{
     --primary-color: #8e008b;
-            --secondary-color: #5c008b;
-            --dark-color: #2e005d;
-            --light-color: #f8f9fa;
-            --success-color: #4CAF50;
-            --alternative-color1: #ff8300;
-            --alternative-color2: #ff6200;
+    --secondary-color: #5c008b;
+    --dark-color: #2e005d;
+    --light-color: #f8f9fa;
+    --success-color: #4CAF50;
+    --alternative-color1: #ff8300;
+    --alternative-color2: #ff6200;
 }
+
 .tarjeta-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -24,6 +25,21 @@
 .tarjeta:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Resetear estilos de enlaces */
+.tarjeta a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.tarjeta a:link,
+.tarjeta a:visited,
+.tarjeta a:hover,
+.tarjeta a:active {
+    text-decoration: none;
+    color: inherit;
 }
 
 .poster {
@@ -51,10 +67,11 @@
     font-size: 0.9rem;
 }
 
-.anio{
+.anio {
     color: #ff8300;
     font-weight: bold;
 }
+
 .puntuacion {
     color: gold;
     font-weight: bold;
