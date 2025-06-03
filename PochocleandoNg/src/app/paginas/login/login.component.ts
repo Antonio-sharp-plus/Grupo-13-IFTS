@@ -16,6 +16,7 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   error: string = '';
+  isLoading: boolean = false; //pantalla de carga
 
   constructor(
     private loginService: LoginService,
@@ -24,6 +25,8 @@ export class LoginComponent {
   ) { }
 
   onSubmit(): void {
+    this.isLoading = true;
+
     this.loginService.iniciarSesion(this.email, this.password)
       .subscribe({
         next: () => {
@@ -31,6 +34,7 @@ export class LoginComponent {
           setTimeout(() => this.router.navigate(['/']), 2000);
         },
         error: (err) => {
+          this.isLoading = false;
           this.error = 'Error al iniciar sesión';
           this.snackBar.open('Error al iniciar sesión', 'Cerrar', { duration: 2000 });
           console.error(err);
