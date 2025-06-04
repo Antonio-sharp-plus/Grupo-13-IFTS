@@ -118,15 +118,7 @@ export class PeliculasComponent implements OnInit{
       this.botones[i] = "filter-btn";
     }
 
-    try{
-      let url = `http://127.0.0.1:3000/api/pelicula/buscar/${nombre}`;
-      const respuesta = await fetch(url);
-      this.datos = respuesta.json()
-      return console.log("Cargadas busqueda de pelis");
-    }
-    catch(error){
-      console.error("No se encontraron los datos", error);
-    }
+    this.apiService.buscarPeliculas(nombre).subscribe(data => this.datos = data);
   }
 
 }
