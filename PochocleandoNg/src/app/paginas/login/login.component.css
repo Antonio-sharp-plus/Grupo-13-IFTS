@@ -1,95 +1,170 @@
-:host ::ng-deep {
-    --primary-color: #8e008b;
-    --secondary-color: #5c008b;
-    --dark-color: #2e005d;
-    --light-color: #f8f9fa;
-    --success-color: #4CAF50;
-    --alternative-color1: #ff8300;
-    --alternative-color2: #ff6200;
+:host {
+  --primary-color: #8e008b;
+  --secondary-color: #5c008b;
+  --dark-color: #2e005d;
+  --light-color: #f8f9fa;
+  --success-color: #4CAF50;
+  --alternative-color1: #ff8300;
+  --alternative-color2: #ff6200;
 }
 
-.form-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 200px); 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
 }
 
-.loginDiv {
-    max-width: 400px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+body, :host {
+  height: 100vh;
+  background-color: #2e005d;
 }
 
-h2 {
-    color: var(--light-color);
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
 }
 
-.formulariosDiv {
-    margin-bottom: 1.5rem;
+/* Sección de login */
+.login-section {
+  flex: 1;
+  background-color: #2e005d;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-label {
-    display: block;
-    color: var(--light-color);
-    margin-bottom: 0.5rem;
+.login-section h2 {
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
 }
 
 input {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    background-color: var(--light-color);
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 25px;
+  background-color: #5a189a;
+  color: white;
+  text-align: center;
+  font-size: 1em;
+}
+
+input::placeholder {
+  color: #e0aaff;
 }
 
 button {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: var(--primary-color);
-    color: var(--light-color);
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #ff6d00;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: var(--alternative-color1);
+  background-color: #e65100;
 }
 
-.errorMensaje {
-    color: #ff3333;
-    background-color: rgba(255, 51, 51, 0.1);
-    padding: 0.5rem;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    text-align: center;
+.redireccionRegistro {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--light-color);
 }
 
-.registroP {
-    text-align: center;
-    margin-top: 1.5rem;
-    color: var(--light-color);
+.linkRedirRegistro {
+  color: var(--alternative-color1);
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.registroP a {
-    color: var(--alternative-color1);
-    text-decoration: none;
-    font-weight: bold;
+.linkRedirRegistro:hover {
+  text-decoration: underline;
 }
 
-.registroP a:hover {
-    color: var(--alternative-color2);
+/* Sección del logo */
+.logo-section {
+  flex: 1;
+  background-color: #5c008b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.logo-section .logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.logo-section h1 {
+  font-size: 2.5em;
+}
+
+/* Responsive opcional */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .logo-section {
+    border-radius: 0;
+  }
+}
+/* pantalla de carga */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #2e005d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.loading-logo {
+  width: 150px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.loading-text {
+  margin-top: 20px;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
 }
