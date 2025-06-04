@@ -89,15 +89,7 @@ export class SeriesComponent implements OnInit{
     }
 
 
-    try{
-      let url = `http://127.0.0.1:3000/api/series/buscar/${nombre}`
-      const respuesta = await fetch(url);
-      this.datos = await respuesta.json();
-      return console.log("Cargadas busqueda de series");
-    }
-    catch(error){
-      console.error("No se encontraron los datos", error);
-    }
+    this.seriesService.buscarSerie(nombre).subscribe(data => this.datos = data);
   }
 
 }
