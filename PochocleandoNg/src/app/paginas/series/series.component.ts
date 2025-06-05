@@ -4,10 +4,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { TarjetaComponent } from '../../componentes/tarjeta/tarjeta.component';
 import { SeriesService } from '../../servicios/api.service';
 import { RouterModule } from '@angular/router';
+import { SearchbarComponent } from '../../componentes/searchbar/searchbar.component';
 
 @Component({
   selector: 'app-series',
-  imports: [CommonModule, TarjetaComponent, RouterModule],
+  imports: [CommonModule, TarjetaComponent, RouterModule, SearchbarComponent],
   templateUrl: './series.component.html',
   styleUrl: './series.component.css'
 })
@@ -29,7 +30,7 @@ export class SeriesComponent implements OnInit{
   botones = ["filter-btn active", "filter-btn", "filter-btn", "filter-btn", "filter-btn", "filter-btn", "filter-btn"]
 
   async SeriesPopulares(boton: number): Promise<void>{
-    this.tituloSeccion = "Series Populares";
+    this.tituloSeccion = "Series populares";
 
     for (let i = 0; i <= 3; i++) {
       this.botones[i] = "filter-btn";
@@ -40,7 +41,7 @@ export class SeriesComponent implements OnInit{
   }
 
   async SeriesMejorValoradas(boton: number): Promise<void>{
-    this.tituloSeccion = "Series Mejor Valoradas";
+    this.tituloSeccion = "Series mejor valoradas";
 
     for (let i = 0; i <= 3; i++) {
       this.botones[i] = "filter-btn";
@@ -51,7 +52,7 @@ export class SeriesComponent implements OnInit{
   }
 
   async SeriesComedia(boton: number): Promise<void>{
-    this.tituloSeccion = "Series de Comedia";
+    this.tituloSeccion = "Series de comedia";
 
     for (let i = 0; i <= 3; i++) {
       this.botones[i] = "filter-btn";
@@ -62,7 +63,7 @@ export class SeriesComponent implements OnInit{
   }
 
   async SeriesDrama(boton: number): Promise<void>{
-    this.tituloSeccion = "Series de Drama";
+    this.tituloSeccion = "Series de drama";
 
     for (let i = 0; i <= 3; i++) {
       this.botones[i] = "filter-btn";
@@ -72,24 +73,12 @@ export class SeriesComponent implements OnInit{
    this.seriesService.getSeriesDrama().subscribe(data => this.datos = data);
   }
   
-  async BuscarSeries(nombre: string): Promise<void>{
-    
-    
-    if (nombre.length === 0) {
-      console.log("Entró a la función de error snackbar");
-      this.snackBar.open("Se debe introducir un nombre a la búsqueda", 'Cerrar', {
-      duration: 5000,
-      });
-      return;
-    }
+  procesarResultados(resultados: any[]) {
+    this.datos = resultados;
+  }
 
-    this.tituloSeccion = "";
-    for (let i = 0; i <= 3; i++) {
-      this.botones[i] = "filter-btn";
-    }
-
-
-    this.seriesService.buscarSerie(nombre).subscribe(data => this.datos = data);
+  actualizarTituloBusqueda(busqueda: string): void {
+    this.tituloSeccion = `Resultados para "${busqueda}"`;
   }
 
 }
