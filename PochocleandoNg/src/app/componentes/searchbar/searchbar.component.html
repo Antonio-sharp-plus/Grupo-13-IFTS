@@ -1,0 +1,20 @@
+<div class="search-container">
+
+    <form (submit)="onSubmit($event)">
+      <div class="search-box">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Buscar..."
+          [(ngModel)]="busqueda"
+          name="busqueda"
+        />
+        <button class="search-btn" (click)="onEscribir()">
+        <i class="fas fa-search"></i> Buscar
+      </button>
+      </div>
+    </form>
+
+</div>
+
+<!-- (input)="onEscribir()" para que recargue la búsqueda automáticamente -->

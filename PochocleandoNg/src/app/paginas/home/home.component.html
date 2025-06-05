@@ -1,10 +1,10 @@
 <section class="tarjetas-container">
 
     <div class="search-container">
-        <div class="search-box">
-            <input #inputBusqueda type="text" class="search-input" placeholder="Buscar películas..." (keyup.enter)="BuscarPeli(inputBusqueda.value)">
-            <button class="search-btn" (click)="BuscarPeli(inputBusqueda.value)"><i class="fas fa-search"></i> Buscar</button>
-        </div>
+        <app-searchbar 
+            [tipoBusqueda]="'ambos'"
+            (resultados)="procesarResultados($event)" 
+            (busquedaUsuario)="actualizarTituloBusqueda($event)"></app-searchbar>
     </div>
         
     <h2 class="titulo-seccion">{{tituloSeccion}}</h2>
