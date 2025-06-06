@@ -4,17 +4,27 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { TarjetaComponent } from '../../componentes/tarjeta/tarjeta.component';
 import { ApiService } from '../../servicios/api.service';
 import { RouterModule } from '@angular/router';
+import { SearchbarComponent } from '../../componentes/searchbar/searchbar.component';
 
 @Component({
   selector: 'app-peliculas',
-  imports: [ CommonModule, TarjetaComponent, RouterModule],
+  imports: [ CommonModule, TarjetaComponent, RouterModule, SearchbarComponent],
   templateUrl: './peliculas.component.html',
   styleUrl: './peliculas.component.css'
 })
 export class PeliculasComponent implements OnInit{
-  datos: any = [{}]
+
+  datos: any[] = [];
   tituloSeccion = "Películas populares";
   tipo = 'movie';
+  botones = [
+      "filter-btn active", 
+      "filter-btn", 
+      "filter-btn", 
+      "filter-btn", 
+      "filter-btn", 
+      "filter-btn", 
+      "filter-btn"]
 
   constructor(
     private snackBar: MatSnackBar, 
@@ -22,106 +32,80 @@ export class PeliculasComponent implements OnInit{
   ) {}
 
   async ngOnInit() {
-    this.datos = this.apiService.getPeliculasPopulares().subscribe(data => this.datos = data);
+    this.PeliculasPopulares(0);
   }
 
-  botones = ["filter-btn active", "filter-btn", "filter-btn", "filter-btn", "filter-btn", "filter-btn", "filter-btn"]
-
   async PeliculasPopulares(boton: number): Promise<void>{
-    this.tituloSeccion = "Películas Populares";
+    this.tituloSeccion = "Películas populares";
 
-    for (let i = 0; i <= 6; i++) {
-      this.botones[i] = "filter-btn";
-    }
-    this.botones[boton] = "filter-btn active";
+    this.cambiarColorBoton(boton);
 
-    this.datos = this.apiService.getPeliculasPopulares().subscribe(data => this.datos = data);
+    this.apiService.getPeliculasPopulares().subscribe((data) => {
+      this.datos = data;
+    });
   }
 
   async PeliculasMejorValoradas(boton: number): Promise<void>{
-    this.tituloSeccion = "Películas Mejor Valoradas";
+    this.tituloSeccion = "Películas mejor valoradas";
 
-    for (let i = 0; i <= 6; i++) {
-      this.botones[i] = "filter-btn";
-    }
-    this.botones[boton] = "filter-btn active";
+    this.cambiarColorBoton(boton);
 
-    this.datos = this.apiService.getPeliculasMejorValoradas().subscribe(data => this.datos = data);
+    this.apiService.getPeliculasMejorValoradas().subscribe((data) => (this.datos = data));
   }
 
   async PelisEstreno(boton: number): Promise<void>{
     this.tituloSeccion = "Estrenos";
 
-    for (let i = 0; i <= 6; i++) {
-      this.botones[i] = "filter-btn";
-    }
-    this.botones[boton] = "filter-btn active";
+    this.cambiarColorBoton(boton);
 
     this.apiService.getPeliculasEstreno().subscribe(data => this.datos = data);
   }
 
   async PelisAccion(boton: number): Promise<void>{
-    this.tituloSeccion = "Películas de Acción";
+    this.tituloSeccion = "Películas de acción";
 
-    for (let i = 0; i <= 6; i++) {
-      this.botones[i] = "filter-btn";
-    }
-    this.botones[boton] = "filter-btn active";
+    this.cambiarColorBoton(boton);
 
     this.apiService.getPeliculasAccion().subscribe(data => this.datos = data);
   }
 
   async PeliculasComedia(boton: number): Promise<void>{
-    this.tituloSeccion = "Películas de Comedia";
+    this.tituloSeccion = "Películas de comedia";
 
-    for (let i = 0; i <= 6; i++) {
-      this.botones[i] = "filter-btn";
-    }
-    this.botones[boton] = "filter-btn active";
+    this.cambiarColorBoton(boton);
+
     this.apiService.getPeliculasComedia().subscribe(data => this.datos = data);
   }
 
   async PelisDrama(boton: number): Promise<void>{
-    this.tituloSeccion = "Películas de Drama";
+    this.tituloSeccion = "Películas de drama";
 
-    for (let i = 0; i <= 6; i++) {
-      this.botones[i] = "filter-btn";
-    }
-    this.botones[boton] = "filter-btn active";
+    this.cambiarColorBoton(boton);
 
     this.apiService.getPeliculasDrama().subscribe(data => this.datos = data);
   }
 
     async PelisCiencia(boton: number): Promise<void>{
-    this.tituloSeccion = "Películas de Ciencia Ficción";
+    this.tituloSeccion = "Películas de ciencia ficción";
 
-    for (let i = 0; i <= 6; i++) {
-      this.botones[i] = "filter-btn";
-    }
-    this.botones[boton] = "filter-btn active";
+    this.cambiarColorBoton(boton);
 
     this.apiService.getPeliculasSciFi().subscribe(data => this.datos = data);
   }
-  
-  async BuscarPeli(nombre: string): Promise<void>{
-  
-    if (nombre.length === 0) {
-      console.log("Entró a la función");
-      this.snackBar.open("Se debe introducir un nombre a la búsqueda", 'Cerrar', {
-      duration: 5000,
-      });
-      return;
-    }
 
-    this.tituloSeccion = "";
+  cambiarColorBoton(boton: number): void {
     for (let i = 0; i <= 6; i++) {
-      this.botones[i] = "filter-btn";
+      this.botones[i] = 'filter-btn';
     }
+    this.botones[boton] = 'filter-btn active';
+  }
+  
+  procesarResultados(resultados: any[]) {
+    this.datos = resultados;
+  }
 
-    this.apiService.buscarPeliculas(nombre).subscribe(data => this.datos = data);
+  actualizarTituloBusqueda(busqueda: string): void {
+    this.tituloSeccion = `Resultados para "${busqueda}"`;
   }
 
 }
-
-
-

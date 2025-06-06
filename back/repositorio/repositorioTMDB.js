@@ -10,7 +10,7 @@ async function BuscarId(id, tipo){
 async function BusquedaGeneral(tipo, query) {
 
     if (tipo === "peliculas") {
-        const response = await fetch(`${base_url}/search/movies?query=${query}&api_key=${api_key}&language=${lenguaje}`)
+        const response = await fetch(`${base_url}/search/movie?query=${query}&api_key=${api_key}&language=${lenguaje}`)
         return response.json();
     } else if (tipo === "series") {
         const response = await fetch(`${base_url}/search/tv?query=${query}&api_key=${api_key}&language=${lenguaje}`)

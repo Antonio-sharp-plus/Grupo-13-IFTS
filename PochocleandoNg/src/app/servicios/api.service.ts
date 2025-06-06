@@ -37,7 +37,8 @@ export class ApiService {
   }
 
   // filtro: BUSCAR POR NOMBRE
-  buscarPeliculas(nombre: string): Observable<any> {
+  buscarPelicula(nombre: string): Observable<any> {
+    console.log(`api.service.ts recibió ${nombre}`)
     return this.http.get(`${this.apiUrl}/buscar/${nombre}`);
   }
 
