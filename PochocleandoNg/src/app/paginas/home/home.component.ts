@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiGeneral } from '../../servicios/api.service';
 import { RouterModule } from '@angular/router';
+import { SearchbarComponent } from '../../componentes/searchbar/searchbar.component';
 
 
 @Component({
   selector: 'app-home',
-  imports: [TarjetaComponent, CommonModule, RouterModule],
+  imports: [TarjetaComponent, CommonModule, RouterModule, SearchbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -25,20 +26,12 @@ export class HomeComponent implements OnInit {
     this.apiGeneral.getTrending().subscribe(data => this.datos = data);
   }
 
-  async BuscarPeli(nombre: string): Promise<void>{
-    
-    
-    if (nombre.length === 0) {
-      console.log("Búsqueda vacía");
-      this.snackBar.open("Se debe introducir un nombre a la búsqueda", 'Cerrar', {
-      duration: 5000,
-      });
-      return;
-    }
+  procesarResultados(resultados: any[]) {
+    this.datos = resultados;
+  }
 
-    this.tituloSeccion = "";
-
-    this.apiGeneral.BusquedaGeneral(nombre).subscribe(data => this.datos = data);
+  actualizarTituloBusqueda(busqueda: string): void {
+    this.tituloSeccion = `Resultados para "${busqueda}"`;
   }
 
 }
