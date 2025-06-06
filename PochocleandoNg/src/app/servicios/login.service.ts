@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 
 interface AuthResponse {
   token: string;
+  usuario: any;
 }
 
 @Injectable({
@@ -15,24 +16,27 @@ export class LoginService {
   private userSubject = new BehaviorSubject<AuthResponse | null>(null);
 
   constructor(private http: HttpClient) {
-    const token = localStorage.getItem('token');
-    if (token) {
-      this.userSubject.next({ token });
-    }
+  const token = localStorage.getItem('token');
+  const usuario = localStorage.getItem('usuario');
+  if (token && usuario) {
+    this.userSubject.next({ token, usuario: JSON.parse(usuario) });
   }
+}
 
   iniciarSesion(email: string, password: string): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, { email, password })
-      .pipe(
-        tap(response => {
-          localStorage.setItem('token', response.token);
-          this.userSubject.next(response);
-        })
-      );
+  return this.http.post<AuthResponse>(`${this.apiUrl}/login`, { email, password })
+    .pipe(
+      tap(response => {
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('usuario', JSON.stringify(response.usuario));
+        this.userSubject.next(response);
+      })
+    );
   }
 
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
     this.userSubject.next(null);
   }
 

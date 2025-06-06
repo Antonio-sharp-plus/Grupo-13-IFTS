@@ -1,0 +1,48 @@
+:host ::ng-deep {
+    --primary-color: #8e008b;
+    --secondary-color: #5c008b;
+    --dark-color: #2e005d;
+    --light-color: #f8f9fa;
+    --success-color: #4CAF50;
+    --alternative-color1: #ff8300;
+    --alternative-color2: #ff6200;
+}
+
+.perfil-container {
+  max-width: 100vh;
+  margin: 2rem auto;
+  background: #5c008b;
+  color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.logout-btn {
+  background-color: red;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #ff6200;
+}
+
+.favorito-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background: #8e008b;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.favorito-item img {
+  margin-right: 10px;
+  border-radius: 4px;
+}

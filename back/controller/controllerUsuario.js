@@ -21,10 +21,14 @@ exports.registrarUsuario = async (req, res) => {
 };
 
 exports.loginUsuario = async (req, res) => {
+  try {
     //console.log('Controller: loginUsuario', req.body) //para controlar errores
-    try {
+    const usuario = await usuarioService.buscarUsuarioPorEmail(req.body.email);
+    if (!usuario) throw new Error('Usuario no encontrado');
     const token = await usuarioService.loginUsuario(req.body);
-    res.status(200).json({ mensaje: 'Login exitoso', token });
+    const usuarioSinPassword = usuario.toObject();
+    delete usuarioSinPassword.password;
+    res.status(200).json({ mensaje: 'Login exitoso', token, usuario: usuarioSinPassword });
   } catch (error) {
     //console.log('Controller loginUsuario error', error) //para controlar errores
     res.status(401).json({ error: error.message });
