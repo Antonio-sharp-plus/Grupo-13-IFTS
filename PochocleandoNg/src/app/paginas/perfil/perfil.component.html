@@ -1,0 +1,12 @@
+<div class="perfil-container">
+  <h2>Mi Perfil</h2>
+  <p><strong>Usuario:</strong> {{ username }}</p>
+  <button class="logout-btn" (click)="cerrarSesion()">Cerrar sesión</button>
+
+  <h3>Mis Favoritos</h3>
+  <div *ngIf="favoritos.length === 0">No tenés favoritos aún.</div>
+  <div *ngFor="let fav of favoritos" class="favorito-item">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + fav.poster" alt="{{ fav.titulo }}" width="80">
+    <span>{{ fav.titulo }}</span>
+  </div>
+</div>
