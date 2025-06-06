@@ -34,7 +34,7 @@ export class SearchbarComponent implements OnInit {
 
         switch (this.tipoBusqueda) {
           case 'pelicula':
-            console.log(`se buscó ${nombreBuscado}`)
+            //console.log(`se buscó ${nombreBuscado}`)
             return this.apiPeliculas.buscarPelicula(nombreBuscado);
           case 'series':
             return this.apiSeries.buscarSerie(nombreBuscado);

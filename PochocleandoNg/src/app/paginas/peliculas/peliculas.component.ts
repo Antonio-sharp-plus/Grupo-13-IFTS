@@ -108,25 +108,4 @@ export class PeliculasComponent implements OnInit{
     this.tituloSeccion = `Resultados para "${busqueda}"`;
   }
 
-  // async BuscarPeli(nombre: string): Promise<void>{
-  
-  //   if (nombre.length === 0) {
-  //     console.log("Entró a la función");
-  //     this.snackBar.open("Se debe introducir un nombre a la búsqueda", 'Cerrar', {
-  //     duration: 5000,
-  //     });
-  //     return;
-  //   }
-
-  //   this.tituloSeccion = "";
-  //   for (let i = 0; i <= 6; i++) {
-  //     this.botones[i] = "filter-btn";
-  //   }
-
-  //   this.apiService.buscarPeliculas(nombre).subscribe(data => this.datos = data);
-  // }
-
 }
-
-
-
