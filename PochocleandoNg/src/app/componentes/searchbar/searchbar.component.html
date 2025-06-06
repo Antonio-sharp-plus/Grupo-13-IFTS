@@ -8,6 +8,7 @@
           placeholder="Buscar..."
           [(ngModel)]="busqueda"
           name="busqueda"
+          (input)="onEscribir()"
         />
         <button class="search-btn" (click)="onEscribir()">
         <i class="fas fa-search"></i> Buscar
