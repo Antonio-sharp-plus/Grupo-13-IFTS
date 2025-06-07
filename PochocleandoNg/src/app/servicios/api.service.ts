@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-let urlElastic = "https://pochi-env-2.eba-p3u876ax.us-east-1.elasticbeanstalk.com/";
+let urlElastic = "https://iz0z88fm19.execute-api.us-east-1.amazonaws.com/prod/";
 
 @Injectable({
   providedIn: 'root'

@@ -22,7 +22,7 @@ const contra_db = "GSpjHIlsTDhb1H0c";
 const connection_string = `mongodb+srv://${nombre_db}:${contra_db}@pochocleando.axbmjib.mongodb.net/pochocleando`;
 
 app.use(cors({
-  origin: true, 
+  origin: '*', 
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
   exposedHeaders: ['Content-Length', 'X-Request-ID']
