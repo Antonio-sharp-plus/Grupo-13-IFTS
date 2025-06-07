@@ -14,7 +14,7 @@ const authRouter = require('./back/router/routerAuth');
 const favoritosRouter = require('./back/router/routerFavoritos')
 
 //variables de entorno
-const PORT = 3000;
+const PORT = 8080;
 const HOSTNAME = '127.0.0.1';
 const nombre_db = "mongooseAntonio";
 const contra_db = "GSpjHIlsTDhb1H0c";
@@ -22,7 +22,7 @@ const contra_db = "GSpjHIlsTDhb1H0c";
 const connection_string = `mongodb+srv://${nombre_db}:${contra_db}@pochocleando.axbmjib.mongodb.net/pochocleando`;
 
 app.use(cors({
-  origin: 'http://localhost:4200', 
+  origin: true, 
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
   exposedHeaders: ['Content-Length', 'X-Request-ID']
@@ -47,6 +47,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, HOSTNAME, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor en http://${HOSTNAME}:${PORT}/`);
 });

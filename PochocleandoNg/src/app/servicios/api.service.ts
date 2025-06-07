@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+let urlElastic = "http://pochi-env-2.eba-p3u876ax.us-east-1.elasticbeanstalk.com/";
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiGeneral{
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = urlElastic + 'api';
   constructor(private http: HttpClient) {}
 
   getTrending(): Observable<any>{
@@ -27,7 +29,7 @@ export class ApiGeneral{
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:3000/api/pelicula'; 
+  private apiUrl = urlElastic + 'api/pelicula'; 
 
   constructor(private http: HttpClient) {}
 
@@ -76,7 +78,7 @@ export class ApiService {
 //servicio para series
 @Injectable({ providedIn: 'root' })
 export class SeriesService {
-  private apiUrl = 'http://localhost:3000/api/series';
+  private apiUrl = urlElastic + 'api/series';
 
   constructor(private http: HttpClient) {}
 
