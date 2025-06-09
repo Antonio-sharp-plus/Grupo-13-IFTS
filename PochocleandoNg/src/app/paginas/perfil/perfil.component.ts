@@ -37,4 +37,5 @@ export class PerfilComponent implements OnInit {
   this.loginService.logout();
   this.router.navigate(['/inicio']);
 }
+
 }
