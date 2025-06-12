@@ -8,7 +8,7 @@ interface AuthResponse {
   usuario: any;
 }
 
-let url = "https://lmh0kk1foj.execute-api.us-east-1.amazonaws.com/demo";
+let url = "https://2zgk232198.execute-api.us-east-1.amazonaws.com/otra";
 
 @Injectable({
   providedIn: 'root'
