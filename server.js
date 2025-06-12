@@ -14,15 +14,15 @@ const authRouter = require('./back/router/routerAuth');
 const favoritosRouter = require('./back/router/routerFavoritos')
 
 //variables de entorno
-const PORT = 3000;
-const HOSTNAME = '127.0.0.1';
+const PORT = 8080;
+const HOSTNAME = '0.0.0.0';
 const nombre_db = "mongooseAntonio";
 const contra_db = "GSpjHIlsTDhb1H0c";
 
 const connection_string = `mongodb+srv://${nombre_db}:${contra_db}@pochocleando.axbmjib.mongodb.net/pochocleando`;
 
 app.use(cors({
-  origin: 'http://localhost:4200', 
+  origin: '*', 
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
   exposedHeaders: ['Content-Length', 'X-Request-ID']
