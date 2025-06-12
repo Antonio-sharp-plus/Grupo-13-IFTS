@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class FavoritosService {
-  private apiUrl = 'https://hog5kaw593.execute-api.us-east-1.amazonaws.com/demo/api/favoritos';
+  private apiUrl = 'https://i7r6v5aa17.execute-api.us-east-1.amazonaws.com/demo/api/favoritos';
 
   constructor(private http: HttpClient) {}
 

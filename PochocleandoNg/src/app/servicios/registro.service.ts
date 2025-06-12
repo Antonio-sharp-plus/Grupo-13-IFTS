@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })
 export class RegistroService {
-  private apiUrl = 'https://hog5kaw593.execute-api.us-east-1.amazonaws.com/demo/api/auth';
+  private apiUrl = 'https://i7r6v5aa17.execute-api.us-east-1.amazonaws.com/demo/api/auth';
 
   constructor(private http: HttpClient) { }
 

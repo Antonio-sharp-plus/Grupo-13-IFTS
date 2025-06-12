@@ -12,7 +12,7 @@ interface AuthResponse {
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = 'https://hog5kaw593.execute-api.us-east-1.amazonaws.com/demo/api/auth';
+  private apiUrl = 'https://i7r6v5aa17.execute-api.us-east-1.amazonaws.com/demo/api/auth';
   private userSubject = new BehaviorSubject<AuthResponse | null>(null);
 
   constructor(private http: HttpClient) {
