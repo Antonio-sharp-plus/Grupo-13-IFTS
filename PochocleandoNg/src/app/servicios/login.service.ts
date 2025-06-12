@@ -8,11 +8,13 @@ interface AuthResponse {
   usuario: any;
 }
 
+let url = "https://lmh0kk1foj.execute-api.us-east-1.amazonaws.com/demo";
+
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = 'https://289ucebu03.execute-api.us-east-1.amazonaws.com/demo/api/auth';
+  private apiUrl = url + '/api/auth';
   private userSubject = new BehaviorSubject<AuthResponse | null>(null);
 
   constructor(private http: HttpClient) {

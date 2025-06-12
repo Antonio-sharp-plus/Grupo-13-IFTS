@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+let url = "https://lmh0kk1foj.execute-api.us-east-1.amazonaws.com/demo";
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiGeneral{
-  private apiUrl = 'https://289ucebu03.execute-api.us-east-1.amazonaws.com/demo/api';
+  private apiUrl = url + '/api';
   constructor(private http: HttpClient) {}
 
   getTrending(): Observable<any>{
@@ -27,7 +29,7 @@ export class ApiGeneral{
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://289ucebu03.execute-api.us-east-1.amazonaws.com/demo/api/pelicula'; 
+  private apiUrl = url + '/api/pelicula'; 
 
   constructor(private http: HttpClient) {}
 
@@ -76,7 +78,7 @@ export class ApiService {
 //servicio para series
 @Injectable({ providedIn: 'root' })
 export class SeriesService {
-  private apiUrl = 'https://289ucebu03.execute-api.us-east-1.amazonaws.com/demo/api/series';
+  private apiUrl = url + '/api/series';
 
   constructor(private http: HttpClient) {}
 
