@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiGeneral{
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = 'https://hog5kaw593.execute-api.us-east-1.amazonaws.com/demo/api';
   constructor(private http: HttpClient) {}
 
   getTrending(): Observable<any>{
@@ -27,7 +27,7 @@ export class ApiGeneral{
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:3000/api/pelicula'; 
+  private apiUrl = 'https://hog5kaw593.execute-api.us-east-1.amazonaws.com/demo/api/pelicula'; 
 
   constructor(private http: HttpClient) {}
 
@@ -76,7 +76,7 @@ export class ApiService {
 //servicio para series
 @Injectable({ providedIn: 'root' })
 export class SeriesService {
-  private apiUrl = 'http://localhost:3000/api/series';
+  private apiUrl = 'https://hog5kaw593.execute-api.us-east-1.amazonaws.com/demo/api/series';
 
   constructor(private http: HttpClient) {}
 

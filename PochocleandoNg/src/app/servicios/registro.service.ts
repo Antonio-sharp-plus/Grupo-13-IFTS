@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RegistroService {
-  private apiUrl = 'http://localhost:3000/api/auth';
+  private apiUrl = 'https://hog5kaw593.execute-api.us-east-1.amazonaws.com/demo/api/auth';
 
   constructor(private http: HttpClient) { }
 
