@@ -35,7 +35,7 @@ export class PerfilComponent implements OnInit {
 
   cerrarSesion() {
   this.loginService.logout();
-  this.router.navigate(['/inicio']);
+  this.router.navigate(['']);
 }
 
 }
