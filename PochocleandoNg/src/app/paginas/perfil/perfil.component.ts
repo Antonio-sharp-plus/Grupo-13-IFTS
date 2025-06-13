@@ -31,6 +31,8 @@ export class PerfilComponent implements OnInit {
         this.favoritos = data;
       });
     }
+
+    console.log(this.favoritos);
   }
 
   cerrarSesion() {
