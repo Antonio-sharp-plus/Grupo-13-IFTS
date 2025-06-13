@@ -24,7 +24,7 @@ exports.tieneFavorito = async (userId, favoritoData) => {
 }
 
 exports.agregarFavoritoAUsuario = async (userId, favoritoData) => {
-  const usuario = await Usuario.findById(userId);
+  const usuario = await this.buscarUsuarioPorId(userId);
   await usuario.favoritos.push(favoritoData);
   console.log("Repo anda");
   await usuario.save();
