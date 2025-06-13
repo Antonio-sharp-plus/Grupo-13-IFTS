@@ -2,20 +2,31 @@ const repositorioFavoritos = require("../repositorio/repositorioFavoritos");
 
 exports.agregarFavorito = async (userId, favoritoData) => {
   try {
-    //console.log("Service: agregarFavorito", userId, favoritoData); //para controlar errores
-    await repositorioFavoritos.agregarFavoritoAUsuario(userId, favoritoData);
+    //console.log('Servicio: agregarFavorito', userId, favoritoData);
+    let favorito = await repositorioFavoritos.buscarFavoritoPorId(favoritoData.id);
+    if (!favorito) {
+      favorito = await repositorioFavoritos.crearFavorito(favoritoData);
+    }
+    const usuario = await repositorioFavoritos.buscarUsuarioPorId(userId);
+    if (!usuario) console.log('Usuario no encontrado');
+    if (!usuario.favoritos.includes(favorito._id)) {
+      usuario.favoritos.push(favorito._id);
+      await repositorioFavoritos.guardarUsuario(usuario);
+    }
   } catch (error) {
-    //console.error("Service agregarFavorito error", error); //para controlar errores
+    //console.log('Servicio: agregarFavorito error', error);
     return console.log('Error al agregar favorito');
   }
 };
 
 exports.obtenerFavoritos = async (userId) => {
   try {
-    //console.log("Service: obtenerFavoritos", userId); //para controlar errores
-    return await repositorioFavoritos.obtenerFavoritosDeUsuario(userId);
+    //console.log('Servicio: obtenerFavoritos', userId);
+    const usuario = await repositorioFavoritos.obtenerFavoritosDeUsuario(userId);
+    if (!usuario) console.log('Usuario no encontrado');
+    return usuario.favoritos;
   } catch (error) {
-    //console.error("Service obtenerFavoritos error", error); //para controlar errores
+    //console.log('Service obtenerFavoritos error', error);
     return console.log('Error al obtener favoritos');
   }
 };
