@@ -2,7 +2,12 @@ const usuarioService = require('../service/servicioUsuario');
 
 
 function validarRegistro(body) {
+  //console.log('Controller: validarRegistro', body); //para controlar errores
   const { email, password, username } = body;
+  if (!email || !password || !username) {
+    console.log('Controller: validarRegistro error', 'Todos los campos son requeridos'); //para controlar errores
+    return false;
+  }
   return email && password && username;
 }
 
