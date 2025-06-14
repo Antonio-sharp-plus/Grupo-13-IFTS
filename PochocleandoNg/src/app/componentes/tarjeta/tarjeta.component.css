@@ -80,3 +80,7 @@
 i {
     margin-right: 0.25rem;
 }
+
+:host-context(.tarjeta-perfil) .tarjeta {
+  background-color: #2e005d;
+}
