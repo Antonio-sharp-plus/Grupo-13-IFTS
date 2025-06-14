@@ -8,4 +8,7 @@ router.post('/:userId', controllerFavoritos.agregarFavorito);
 //obtener contenido favorito
 router.get('/:userId', controllerFavoritos.obtenerFavoritos);
 
+// eliminar contenido favorito
+router.delete('/:userId/:favoritoId', controllerFavoritos.eliminarFavorito);
+
 module.exports = router;

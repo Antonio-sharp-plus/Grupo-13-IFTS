@@ -23,3 +23,13 @@ exports.obtenerFavoritos = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+
+exports.eliminarFavorito = async (req, res) => {
+  try {
+    const { userId, favoritoId } = req.params;
+    await serviceFavoritos.eliminarFavorito(userId, favoritoId);
+    res.status(200).json({ mensaje: 'Favorito eliminado correctamente' });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+}
