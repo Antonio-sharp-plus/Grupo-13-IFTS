@@ -37,7 +37,9 @@
                     </div>
                     
                     <div class="divFavoritos">
-                        <button class="BotonFavoritos" (click)="agregarAFavoritos()">Agregar a Favoritos</button>
+                        <button class="BotonFavoritos" (click)="agregarOEliminarDeFavoritos()">
+                            {{ estaEnLosFavs ? 'Eliminar de Favoritos' : 'Agregar a Favoritos' }}
+                        </button>
                     </div>
                 </div>
 

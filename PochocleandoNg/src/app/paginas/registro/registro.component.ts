@@ -28,12 +28,12 @@ export class RegistroComponent {
     this.registroService.registrar({ email: this.email, password: this.password, username: this.username })
       .subscribe({
         next: () => {
-          this.snackBar.open('¡Registro exitoso!', 'Cerrar', { duration: 2000 });
+          this.snackBar.open('¡Registro exitoso!', 'Cerrar', { duration: 1500 });
           setTimeout(() => this.router.navigate(['/login']), 2000);
         },
         error: (err) => {
           this.error = 'Error al registrarse';
-          this.snackBar.open('Error al registrarse', 'Cerrar', { duration: 2000 });
+          this.snackBar.open('Error al registrarse', 'Cerrar', { duration: 1500 });
           console.error(err);
         }
       });

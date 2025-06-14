@@ -16,7 +16,6 @@ export class TarjetaComponent {
   @Input() poster: string = '';
   @Input() id: string = '';
   @Input() tipo: string = '';
-  
 
   get link() {
     return `/detalles/${this.id}/${this.tipo}`;

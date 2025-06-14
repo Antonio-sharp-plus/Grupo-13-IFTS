@@ -15,4 +15,8 @@ export class FavoritosService {
   obtenerFavoritos(userId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/${userId}`);
   }
+
+  eliminarFavorito(userId: string, favoritoId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${userId}/${favoritoId}`);
+  }
 }
