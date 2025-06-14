@@ -8,7 +8,7 @@ exports.registrarUsuario = async (data) => {
     await repositorioUsuario.crearUsuario(data);
   } catch (error) {
     //console.log('Service registrarUsuario error', error);
-    return console.log('Error al registrar usuario');
+    throw new Error('Error al registrar usuario: ' + error.message);
   }
 };
 
@@ -18,11 +18,11 @@ exports.loginUsuario = async ({ email, password }) => {
     const usuario = await repositorioUsuario.buscarUsuarioPorEmail(email);
     if (!usuario) return console.log('Usuario no encontrado');
     const esValida = await usuario.compararPassword(password);
-    if (!esValida) return console.log('Contraseña incorrecta');
+    if (!esValida) throw new Error('Contraseña incorrecta', + error.message);
     return jwt.sign({ id: usuario._id, email: usuario.email }, tokenJSON, { expiresIn: '2h' });
   } catch (error) {
     //console.log('Service loginUsuario error', error);
-    return console.log('Error al iniciar sesión:');
+    throw new Error('Error al iniciar sesión: ' + error.message);
   }
 };
 
@@ -32,6 +32,6 @@ exports.buscarUsuarioPorEmail = async (email) => {
     return await repositorioUsuario.buscarUsuarioPorEmail(email);
   } catch (error) {
     //console.log('Service buscarUsuarioPorEmail error', error);
-    return console.log('Error al buscar usuario por email:');
+    throw new Error('Error al buscar usuario por email: ' + error.message);
   }
 };
