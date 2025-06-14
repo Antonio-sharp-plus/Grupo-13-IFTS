@@ -30,3 +30,23 @@ exports.obtenerFavoritos = async (userId) => {
     return console.log('Error al obtener favoritos');
   }
 };
+
+exports.eliminarFavorito = async (userId, favIdTMDB) => {
+  try {
+
+    const usuario = await repositorioFavoritos.buscarUsuarioPorId(userId);
+    if (!usuario) throw new Error('Usuario no encontrado');
+
+    const favorito = await repositorioFavoritos.buscarFavoritoPorId(favIdTMDB); // buscamos el fav según el id de tmdb
+    if (!favorito) throw new Error('Favorito no encontrado');
+
+    const favIdMongo = favorito._id;
+
+    usuario.favoritos = usuario.favoritos.filter(favId => String(favId) !== String(favIdMongo));
+    await repositorioFavoritos.guardarUsuario(usuario);
+
+  } catch (error) {
+    console.log('Error al elminar el favorito: ', error);
+    throw error;
+  }
+}
