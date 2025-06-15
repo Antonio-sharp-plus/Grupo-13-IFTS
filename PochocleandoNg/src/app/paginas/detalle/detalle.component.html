@@ -47,16 +47,16 @@
                 </div>
 
                 <div class="divResena">
-                    <h3>Agregar reseña</h3>
+                    <h3 class="tituloAgregarResena">Agregar reseña</h3>
                     <textarea [(ngModel)]="comentario" placeholder="Escribe tu reseña"></textarea>
                     <button class="botonResena" (click)="agregarResena()">Agregar reseña</button>
                 </div>
 
                 <div class="listaResenas" *ngIf="resenas?.length">
                     <h3 class="tituloResenas">Reseñas</h3>
-                        <div *ngFor="let r of resenas" class="resena-item">
-                            <b>{{ r.usuario?.username }}</b>: {{ r.comentario }}
-                        </div>
+                    <div *ngFor="let r of resenas" class="resena-item">
+                        <b>{{ r.usuario?.username }}</b>: {{ r.comentario }}
+                    </div>
                 </div>
             </div>
         </div>
