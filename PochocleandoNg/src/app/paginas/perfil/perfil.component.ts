@@ -49,8 +49,13 @@ export class PerfilComponent implements OnInit {
 
 guardarEdicionResena(resena: any) {
   this.resenasService.editarResena(resena._id, this.nuevoComentario).subscribe({
-    next: (r) => {
-      resena.comentario = this.nuevoComentario;
+    next: () => {
+      this.resenas = this.resenas.map(r => {
+        if (r._id === resena._id) {
+          return { ...r, comentario: this.nuevoComentario };
+        }
+        return r;
+      });
       this.editandoResenaId = null;
     },
     error: () => alert('Error al editar reseña')
@@ -65,5 +70,4 @@ cancelarEdicion() {
   this.loginService.logout();
   this.router.navigate(['']);
 }
-
 }

@@ -32,29 +32,24 @@ export class DetalleComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['id'];
+  const id = this.route.snapshot.params['id'];
   const tipo = this.route.snapshot.params['tipo'];
   console.log(id, tipo);
 
-  const user = JSON.parse(localStorage.getItem('usuario') || '{}');
-  const userId = user._id || user.id || '';
-  if (userId) {
-    this.resenasService.obtenerResenas(userId).subscribe(data => this.resenas = data);
-  }
+  // Traer todas las reseñas de este contenido (de todos los usuarios)
   this.resenasService.obtenerResenasPorContenido(id).subscribe(data => this.resenas = data);
-    
-    // Corrección: Asignar los datos dentro del subscribe
-    this.subscription = this.apiGeneral.BusquedaId(id, tipo)
-      .subscribe({
-        next: (datos) => {
-          this.data = datos;
-          console.log('Datos recibidos:', this.data);
 
-          this.verificarFavorito(id);
-        },
-        error: (err) => console.error('Error al cargar datos:', err)
-      });
-  }
+  // Cargar datos de la película/serie
+  this.subscription = this.apiGeneral.BusquedaId(id, tipo)
+    .subscribe({
+      next: (datos) => {
+        this.data = datos;
+        console.log('Datos recibidos:', this.data);
+        this.verificarFavorito(id);
+      },
+      error: (err) => console.error('Error al cargar datos:', err)
+    });
+}
 
   ngOnDestroy(): void {
     // Limpieza de la suscripción
@@ -122,6 +117,7 @@ export class DetalleComponent implements OnInit {
     }
 
   }
+
   agregarResena() {
     const user = JSON.parse(localStorage.getItem('usuario') || '{}');
     const userId = user._id || user.id || '';

@@ -297,6 +297,15 @@
     box-sizing: border-box;
 }
 
+.tituloAgregarResena {
+    color: var(--alternative-color1);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
 .botonResena {
     background: linear-gradient(90deg, var(--alternative-color1), var(--alternative-color2));
     color: #fff;
