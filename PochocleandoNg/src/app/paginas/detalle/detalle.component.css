@@ -278,8 +278,8 @@
     width: 100%;
     word-break: break-word;
     white-space: pre-line;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 2em 2,5em; 
+    padding: 0;
 }
 
 .divResena textarea {
