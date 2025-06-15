@@ -119,26 +119,31 @@ export class DetalleComponent implements OnInit {
   }
 
   agregarResena() {
-    const user = JSON.parse(localStorage.getItem('usuario') || '{}');
-    const userId = user._id || user.id || '';
-    const tipo = this.route.snapshot.params['tipo'];
-    const resena = {
-      contenidoId: this.data.id,
-      tipo: tipo,
-      titulo: this.data.title || this.data.name,
-      comentario: this.comentario
-    };
-    console.log('Reseña a enviar:', resena); // <-- Agregá esto
-    this.resenasService.agregarResena(userId, resena).subscribe({
-      next: () => {
-        alert('¡Reseña agregada!');
-        this.comentario = '';
-        this.resenasService.obtenerResenasPorContenido(this.data.id).subscribe(data => this.resenas = data);
-      },
-      error: err => {
-        alert('Error al agregar reseña');
-        console.error(err);
-      }
+  const user = JSON.parse(localStorage.getItem('usuario') || '{}');
+  const userId = user._id || user.id || '';
+  if (!userId) {
+    alert('Debes iniciar sesión para agregar una reseña');
+    return;
+  }
+
+  const tipo = this.route.snapshot.params['tipo'];
+  const resena = {
+    contenidoId: this.data.id,
+    tipo: tipo,
+    titulo: this.data.title || this.data.name,
+    comentario: this.comentario
+  };
+
+  this.resenasService.agregarResena(userId, resena).subscribe({
+    next: () => {
+      alert('¡Reseña agregada!');
+      this.comentario = '';
+      this.resenasService.obtenerResenasPorContenido(this.data.id).subscribe(data => this.resenas = data);
+    },
+    error: err => {
+      alert('Error al agregar reseña');
+      console.error(err);
+    }
   });
 }
 }
