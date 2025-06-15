@@ -272,6 +272,72 @@
     font-size: 1.2rem;
 }
 
+.divResena,
+.listaResenas {
+    max-width: 38em;
+    width: 100%;
+    word-break: break-word;
+    white-space: pre-line;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divResena textarea {
+    width: 100%;
+    min-height: 4em;
+    margin-bottom: 1em;
+    padding: 0.7em;
+    border-radius: 0.5em;
+    border: 1px solid var(--alternative-color1);
+    background: var(--light-color);
+    color: var(--dark-color);
+    font-size: 1em;
+    resize: vertical;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.botonResena {
+    background: linear-gradient(90deg, var(--alternative-color1), var(--alternative-color2));
+    color: #fff;
+    border: none;
+    padding: 0.6em 2em;
+    border-radius: 0.5em;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    margin-right: 1em;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(255,131,0,0.08);
+}
+
+.botonResena:hover {
+    background: linear-gradient(90deg, var(--alternative-color2), var(--alternative-color1));
+    transform: translateY(-2px) scale(1.03);
+}
+
+.tituloResenas {
+    color: var(--alternative-color1);
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.resena-item {
+    border-bottom: 1px solid var(--alternative-color1);
+    padding: 0.7em 0;
+    color: var(--light-color);
+    max-width: 100%;
+    word-break: break-word;
+    white-space: pre-line;
+}
+
+.resena-item:last-child {
+    border-bottom: none;
+}
+
 /* Diseño responsivo */
 @media (max-width: 1024px) {
     .main-data {
@@ -353,5 +419,16 @@
     .resumen {
         padding: 1.5rem;
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .divResena,
+    .listaResenas {
+        max-width: 98vw;
+        padding: 1em 0.5em;
+    }
+    .divResena textarea {
+        font-size: 0.95em;
     }
 }

@@ -5,16 +5,21 @@ import { ApiGeneral } from '../../servicios/api.service';
 import { Subscription } from 'rxjs';
 import { FavoritosService } from '../../servicios/favoritos.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ResenasService } from '../../servicios/resenas.service';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-detalle',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './detalle.component.html',
   styleUrl: './detalle.component.css'
 })
 export class DetalleComponent implements OnInit {
   data: any = {};
-  private subscription?: Subscription;  // Para gestionar la desuscripción
+  private subscription?: Subscription;// Para gestionar la desuscripción
+  comentario: string = '' //input reseña
+  resenas: any[] = []; // Para almacenar reseñas
 
   estaEnLosFavs: boolean = false;
 
@@ -22,13 +27,21 @@ export class DetalleComponent implements OnInit {
     private route: ActivatedRoute, 
     private apiGeneral: ApiGeneral,
     private favoritosService: FavoritosService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private resenasService: ResenasService
   ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
-    const tipo = this.route.snapshot.params['tipo'];
-    console.log(id, tipo)
+  const tipo = this.route.snapshot.params['tipo'];
+  console.log(id, tipo);
+
+  const user = JSON.parse(localStorage.getItem('usuario') || '{}');
+  const userId = user._id || user.id || '';
+  if (userId) {
+    this.resenasService.obtenerResenas(userId).subscribe(data => this.resenas = data);
+  }
+  this.resenasService.obtenerResenasPorContenido(id).subscribe(data => this.resenas = data);
     
     // Corrección: Asignar los datos dentro del subscribe
     this.subscription = this.apiGeneral.BusquedaId(id, tipo)
@@ -109,4 +122,27 @@ export class DetalleComponent implements OnInit {
     }
 
   }
+  agregarResena() {
+    const user = JSON.parse(localStorage.getItem('usuario') || '{}');
+    const userId = user._id || user.id || '';
+    const tipo = this.route.snapshot.params['tipo'];
+    const resena = {
+      contenidoId: this.data.id,
+      tipo: tipo,
+      titulo: this.data.title || this.data.name,
+      comentario: this.comentario
+    };
+    console.log('Reseña a enviar:', resena); // <-- Agregá esto
+    this.resenasService.agregarResena(userId, resena).subscribe({
+      next: () => {
+        alert('¡Reseña agregada!');
+        this.comentario = '';
+        this.resenasService.obtenerResenasPorContenido(this.data.id).subscribe(data => this.resenas = data);
+      },
+      error: err => {
+        alert('Error al agregar reseña');
+        console.error(err);
+      }
+  });
+}
 }

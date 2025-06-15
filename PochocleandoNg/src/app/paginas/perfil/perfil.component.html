@@ -19,5 +19,19 @@
         [poster] = "'https://image.tmdb.org/t/p/w500' + fav.poster"
         ></app-tarjeta>
   </div>
+  
+  <div class="resenas-section">
+  <h3 class="tituloResenas">Mis reseñas</h3>
+  <div *ngFor="let r of resenas" class="resena-perfil">
+    <b>{{ r.titulo }}</b>:
+    <span *ngIf="editandoResenaId !== r._id">{{ r.comentario }}</span>
+    <input *ngIf="editandoResenaId === r._id" [(ngModel)]="nuevoComentario" />
+    <button *ngIf="editandoResenaId !== r._id" (click)="empezarEditarResena(r)">Editar</button>
+    <button *ngIf="editandoResenaId === r._id" (click)="guardarEdicionResena(r)">Guardar</button>
+    <button *ngIf="editandoResenaId === r._id" (click)="cancelarEdicion()">Cancelar</button>
+  </div>
+</div>
+
+
 
 </div>

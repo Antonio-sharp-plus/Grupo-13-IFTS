@@ -6,7 +6,8 @@ const schemaUsuario = new mongo.Schema({
     password: { type: String, required: true},
     username: { type: String, required: true, unique: true},
     favoritos: [{ type: mongo.Schema.Types.ObjectId, ref: 'Favorito' }],
-    reseñas: [{ type: mongo.Schema.Types.ObjectId, ref: 'Reseña' }],
+    reseñas: [{ type: mongo.Schema.Types.ObjectId, ref: 'Resena' }],
+    vistas: [{ type: String }],
     fechaRegistro: { type: Date, default: Date.now }
 });
 
