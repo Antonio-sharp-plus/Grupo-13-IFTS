@@ -11,7 +11,8 @@ const peliculasRouter = require('./back/router/routerPeliAPI');
 const seriesRouter = require('./back/router/routerSerieAPI');
 const generalRouter = require('./back/router/routergeneralAPI');
 const authRouter = require('./back/router/routerAuth');
-const favoritosRouter = require('./back/router/routerFavoritos')
+const favoritosRouter = require('./back/router/routerFavoritos');
+const resenasRouter = require('./back/router/routerResenas');
 
 //variables de entorno
 const PORT = 3000;
@@ -34,7 +35,9 @@ app.use('/api/pelicula', peliculasRouter);
 app.use('/api/series', seriesRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/favoritos', favoritosRouter);
+app.use('/api/resenas', resenasRouter);
 
+//conexion a la base de datos
 mongo.connect(connection_string)
 .then(console.log("Conectado a DB en Atlas"))
 .catch(err => console.error("Error de conexión:", err));
