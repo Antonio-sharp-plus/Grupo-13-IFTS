@@ -1,0 +1,86 @@
+:root :ng::deep{
+    --primary-color: #8e008b;
+    --secondary-color: #5c008b;
+    --dark-color: #2e005d;
+    --light-color: #f8f9fa;
+    --success-color: #4CAF50;
+    --alternative-color1: #ff8300;
+    --alternative-color2: #ff6200;
+}
+
+.tarjeta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.tarjeta {
+    background-color: #5c008b;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Resetear estilos de enlaces */
+.tarjeta a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.tarjeta a:link,
+.tarjeta a:visited,
+.tarjeta a:hover,
+.tarjeta a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.info {
+    padding: 1rem;
+}
+
+.titulo {
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ff8300;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    color: #8e008b;
+    font-size: 0.9rem;
+}
+
+.anio {
+    color: #ff8300;
+    font-weight: bold;
+}
+
+.puntuacion {
+    color: gold;
+    font-weight: bold;
+}
+
+i {
+    margin-right: 0.25rem;
+}
+
+:host-context(.tarjeta-perfil) .tarjeta {
+  background-color: #2e005d;
+}

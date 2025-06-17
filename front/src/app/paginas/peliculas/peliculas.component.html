@@ -1,0 +1,71 @@
+<section class="tarjetas-container">
+  <div class="search-container">
+    <app-searchbar
+        [tipoBusqueda]="'pelicula'"
+        (resultados)="procesarResultados($event)"
+        (busquedaUsuario)="actualizarTituloBusqueda($event)"
+    ></app-searchbar>
+
+    <div class="filter-options">
+      <button
+        id="botonPopulares"
+        class="{{ botones[0] }}"
+        (click)="PeliculasPopulares(0)"
+      >
+        Populares
+      </button>
+      <button
+        id="botonValoradas"
+        class="{{ botones[1] }}"
+        (click)="PeliculasMejorValoradas(1)"
+      >
+        Mejor valoradas
+      </button>
+      <button
+        id="botonEstrenos"
+        class="{{ botones[2] }}"
+        (click)="PelisEstreno(2)"
+      >
+        Estrenos
+      </button>
+      <button
+        id="botonAcciones"
+        class="{{ botones[3] }}"
+        (click)="PelisAccion(3)"
+      >
+        Acción
+      </button>
+      <button
+        id="botonComedia"
+        class="{{ botones[4] }}"
+        (click)="PeliculasComedia(4)"
+      >
+        Comedia
+      </button>
+      <button id="botonDrama" class="{{ botones[5] }}" (click)="PelisDrama(5)">
+        Drama
+      </button>
+      <button
+        id="botonCiencia"
+        class="{{ botones[6] }}"
+        (click)="PelisCiencia(6)"
+      >
+        Ciencia Ficción
+      </button>
+    </div>
+  </div>
+
+  <h2 class="titulo-seccion">{{ tituloSeccion }}</h2>
+
+  <div class="tarjeta-grid">
+    <app-tarjeta
+      *ngFor="let dato of datos"
+      [id]="dato.id"
+      [tipo]="tipo"
+      [titulo]="dato.title ?? dato.name"
+      [anio]="dato.release_date ?? dato.first_air_date | date : 'yyyy'"
+      [puntuacion]="dato.vote_average"
+      [poster]="'https://image.tmdb.org/t/p/w500' + dato.poster_path"
+    ></app-tarjeta>
+  </div>
+</section>

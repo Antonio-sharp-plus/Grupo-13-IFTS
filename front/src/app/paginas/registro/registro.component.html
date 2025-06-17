@@ -1,0 +1,38 @@
+<div class="registro-container">
+  <div class="registro-logo">
+    <img src="\images\LOGOAPP.png" alt="Logo" /> <!-- falla la img -->
+    <h1>Pochocleando</h1>
+  </div>
+  <div class="registro-formulario">
+    <h2>Empezá a Pochoclear</h2>
+    <form (ngSubmit)="onSubmit()">
+      <input
+        type="text"
+        placeholder="Nombre de usuario"
+        [(ngModel)]="username"
+        name="username"
+        required
+      />
+      <input
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="email"
+        name="email"
+        required
+      />
+      <input
+        type="password"
+        placeholder="Contraseña"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+      <button type="submit">Crear Cuenta</button>
+      <div *ngIf="error" class="errorMensaje">{{ error }}</div>
+      <p class="redireccionInicioDeSesion">
+        ¿Ya tenés cuenta?
+        <a class="linkRedirInicioDeSesion" routerLink="/login">Iniciar Sesión</a>
+      </p>
+    </form>
+  </div>
+</div>
