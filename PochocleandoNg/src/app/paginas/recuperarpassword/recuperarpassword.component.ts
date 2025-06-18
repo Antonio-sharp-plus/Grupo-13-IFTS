@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-recuperarpassword',
   templateUrl: './recuperarpassword.component.html',
+  imports: [CommonModule, FormsModule],
   styleUrls: ['./recuperarpassword.component.css']
 })
 export class RecuperarpasswordComponent {
@@ -40,7 +43,7 @@ export class RecuperarpasswordComponent {
       password: this.nuevaPassword
     }).subscribe({
       next: () => {
-        this.mensaje = '✅ Contraseña restablecida con éxito. Redirigiendo al login...';
+        this.mensaje = ' Contraseña restablecida con éxito. Redirigiendo al login...';
         this.error = '';
         setTimeout(() => {
           this.router.navigate(['/login']);

@@ -7,6 +7,7 @@ import { SeriesComponent } from './paginas/series/series.component';
 import { AcercadeComponent } from './paginas/acercade/acercade.component';
 import { DetalleComponent } from './paginas/detalle/detalle.component';
 import { PerfilComponent } from './paginas/perfil/perfil.component';
+import { RecuperarpasswordComponent } from './paginas/recuperarpassword/recuperarpassword.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent }, //ruta principal
@@ -16,5 +17,6 @@ export const routes: Routes = [
     { path: 'series', component: SeriesComponent },
     { path: 'acercade', component: AcercadeComponent },
     { path: 'detalles/:id/:tipo', component: DetalleComponent },
-    { path: 'perfil', component: PerfilComponent }
+    { path: 'perfil', component: PerfilComponent },
+    {path: 'recuperarpassword', component: RecuperarpasswordComponent}
 ]

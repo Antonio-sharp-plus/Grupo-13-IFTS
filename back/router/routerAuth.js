@@ -8,5 +8,7 @@ router.post('/registro', controllerUsuario.registrarUsuario);
 router.post('/login', controllerUsuario.loginUsuario);
 // Recuperación de contraseña
 router.post('/forgot-password', controllerUsuario.recuperarPassword);
+// Resetear contraseña
+router.post('/reset-password', controllerUsuario.resetearPassword);
 
 module.exports = router;
