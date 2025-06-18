@@ -14,9 +14,11 @@
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
-    "ngx-toastr": "^19.0.0"
+    "ngx-toastr": "^19.0.0",
+    "nodemailer": "^7.0.3"
   },
   "devDependencies": {
     "mongoose": "^8.15.1",

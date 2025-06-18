@@ -23,9 +23,22 @@
         ¿No tenés cuenta? 
         <a class="linkRedirRegistro" routerLink="/registro">Registrate</a>
       </p>
+      <p class="linkRecuperar">
+      <a (click)="mostrarRecuperar = true">¿Olvidaste tu contraseña?</a>
+      </p>
     </form>
   </div>
+<!-- Recuadro para recuperar contraseña -->
+<div class="recuperar-container" *ngIf="mostrarRecuperar">
+  <p>Escribí tu correo y te enviaremos instrucciones para restablecer tu contraseña</p>
+  <input 
+    type="email" 
+    [(ngModel)]="emailRecuperar" 
+    placeholder="Correo electrónico" />
 
+  <button (click)="enviarRecuperacion()">Enviar instrucciones</button>
+  <button (click)="mostrarRecuperar = false">Cancelar</button>
+</div>
   <!-- logo -->
   <div class="logo-section">
     <img src="\images\Pochi IS.png" alt="Logo de Pochocleando" class="logo" /> <!-- falla la img -->

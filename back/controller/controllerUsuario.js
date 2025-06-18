@@ -39,3 +39,24 @@ exports.loginUsuario = async (req, res) => {
     res.status(401).json({ error: error.message });
   }
 };
+
+exports.recuperarPassword = async (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    return res.status(400).json({ error: 'El email es requerido' });
+  }
+
+  try {
+    const usuario = await usuarioService.buscarUsuarioPorEmail(email);
+    if (!usuario) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+
+    // Acá deberías enviar el email o generar token, etc.
+    return res.status(200).json({ mensaje: 'Email de recuperación enviado (simulado)' });
+
+  } catch (error) {
+    console.error('Error en recuperarPassword:', error);
+    return res.status(500).json({ error: 'Error al procesar la recuperación de contraseña' });
+  }
+};

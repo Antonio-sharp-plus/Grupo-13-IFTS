@@ -51,4 +51,7 @@ export class LoginService {
   getCurrentUser(): Observable<AuthResponse | null> {
     return this.userSubject.asObservable();
   }
+  solicitarRecuperacion(email: string) {
+  return this.http.post('http://localhost:3000/api/auth/forgot-password', { email });
+}
 }
