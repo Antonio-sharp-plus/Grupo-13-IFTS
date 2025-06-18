@@ -17,6 +17,8 @@ export class LoginComponent {
   password: string = '';
   error: string = '';
   isLoading: boolean = false; //pantalla de carga
+  mostrarRecuperar = false;
+  emailRecuperar: string = '';
 
   constructor(
     private loginService: LoginService,
@@ -41,4 +43,16 @@ export class LoginComponent {
         }
       });
   }
+  enviarRecuperacion() {
+  this.loginService.solicitarRecuperacion(this.emailRecuperar).subscribe({
+    next: (res) => {
+      this.snackBar.open('Revisá tu correo para restablecer tu contraseña.', 'Cerrar', { duration: 3000 });
+      this.mostrarRecuperar = false;
+    },
+    error: (err) => {
+      this.snackBar.open('Error al enviar el correo. Verificá el email.', 'Cerrar', { duration: 3000 });
+      console.error(err);
+    }
+  });
+}
 }
