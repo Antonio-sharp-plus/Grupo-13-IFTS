@@ -8,7 +8,9 @@ const schemaUsuario = new mongo.Schema({
     favoritos: [{ type: mongo.Schema.Types.ObjectId, ref: 'Favorito' }],
     reseñas: [{ type: mongo.Schema.Types.ObjectId, ref: 'Resena' }],
     vistas: [{ type: String }],
-    fechaRegistro: { type: Date, default: Date.now }
+    fechaRegistro: { type: Date, default: Date.now },
+    resetPasswordToken: {type: String},
+    resetPasswordExpires: {type: Date}
 });
 
 // Método para encriptar password
