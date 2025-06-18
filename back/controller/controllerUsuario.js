@@ -47,16 +47,25 @@ exports.recuperarPassword = async (req, res) => {
   }
 
   try {
-    const usuario = await usuarioService.buscarUsuarioPorEmail(email);
-    if (!usuario) {
-      return res.status(404).json({ error: 'Usuario no encontrado' });
-    }
-
-    // Acá deberías enviar el email o generar token, etc.
-    return res.status(200).json({ mensaje: 'Email de recuperación enviado (simulado)' });
-
+    const respuesta = await usuarioService.enviarEmailRecuperacion(email);
+    return res.status(200).json({ mensaje: respuesta });
   } catch (error) {
     console.error('Error en recuperarPassword:', error);
     return res.status(500).json({ error: 'Error al procesar la recuperación de contraseña' });
+  }
+};
+exports.resetearPassword = async (req, res) => {
+  const { token, password } = req.body;
+
+  if (!token || !password) {
+    return res.status(400).json({ error: 'Token y nueva contraseña son requeridos' });
+  }
+
+  try {
+    const respuesta = await usuarioService.resetearPasswordConToken(token, password);
+    res.status(200).json({ mensaje: respuesta });
+  } catch (error) {
+    console.error('Error al resetear contraseña:', error);
+    res.status(400).json({ error: error.message });
   }
 };
