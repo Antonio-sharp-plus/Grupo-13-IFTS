@@ -1,3 +1,5 @@
+No te olvides de tirar un npm install por las dudas
+
 En environment.ts configuramos que llame a localhost si lo corremos en nuestra pc o que, al momento de buildearla para Amplify, cambie a la api de ApiGateway
 
 Es necesario revisar angular.json y asegurarse de tener estas lineas
