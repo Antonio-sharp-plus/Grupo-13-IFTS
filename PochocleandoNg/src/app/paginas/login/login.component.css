@@ -95,6 +95,41 @@ button:hover {
 .linkRedirRegistro:hover {
   text-decoration: underline;
 }
+.linkRecuperar {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.linkRecuperar a {
+  color: var(--alternative-color1);
+  cursor: pointer;
+  text-decoration: none; 
+}
+
+.linkRecuperar a:hover {
+  text-decoration: underline; 
+}
+
+.recuperar-container {
+  background-color: #4b007d;
+  color:#f8f9fa;
+  padding: 1rem;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.recuperar-container input {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.recuperar-container button {
+  margin: 0.5rem;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
 
 /* Sección del logo */
 .logo-section {
