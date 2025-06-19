@@ -1,4 +1,3 @@
-/* CSS base - mantiene tu diseño original */
 .tarjetas-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -96,7 +95,7 @@ body {
 
 /* ===== RESPONSIVE DESIGN ===== */
 
-/* Tablets (768px - 1024px) */
+/* Tablets */
 @media screen and (max-width: 1024px) {
     .tarjetas-container {
         padding: 0 1rem 2rem;
@@ -114,7 +113,7 @@ body {
     
 }
 
-/* Tablets pequeñas y móviles grandes (481px - 768px) */
+/* pantallas ligeramente mas grandes */
 @media (max-width: 600px) {
     .tarjetas-container {
         padding: 1rem;
@@ -135,7 +134,7 @@ body {
     }
     
     
-    /* Filtros responsivos */
+   
     .filter-options {
         justify-content: center;
         gap: 0.5rem;
@@ -147,7 +146,7 @@ body {
         font-size: 0.9rem;
     }
     
-    /* Búsqueda responsiva */
+   
     .search-box {
         margin-bottom: 1.5rem;
     }
@@ -163,7 +162,7 @@ body {
     }
 }
 
-/* Móviles (320px - 480px) */
+/* Celulares */
 @media (max-width: 360px) {
     .tarjetas-container {
         padding: 0 0.3rem 1rem;
@@ -182,7 +181,7 @@ body {
     }
 }
     
-    /* Filtros para móviles pequeños */
+    
     .filter-options {
         gap: 0.3rem;
         margin-bottom: 1rem;
@@ -194,7 +193,7 @@ body {
         border-radius: 15px;
     }
     
-    /* Búsqueda para móviles */
+    
     .search-input {
         padding: 0.6rem;
         font-size: 0.85rem;
@@ -206,7 +205,7 @@ body {
     }
 
 
-/* Móviles muy pequeños (menos de 320px) */
+/* Pantallas muy chicas */
 @media screen and (max-width: 320px) {
     .tarjetas-container {
         padding: 0 0.5rem 1rem;
