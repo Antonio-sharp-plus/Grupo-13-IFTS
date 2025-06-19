@@ -1,23 +1,35 @@
 <header>
-
     <div class="header-container">
-            
+        
         <a routerLink="/"><img src="\images\logo.png" class="logo" alt="logo de pochocleando"></a>
-                        
+        
+        <!-- Botón hamburguesa -->
+        <button class="menu-toggle" (click)="toggleMenu()">
+            ☰
+        </button>
+        
         <nav>
-            <ul>
-                <li> <a routerLink="/">Inicio</a> </li>
-                <li> <a routerLink="/peliculas">Películas</a> </li>
-                <li> <a routerLink="/series">Series</a> </li>
-                <li> <a routerLink="/acercade">Acerca de</a> </li>
+            <ul [class.active]="menuActive">
+                <li> 
+                    <a routerLink="/" (click)="closeMenu()">Inicio</a> 
+                </li>
+                <li> 
+                    <a routerLink="/peliculas" (click)="closeMenu()">Películas</a> 
+                </li>
+                <li> 
+                    <a routerLink="/series" (click)="closeMenu()">Series</a> 
+                </li>
+                <li> 
+                    <a routerLink="/acercade" (click)="closeMenu()">Acerca de</a> 
+                </li>
                 <li *ngIf="!usuario"> 
-                    <a routerLink="/login">Iniciar Sesión</a> 
+                    <a routerLink="/login" (click)="closeMenu()">Iniciar Sesión</a> 
                 </li>
                 <li *ngIf="usuario"> 
-                    <a routerLink="/perfil">{{ usuario.username }}</a> </li>
+                    <a routerLink="/perfil" (click)="closeMenu()">{{ usuario.username }}</a> 
+                </li>
             </ul>
         </nav>
 
     </div>
-
 </header>
