@@ -12,6 +12,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
+    padding: 0 1rem; /* Agregado para mejor espaciado */
+}
+
+/* Asegurar que en móvil se override la regla principal */
+@media (max-width: 600px) {
+    .tarjeta-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
 }
 
 .tarjeta {
@@ -83,4 +91,86 @@ i {
 
 :host-context(.tarjeta-perfil) .tarjeta {
   background-color: #2e005d;
+}
+
+/* Tablet - 2-3 columnas */
+@media (max-width: 768px) {
+    .tarjeta-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .poster {
+        height: 250px;
+    }
+    
+    .info {
+        padding: 0.8rem;
+    }
+    
+    .titulo {
+        font-size: 0.9rem;
+    }
+    
+    .meta {
+        font-size: 0.8rem;
+    }
+}
+
+/* Móvil - Exactamente 3 columnas */
+@media (max-width: 600px) {
+    .tarjeta-grid {
+        grid-template-columns: repeat(3, 1fr) !important; /* Forzar 3 columnas */
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+        /* Asegurar que no use auto-fill */
+    }
+    
+    .tarjeta {
+        border-radius: 6px; /* Bordes un poco más pequeños */
+    }
+    
+    .poster {
+        height: 200px; /* Altura más pequeña para móvil */
+    }
+    
+    .info {
+        padding: 0.5rem;
+    }
+    
+    .titulo {
+        font-size: 0.8rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .meta {
+        font-size: 0.7rem;
+        flex-direction: column; /* Apilar año y puntuación */
+        gap: 0.2rem;
+    }
+}
+
+/* Pantallas muy pequeñas - Mantener 3 columnas pero más compacto */
+@media (max-width: 360px) {
+    .tarjeta-grid {
+        gap: 0.3rem;
+        padding: 0 0.3rem;
+    }
+    
+    .poster {
+        height: 180px;
+    }
+    
+    .info {
+        padding: 0.4rem;
+    }
+    
+    .titulo {
+        font-size: 0.75rem;
+    }
+    
+    .meta {
+        font-size: 0.65rem;
+    }
 }
