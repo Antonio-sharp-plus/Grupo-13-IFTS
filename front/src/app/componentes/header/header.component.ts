@@ -5,13 +5,14 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, CommonModule], // si no lo importo, no sabe a dónde ir!!!
+  imports: [RouterLink, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   
   usuario: any = null;
+  menuActive: boolean = false; // Nueva propiedad para controlar el menú
 
   constructor(private loginService: LoginService){
   }
@@ -20,6 +21,16 @@ export class HeaderComponent {
     this.loginService.getCurrentUser().subscribe((data) => {
       this.usuario = data?.usuario || null;
     });
+  }
+
+  // Método para abrir/cerrar el menú hamburguesa
+  toggleMenu(): void {
+    this.menuActive = !this.menuActive;
+  }
+
+  // Método para cerrar el menú (opcional, cuando haces click en un enlace)
+  closeMenu(): void {
+    this.menuActive = false;
   }
 
 }

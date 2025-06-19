@@ -1,12 +1,13 @@
 :root{
     --primary-color: #8e008b;
-            --secondary-color: #5c008b;
-            --dark-color: #2e005d;
-            --light-color: #f8f9fa;
-            --success-color: #4CAF50;
-            --alternative-color1: #ff8300;
-            --alternative-color2: #ff6200;
+    --secondary-color: #5c008b;
+    --dark-color: #2e005d;
+    --light-color: #f8f9fa;
+    --success-color: #4CAF50;
+    --alternative-color1: #ff8300;
+    --alternative-color2: #ff6200;
 }
+
 header {
     background: linear-gradient(to right, #5C008B, #8E008B);
     padding: 0.5rem 2rem;
@@ -19,6 +20,7 @@ header {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
 .logo {
@@ -39,14 +41,93 @@ a {
 }
 
 a:link, a:visited {
-    color: white
+    color: white;
 }
 
 a:hover {
-    color: #5C008B
+    color: #5C008B;
 }
 
 a:active {
-    color: #2E005D
+    color: #2E005D;
 }
 
+/* Boton hamburguesa - OCULTO en desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* CELULAR: Solo se aplica en pantallas de 768px o menos */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 0.5rem 1rem;
+    }
+
+    .header-container {
+        justify-content: space-between; /* Asegura que el logo y el menú estén alineados */
+    }
+
+    .logo {
+        height: 80px; /* achica el logo en el celular */
+    }
+
+    /* cc para mostrar boton hamburguesa */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* css para ocultar el menu por defecto en celular */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to right, #5C008B, #8E008B);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
+    /* Mostrar menu cuando este activo */
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 1rem 2rem;
+        width: 100%;
+    }
+
+    nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+}
+
+/* Para pantallas muy chicas */
+@media screen and (max-width: 480px) {
+    .logo {
+        height: 60px;
+    }
+    
+    header {
+        padding: 0.5rem 0.5rem;
+    }
+}
