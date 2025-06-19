@@ -28,6 +28,7 @@ body, :host {
   align-items: center;
   justify-content: center;
   border-radius: 0 2rem 2rem 0;
+  padding: 1rem; 
 }
 
 .registro-logo img {
@@ -38,6 +39,7 @@ body, :host {
 .registro-logo h1 {
   font-size: 2.5rem;
   margin: 0;
+  text-align: center; 
 }
 
 .registro-formulario {
@@ -52,6 +54,7 @@ body, :host {
 .registro-formulario h2 {
   margin-bottom: 2rem;
   font-size: 2rem;
+  text-align: center; 
 }
 
 form {
@@ -84,6 +87,7 @@ button {
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s; 
 }
 
 button:hover {
@@ -92,12 +96,18 @@ button:hover {
 
 .redireccionInicioDeSesion {
   margin-top: 1rem;
-  font-size: 1.2rem;
+  font-size: 1rem; 
+  text-align: center;
 }
 
 .linkRedirInicioDeSesion {
   color: var(--alternative-color1);
   text-decoration: none;
+  font-weight: 500; 
+}
+
+.linkRedirInicioDeSesion:hover {
+  text-decoration: underline;
 }
 
 .errorMensaje {
@@ -110,16 +120,110 @@ button:hover {
   text-align: center;
 }
 
-@media (max-width: 480px) {
+/* PANTALLAS MEDIANAS */
+@media (max-width: 768px) {
   .registro-formulario {
-    padding: 1.5rem;
+    padding: 2rem;
   }
+  
+  .registro-formulario h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  form {
+    max-width: 350px; 
+  }
+  
+  .registro-logo img {
+    width: 120px;
+  }
+  
+  .registro-logo h1 {
+    font-size: 2rem;
+  }
+  
+  button {
+    font-size: 1.1rem;
+  }
+}
 
+/* CELULARES */
+@media (max-width: 480px) {
+  
+  
+  .registro-formulario {
+    padding: 1.5rem 1rem; 
+  }
+  
+  .registro-formulario h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  form {
+    max-width: 280px;
+    gap: 0.8rem; 
+  }
+  
+  input {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+  
+  button {
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+  
+  .registro-logo {
+    padding: 0.5rem;
+  }
+  
+  .registro-logo img {
+    width: 100px;
+    margin-bottom: 0.5rem;
+  }
+  
   .registro-logo h1 {
     font-size: 1.6rem;
   }
+  
+  .redireccionInicioDeSesion {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+}
 
+/* MUY PEQUEÑOS (menos de 360px) */
+@media (max-width: 360px) {
+  .registro-formulario {
+    padding: 1rem 0.5rem;
+  }
+  
+  form {
+    max-width: 260px;
+  }
+  
+  input {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+  
   button {
+    padding: 0.8rem;
     font-size: 0.95rem;
+  }
+  
+  .registro-logo img {
+    width: 80px;
+  }
+  
+  .registro-logo h1 {
+    font-size: 1.4rem;
+  }
+  
+  .registro-formulario h2 {
+    font-size: 1.3rem;
   }
 }
