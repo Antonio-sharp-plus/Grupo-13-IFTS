@@ -35,6 +35,7 @@ body, :host {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem; 
 }
 
 .login-section h2 {
@@ -46,6 +47,7 @@ form {
   display: flex;
   flex-direction: column;
   width: 60%;
+  max-width: 400px; 
 }
 
 input {
@@ -95,6 +97,7 @@ button:hover {
 .linkRedirRegistro:hover {
   text-decoration: underline;
 }
+
 .linkRecuperar {
   text-align: center;
   margin-top: 1rem;
@@ -112,7 +115,7 @@ button:hover {
 
 .recuperar-container {
   background-color: #4b007d;
-  color:#f8f9fa;
+  color: #f8f9fa;
   padding: 1rem;
   border-radius: 15px;
   text-align: center;
@@ -131,7 +134,6 @@ button:hover {
   cursor: pointer;
 }
 
-
 /* Sección del logo */
 .logo-section {
   flex: 1;
@@ -143,6 +145,7 @@ button:hover {
   align-items: center;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
+  padding: 1rem;
 }
 
 .logo-section .logo {
@@ -153,18 +156,88 @@ button:hover {
 
 .logo-section h1 {
   font-size: 2.5em;
+  text-align: center; /* Centrar texto en pantallas pequeñas */
 }
 
-/* Responsive opcional */
+/* Responsive - MANTIENE EL DISEÑO DE DOS COLUMNAS */
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
+  /* NO cambiar flex-direction a column */
+  
+  /* Ajustar elementos para pantallas pequeñas */
+  .login-section {
+    padding: 0.5rem;
   }
-
+  
+  .login-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    width: 90%; /* Aumentar el ancho del formulario en pantallas pequeñas */
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 1em;
+  }
+  
   .logo-section {
-    border-radius: 0;
+    padding: 0.5rem;
+  }
+  
+  .logo-section .logo {
+    width: 100px;
+  }
+  
+  .logo-section h1 {
+    font-size: 1.8em; 
+  }
+  
+  .redireccionRegistro {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+  
+  .linkRecuperar {
+    font-size: 0.9rem;
   }
 }
+
+/* Para pantallas MUY pequeñas (menos de 480px) */
+@media (max-width: 480px) {
+  .login-section h2 {
+    font-size: 1.3em;
+  }
+  
+  form {
+    width: 95%;
+  }
+  
+  input {
+    padding: 8px;
+    font-size: 0.8em;
+  }
+  
+  button {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+  
+  .logo-section .logo {
+    width: 80px;
+  }
+  
+  .logo-section h1 {
+    font-size: 1.5em;
+  }
+}
+
 /* pantalla de carga */
 .loading-overlay {
   position: fixed;
