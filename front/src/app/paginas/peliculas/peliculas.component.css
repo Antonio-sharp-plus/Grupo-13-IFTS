@@ -1,3 +1,4 @@
+/* CSS base - mantiene tu diseño original */
 .tarjetas-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -17,79 +18,215 @@
 }
 
 :host ::ng-deep {
-            --primary-color: #8e008b;
-            --secondary-color: #5c008b;
-            --dark-color: #2e005d;
-            --light-color: #f8f9fa;
-            --success-color: #4CAF50;
-            --alternative-color1: #ff8300;
-            --alternative-color2: #ff6200;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: var(--dark-color);
-            color: var(--light-color);
-            line-height: 1.6;
-        }
-        
-        .search-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-        
-        .search-box {
-            display: flex;
-            margin-bottom: 2rem;
-        }
-        
-        .search-input {
-            flex: 1;
-            padding: 0.8rem 1rem;
-            border: none;
-            border-radius: 4px 0 0 4px;
-            font-size: 1rem;
-        }
-        
-        .search-btn {
-            padding: 0 1.5rem;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .search-btn:hover {
-            background-color: #0294c4;
-        }
-        
-        .filter-options {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary-color);
-        }
-        
+    --primary-color: #8e008b;
+    --secondary-color: #5c008b;
+    --dark-color: #2e005d;
+    --light-color: #f8f9fa;
+    --success-color: #4CAF50;
+    --alternative-color1: #ff8300;
+    --alternative-color2: #ff6200;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    line-height: 1.6;
+}
+
+.search-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.search-box {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+}
+
+.search-btn {
+    padding: 0 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #0294c4;
+}
+
+.filter-options {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--primary-color);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablets (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    .tarjetas-container {
+        padding: 0 1rem 2rem;
+    }
+    
+    .search-container {
+        padding: 0 1rem;
+        margin: 1.5rem auto;
+    }
+    
+    .tarjeta-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+    
+}
+
+/* Tablets pequeñas y móviles grandes (481px - 768px) */
+@media (max-width: 600px) {
+    .tarjetas-container {
+        padding: 1rem;
+    }
+    
+    .search-container {
+        padding: 0 0.5rem;
+        margin: 1rem auto;
+    }
+    .titulo-seccion {
+        font-size: 1.3rem;
+        margin: 1rem 0 0.5rem;
+    }
+    
+    .tarjeta-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 0.75rem;
+    }
+    
+    
+    /* Filtros responsivos */
+    .filter-options {
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .filter-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Búsqueda responsiva */
+    .search-box {
+        margin-bottom: 1.5rem;
+    }
+    
+    .search-input {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+    
+    .search-btn {
+        padding: 0 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Móviles (320px - 480px) */
+@media (max-width: 360px) {
+    .tarjetas-container {
+        padding: 0 0.3rem 1rem;
+    }
+    
+    .search-container {
+        padding: 0 0.3rem;
+    }
+    
+    .titulo-seccion {
+        font-size: 1.2rem;
+    }
+    
+    .tarjeta-grid {
+        gap: 0.3rem;
+    }
+}
+    
+    /* Filtros para móviles pequeños */
+    .filter-options {
+        gap: 0.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .filter-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+        border-radius: 15px;
+    }
+    
+    /* Búsqueda para móviles */
+    .search-input {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+    
+    .search-btn {
+        padding: 0 1rem;
+        font-size: 0.85rem;
+    }
+
+
+/* Móviles muy pequeños (menos de 320px) */
+@media screen and (max-width: 320px) {
+    .tarjetas-container {
+        padding: 0 0.5rem 1rem;
+    }
+    
+    .search-container {
+        padding: 0 0.5rem;
+    }
+    
+    .tarjeta-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
+    }
+    
+    .filter-btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .titulo-seccion {
+        font-size: 1.2rem;
+    }
+}

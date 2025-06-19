@@ -12,6 +12,7 @@
 .search-box {
   display: flex;
   margin-bottom: 2rem;
+  width: 100%; 
 }
 
 .search-input {
@@ -34,23 +35,73 @@
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s;
+  white-space: nowrap; 
 }
 
 .search-btn:hover {
   background-color: #ff6200;
 }
 
+/* Pantallas grandes */
+@media (max-width: 768px) {
+  .search-container {
+    padding: 0 1rem;
+    margin: 1.5rem auto;
+  }
+  
+  .search-input {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.95rem;
+  }
+  
+  .search-btn {
+    padding: 0 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* celular */
 @media (max-width: 600px) {
-    .search-box {
-        flex-direction: column;
-    }
+  .search-container {
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
+  
+  .search-box {
+    /* Mantener flex horizontal, NO cambiar a column */
+    display: flex;
+    width: 100%;
+  }
+  
+  .search-input {
+    flex: 1; 
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 4px 0 0 4px; 
+    min-width: 0;
+  }
+  
+  .search-btn {
+    padding: 0 1rem; 
+    font-size: 1rem;
+    border-radius: 0 4px 4px 0;
+    flex-shrink: 0; 
+  }
+}
 
-    .search-input, .search-btn{
-        border-radius: 0;
-        width: 100%;
-    }
-
-    .search-btn {
-        border-radius: 0 0 4px 4px;
-    }
+/* Pantallas muy pequeñas */
+@media (max-width: 360px) {
+  .search-container {
+    padding: 0 0.5rem;
+  }
+  
+  .search-input {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+  
+  .search-btn {
+    padding: 0 0.8rem;
+    font-size: 0.9rem;
+  }
 }
