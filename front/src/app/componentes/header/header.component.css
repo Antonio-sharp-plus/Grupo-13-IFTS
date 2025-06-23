@@ -70,6 +70,7 @@ a:active {
     }
 
     .header-container {
+        display: flex;
         justify-content: space-between; /* Asegura que el logo y el menú estén alineados */
     }
 
@@ -78,9 +79,15 @@ a:active {
     }
 
     /* cc para mostrar boton hamburguesa */
-    .menu-toggle {
-        display: block;
+    .menu-toggle{
+        display: flex;
+        margin-bottom: 8px;
     }
+    .div-menu {
+        align-self: end;
+        margin-left: auto;
+    }
+   
 
     /* css para ocultar el menu por defecto en celular */
     nav ul {
