@@ -1,12 +1,17 @@
 <header>
     <div class="header-container">
-        
-        <a routerLink="/"><img src="\images\logo.png" class="logo" alt="logo de pochocleando"></a>
+
+        <div class="logo-pochi">
+            <a routerLink="/"><img src="\images\logo.png" class="logo" alt="logo de pochocleando"></a>
+        </div>
         
         <!-- Botón hamburguesa -->
-        <button class="menu-toggle" (click)="toggleMenu()">
-            ☰
-        </button>
+         <div class="div-menu">
+            <button class="menu-toggle" (click)="toggleMenu()">
+                ☰
+            </button>
+         </div>
+        
         
         <nav>
             <ul [class.active]="menuActive">
