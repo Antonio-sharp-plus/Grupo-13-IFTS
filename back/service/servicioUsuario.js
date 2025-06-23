@@ -9,7 +9,7 @@ exports.registrarUsuario = async (data) => {
   try {
     return await repositorioUsuarios.crearUsuario(data);
   } catch (error) {
-    console.log('Error al registrar usuario:', error.message);
+    throw new Error('Error al registrar usuario:', error.message);
   }
 };
 
@@ -30,6 +30,7 @@ exports.loginUsuario = async ({ email, password }) => {
 exports.buscarUsuarioPorEmail = async (email) => {
   return await repositorioUsuarios.buscarUsuarioPorEmail(email); 
 };
+
 exports.enviarEmailRecuperacion = async (email) => {
   const usuario = await repositorioUsuarios.buscarUsuarioPorEmail(email);
   if (!usuario) throw new Error('Usuario no encontrado');

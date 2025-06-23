@@ -9,27 +9,30 @@
   <div *ngIf="favoritos.length === 0" class="sin-favs">No tenés favoritos aún. 😓</div>
 
   <div class="tarjeta-grid">
+  @for (fav of favoritos; track fav.id) {
     <app-tarjeta
-        *ngFor="let fav of favoritos"
-        [id] = "fav.id"
-        [tipo] = "fav.tipo"
-        [titulo] = "fav.titulo ?? fav.name"
-        [anio]="(fav.anio ?? fav.anio) | date: 'yyyy'"
-        [puntuacion] = "fav.puntaje"
-        [poster] = "'https://image.tmdb.org/t/p/w500' + fav.poster"
-        ></app-tarjeta>
-  </div>
+      [id]="fav.id"
+      [tipo]="fav.tipo"
+      [titulo]="fav.titulo ?? fav.name"
+      [anio]="(fav.anio ?? fav.anio) | date: 'yyyy'"
+      [puntuacion]="fav.puntaje"
+      [poster]="'https://image.tmdb.org/t/p/w500' + fav.poster"
+    ></app-tarjeta>
+  }
+</div>
   
   <div class="resenas-section">
   <h3 class="tituloResenas">Mis reseñas</h3>
-  <div *ngFor="let r of resenas" class="resena-perfil">
-    <b>{{ r.titulo }}</b>:
-    <span *ngIf="editandoResenaId !== r._id">{{ r.comentario }}</span>
-    <input *ngIf="editandoResenaId === r._id" [(ngModel)]="nuevoComentario" />
-    <button *ngIf="editandoResenaId !== r._id" (click)="empezarEditarResena(r)">Editar</button>
-    <button *ngIf="editandoResenaId === r._id" (click)="guardarEdicionResena(r)">Guardar</button>
-    <button *ngIf="editandoResenaId === r._id" (click)="cancelarEdicion()">Cancelar</button>
-  </div>
+  @for (r of resenas; track r._id) {
+    <div class="resena-perfil">
+      <b>{{ r.titulo }}</b>:
+      <span *ngIf="editandoResenaId !== r._id">{{ r.comentario }}</span>
+      <input *ngIf="editandoResenaId === r._id" [(ngModel)]="nuevoComentario" />
+      <button *ngIf="editandoResenaId !== r._id" (click)="empezarEditarResena(r)">Editar</button>
+      <button *ngIf="editandoResenaId === r._id" (click)="guardarEdicionResena(r)">Guardar</button>
+      <button *ngIf="editandoResenaId === r._id" (click)="cancelarEdicion()">Cancelar</button>
+    </div>
+  }
 </div>
 
 
