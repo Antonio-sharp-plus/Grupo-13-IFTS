@@ -54,9 +54,11 @@
 
                 <div class="listaResenas" *ngIf="resenas?.length">
                     <h3 class="tituloResenas">Reseñas</h3>
-                    <div *ngFor="let r of resenas" class="resena-item">
+                    @for (r of resenas; track r._id) {
+                    <div class="resena-item">
                         <b>{{ r.usuario?.username }}</b>: {{ r.comentario }}
                     </div>
+                    }
                 </div>
             </div>
         </div>
