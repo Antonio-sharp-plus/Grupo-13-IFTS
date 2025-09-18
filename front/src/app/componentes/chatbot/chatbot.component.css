@@ -1,0 +1,124 @@
+.pochibot {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2000;
+}
+
+.pochibot-button {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid #ff8300;
+  background: linear-gradient(135deg, #5c008b, #2e005d);
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+  padding: 0;
+  overflow: hidden;
+}
+
+.pochibot-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pochibot-panel {
+  position: absolute;
+  right: 0;
+  bottom: 80px;
+  width: min(92vw, 420px);
+  max-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  background: #2e005d;
+  color: #fff;
+  border: 1px solid rgba(255,131,0,0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+}
+
+.pochibot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.8rem;
+  background: #5c008b;
+  border-bottom: 1px solid rgba(255,131,0,0.4);
+}
+
+.pochibot-header .title {
+  font-weight: 700;
+  color: #ff8300;
+}
+
+.pochibot-header .close {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.pochibot-messages {
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: auto;
+}
+
+.pochibot-messages .msg {
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  max-width: 80%;
+  line-height: 1.3;
+}
+
+.pochibot-messages .msg.bot {
+  background: rgba(255,131,0,0.15);
+  border: 1px solid rgba(255,131,0,0.3);
+}
+
+.pochibot-messages .msg.user {
+  align-self: flex-end;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.pochibot-input {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  background: rgba(0,0,0,0.15);
+}
+
+.pochibot-input input {
+  flex: 1;
+  border-radius: 8px;
+  border: 1px solid rgba(255,131,0,0.35);
+  padding: 0.5rem 0.6rem;
+}
+
+.pochibot-input button {
+  background: linear-gradient(135deg, #ff8300, #ff6200);
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .pochibot { right: 12px; bottom: 12px; }
+  .pochibot-button { width: 60px; height: 60px; }
+  .pochibot-panel { width: min(96vw, 360px); max-height: 60vh; }
+}
+
+@media (max-width: 480px) {
+  .pochibot-button { width: 56px; height: 56px; }
+  .pochibot-panel { width: min(98vw, 320px); max-height: 58vh; }
+}
+
+

@@ -1,0 +1,23 @@
+<div class="pochibot">
+  <button class="pochibot-button" (click)="toggleOpen()" aria-label="Abrir chat">
+    <img src="images/Pochi-chat-bot.jpg" alt="Pochi Bot" />
+  </button>
+
+  <div class="pochibot-panel" *ngIf="isOpen">
+    <div class="pochibot-header">
+      <div class="title">Pochi Bot</div>
+      <button class="close" (click)="toggleOpen()" aria-label="Cerrar">×</button>
+    </div>
+    <div class="pochibot-messages">
+      @for (m of messages; track $index) {
+        <div class="msg" [class.bot]="m.from === 'bot'" [class.user]="m.from === 'user'">{{ m.text }}</div>
+      }
+    </div>
+    <div class="pochibot-input">
+      <input [(ngModel)]="userInput" (keyup.enter)="send()" placeholder="Escribí tu mensaje..." />
+      <button (click)="send()">Enviar</button>
+    </div>
+  </div>
+</div>
+
+
