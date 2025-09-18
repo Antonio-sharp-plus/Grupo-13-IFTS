@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Location } from '@angular/common';
 import { ApiGeneral } from '../../servicios/api.service';
 import { Subscription } from 'rxjs';
 import { FavoritosService } from '../../servicios/favoritos.service';
@@ -28,7 +29,8 @@ export class DetalleComponent implements OnInit {
     private apiGeneral: ApiGeneral,
     private favoritosService: FavoritosService,
     private snackBar: MatSnackBar,
-    private resenasService: ResenasService
+    private resenasService: ResenasService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -146,4 +148,13 @@ export class DetalleComponent implements OnInit {
     }
   });
 }
+
+  volver() {
+    // Vuelve a la página anterior; si no hay historial, navega a home
+    if (window.history.length > 1) {
+      this.location.back();
+    } else {
+      window.location.href = '/';
+    }
+  }
 }
