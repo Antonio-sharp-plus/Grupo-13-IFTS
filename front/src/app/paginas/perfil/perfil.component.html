@@ -20,6 +20,21 @@
     ></app-tarjeta>
   }
 </div>
+
+  <h3>Pochi recomienda</h3>
+  <div *ngIf="!cargandoRecomendaciones && recomendados.length === 0" class="sin-favs">No hay recomendaciones por ahora.</div>
+  <div class="tarjeta-grid" *ngIf="recomendados.length > 0">
+  @for (rec of recomendados; track rec.id) {
+    <app-tarjeta
+      [id]="rec.id"
+      [tipo]="rec.tipo || rec.media_type"
+      [titulo]="rec.title ?? rec.name"
+      [anio]="(rec.release_date ?? rec.first_air_date) | date: 'yyyy'"
+      [puntuacion]="rec.vote_average ?? rec.puntaje"
+      [poster]="'https://image.tmdb.org/t/p/w500' + rec.poster_path"
+    ></app-tarjeta>
+  }
+</div>
   
   <div class="resenas-section">
   <h3 class="tituloResenas">Mis reseñas</h3>
