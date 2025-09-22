@@ -2,9 +2,9 @@ const servicioChatBot = require("../service/servicioChatBot");
 
 async function LlamarChatbotController(req, res) {
     try {
-        const mensaje = req.params.mensaje;
-        const datos = await servicioChatBot.LlamarChatBotService(mensaje);
-        return datos;
+        const prompt = req.params.prompt;
+        const datos = await servicioChatBot.LlamarChatBotService(prompt);
+        res.json({ recomendacion: datos, prompt: prompt });    
     }
     catch (error) {
         res.status(500).json({ error: error.message });

@@ -2,6 +2,6 @@ const express = require('express');
 const router = express.Router();
 const controllerChatbot = require('../controller/controllerChatbot');
 
-router.get('/:mensaje', controllerChatbot.LlamarChatbotController);
+router.get('/:prompt', controllerChatbot.LlamarChatbotController);
 
 module.exports = router;
