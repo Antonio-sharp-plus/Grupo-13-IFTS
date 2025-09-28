@@ -82,6 +82,16 @@ cancelarEdicion() {
   this.editandoResenaId = null;
 }
 
+  eliminarResena(resena: any) {
+    this.resenasService.eliminarResena(resena._id).subscribe({
+      next: () => {
+        this.resenas = this.resenas.filter(r => r._id !== resena._id);
+        alert('Reseña eliminada');
+      },
+      error: () => alert('Error al eliminar reseña')
+    });
+  }
+
   cerrarSesion() {
   this.loginService.logout();
   this.router.navigate(['']);

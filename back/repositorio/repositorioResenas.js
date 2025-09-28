@@ -18,3 +18,7 @@ exports.obtenerResenasPorContenido = async (contenidoId) => {
 exports.editarResena = async (resenaId, comentario) => {
   return await Resena.findByIdAndUpdate(resenaId, { comentario }, { new: true });
 };
+
+exports.eliminarResena = async (resenaId) => {
+  return await Resena.findByIdAndDelete(resenaId);
+};

@@ -43,6 +43,16 @@ exports.obtenerResenasPorContenido = async (contenidoId) => {
   }
 };
 
+exports.eliminarResena = async (resenaId) => {
+  try {
+    //console.log('Servicio: eliminarResena', resenaId);
+    return await repositorioResenas.eliminarResena(resenaId);
+  } catch (error) {
+    //console.log('Servicio: eliminarResena Error:', error);
+    throw new Error(error.message || 'Error al eliminar reseña');
+  }
+};
+
 exports.agregarVista = async (userId, contenidoId) => {
   try {
     //console.log('Servicio: agregarVista', userId, contenidoId);

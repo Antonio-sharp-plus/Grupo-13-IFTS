@@ -25,4 +25,8 @@ export class ResenasService {
   obtenerResenasPorContenido(contenidoId: string): Observable<any[]> {
   return this.http.get<any[]>(`${environment.apiUrl}/resenas/contenido/${contenidoId}`);
 }
+
+  eliminarResena(resenaId: string): Observable<any> {
+    return this.http.delete(`${environment.apiUrl}/resenas/${resenaId}`);
+  }
 }

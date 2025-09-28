@@ -43,6 +43,7 @@
       <b>{{ r.titulo }}</b>:
       <span *ngIf="editandoResenaId !== r._id">{{ r.comentario }}</span>
       <input *ngIf="editandoResenaId === r._id" [(ngModel)]="nuevoComentario" />
+      <button class="boton-eliminar" (click)="eliminarResena(r)">Eliminar</button>
       <button *ngIf="editandoResenaId !== r._id" (click)="empezarEditarResena(r)">Editar</button>
       <button *ngIf="editandoResenaId === r._id" (click)="guardarEdicionResena(r)">Guardar</button>
       <button *ngIf="editandoResenaId === r._id" (click)="cancelarEdicion()">Cancelar</button>

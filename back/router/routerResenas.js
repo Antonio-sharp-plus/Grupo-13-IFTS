@@ -12,4 +12,6 @@ router.put('/:resenaId', controllerResenas.editarResena);
 
 router.get('/contenido/:contenidoId', controllerResenas.obtenerResenasPorContenido);
 
+router.delete('/:resenaId', controllerResenas.eliminarResena);
+
 module.exports = router;
