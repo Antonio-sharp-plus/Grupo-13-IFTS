@@ -47,6 +47,18 @@ exports.obtenerResenasPorContenido = async (req, res) => {
   }
 };
 
+exports.eliminarResena = async (req, res) => {
+  try {
+    //console.log('Controller: eliminarResena', req.params);
+    const { resenaId } = req.params;
+    await serviceResenas.eliminarResena(resenaId);
+    res.status(204).send();
+  } catch (error) {
+    //console.log('Controller eliminarResena error', error);
+    res.status(400).json({ error: error.message });
+  }
+};
+
 exports.agregarVista = async (req, res) => {
   try {
     //console.log('Controller: agregarVista', req.body);
