@@ -26,7 +26,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
   recomendados: any[] = [];
   cargandoRecomendaciones: boolean = false;
   private intervaloRecomendaciones: any;
-  private idsUltimosRecomendados = new Set<string>();
+  private historialRecomendados = new Map<string, number>(); // id -> timestamp mostrado
 
   constructor(
     private favoritosService: FavoritosService,
@@ -49,7 +49,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
         this.favoritos = data;
         console.log('Favoritos:', this.favoritos);
         this.generarRecomendaciones();
-        // refrescar cada 1 minuto, evitando repetir los del ciclo anterior
+        // refrescar cada 1 minuto, evitando repetir durante 10 minutos
         if (this.intervaloRecomendaciones) clearInterval(this.intervaloRecomendaciones);
         this.intervaloRecomendaciones = setInterval(() => {
           this.generarRecomendaciones(true);
@@ -94,11 +94,18 @@ cancelarEdicion() {
     }
   }
 
-  private async generarRecomendaciones(excluirUltimos: boolean = false) {
+  private async generarRecomendaciones(_excluirUltimos: boolean = false) {
     this.cargandoRecomendaciones = true;
     try {
       const favoritosIds = new Set(this.favoritos.map(f => String(f.id)));
-      const excluirIds = excluirUltimos ? this.idsUltimosRecomendados : new Set<string>();
+      const ahora = Date.now();
+      this.limpiarHistorial(ahora);
+      const excluirIds = new Set<string>();
+      for (const [id, ts] of this.historialRecomendados) {
+        if (ahora - ts < 10 * 60 * 1000) {
+          excluirIds.add(id);
+        }
+      }
 
       if (this.favoritos.length === 0) {
         const trending: any[] = await firstValueFrom(this.apiGeneral.getTrending());
@@ -113,7 +120,9 @@ cancelarEdicion() {
           if (seleccion.length >= 5) break;
         }
         this.recomendados = seleccion;
-        this.idsUltimosRecomendados = new Set(this.recomendados.map((x: any) => String(x.id)));
+        for (const x of this.recomendados) {
+          this.historialRecomendados.set(String(x.id), ahora);
+        }
         return;
       }
 
@@ -226,12 +235,23 @@ cancelarEdicion() {
       }
 
       this.recomendados = seleccion.slice(0, cuotaTotal);
-      this.idsUltimosRecomendados = new Set(this.recomendados.map((x: any) => String(x.id)));
+      for (const x of this.recomendados) {
+        this.historialRecomendados.set(String(x.id), ahora);
+      }
     } catch (e) {
       console.error('Error generando recomendaciones', e);
       this.recomendados = [];
     } finally {
       this.cargandoRecomendaciones = false;
+    }
+  }
+
+  private limpiarHistorial(ahora: number) {
+    const EXCLUSION_MS = 10 * 60 * 1000;
+    for (const [id, ts] of this.historialRecomendados) {
+      if (ahora - ts >= EXCLUSION_MS) {
+        this.historialRecomendados.delete(id);
+      }
     }
   }
 
