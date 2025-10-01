@@ -15,7 +15,6 @@ const authRouter = require('./router/routerAuth');
 const favoritosRouter = require('./router/routerFavoritos');
 const resenasRouter = require('./router/routerResenas');
 const chatbotRouter = require('./router/routerChatbot');
-const chatGeminiRouter = require('./router/routerChatGemini');
 
 
 // variables de entorno
@@ -50,7 +49,6 @@ app.use('/api/auth', authRouter);
 app.use('/api/favoritos', favoritosRouter);
 app.use('/api/resenas', resenasRouter);
 app.use('/api/chatbot', chatbotRouter);
-app.use('/api/chatgemini', chatGeminiRouter);
 
 // conexion a la base de datos
 mongo.connect(connection_string)
