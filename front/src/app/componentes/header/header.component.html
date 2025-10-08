@@ -5,16 +5,25 @@
             <a routerLink="/"><img src="\images\logo.png" class="logo" alt="logo de pochocleando"></a>
         </div>
         
+        <!-- Botón de dislexia para mobile -->
+        <button class="btn-dislexia mobile" (click)="toggleDislexia()">
+            <img src="/images/dislexia.png" alt="Dislexia" />
+        </button>
+
         <!-- Botón hamburguesa -->
          <div class="div-menu">
             <button class="menu-toggle" (click)="toggleMenu()">
                 ☰
             </button>
          </div>
-        
-        
+
         <nav>
             <ul [class.active]="menuActive">
+                <li class="desktop-only">
+                    <button class="btn-dislexia" (click)="toggleDislexia()">
+                        <img src="/images/dislexia.png" alt="Dislexia" />
+                    </button>
+                </li>
                 <li> 
                     <a routerLink="/" (click)="closeMenu()">Inicio</a> 
                 </li>

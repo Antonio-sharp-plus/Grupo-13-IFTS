@@ -13,6 +13,7 @@ export class HeaderComponent {
   
   usuario: any = null;
   menuActive: boolean = false; // Nueva propiedad para controlar el menú
+  usarDislexia: boolean = false;
 
   constructor(private loginService: LoginService){
   }
@@ -31,6 +32,18 @@ export class HeaderComponent {
   // Método para cerrar el menú (opcional, cuando haces click en un enlace)
   closeMenu(): void {
     this.menuActive = false;
+  }
+
+  toggleDislexia(): void {
+    
+    this.usarDislexia = !this.usarDislexia;
+
+    if (this.usarDislexia) {
+      document.body.classList.add('usar-dislexia');
+    } else {
+      document.body.classList.remove('usar-dislexia');
+    }
+
   }
 
 }

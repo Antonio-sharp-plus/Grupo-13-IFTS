@@ -1,3 +1,11 @@
+:host-context(.usar-dislexia) .pochibot-panel,
+:host-context(.usar-dislexia) .pochibot-messages .msg,
+:host-context(.usar-dislexia) .pochibot-input input,
+:host-context(.usar-dislexia) .pochibot-input button {
+  font-family: 'SylexiadSans', sans-serif !important;
+  font-size: 1rem; /* usa rem para escalar con html */
+}
+
 .pochibot {
   position: fixed;
   right: 20px;

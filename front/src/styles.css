@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
+@font-face {
+    font-family: 'SylexiadSans';
+    src: url('/fonts/SylexiadSansThin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SylexiadSans';
+    src: url('/fonts/SylexiadSansThin-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,11 +22,18 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+html {
+    font-size: 16px;
+}
+
 body {
     background-color: #2E005D;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body.usar-dislexia :where(p, a, button, input, textarea, label, li, span, h1, h2, h3, h4, h5, h6):not(.fas):not(.fa) {
+    font-family: 'SylexiadSans', sans-serif !important;
+}
+
+body.usar-dislexia {
+    font-size: 19px;
+}
