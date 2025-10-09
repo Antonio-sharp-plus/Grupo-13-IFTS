@@ -51,6 +51,7 @@
       />
 
       <div *ngIf="passwordInput.invalid && passwordInput.touched" class="errorMensaje">
+        <p *ngIf="passwordInput.errors?.['required']">La contraseña es obligatoria.</p>
         <p *ngIf="passwordInput.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</p>
       </div>
 
