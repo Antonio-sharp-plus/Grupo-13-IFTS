@@ -1,38 +1,69 @@
 <div class="registro-container">
   <div class="registro-logo">
-    <img src="\images\LOGOAPP.png" alt="Logo" /> <!-- falla la img -->
+    <img src="\images\LOGOAPP.png" alt="Logo" />
     <h1>Pochocleando</h1>
   </div>
+
   <div class="registro-formulario">
     <h2>Empezá a Pochoclear</h2>
-    <form (ngSubmit)="onSubmit()">
+
+    <form #registroForm="ngForm" (ngSubmit)="onSubmit()">
       <input
         type="text"
         placeholder="Nombre de usuario"
         [(ngModel)]="username"
         name="username"
+        #userInput="ngModel"
+        minlength="4"
         required
+        pattern="[A-Za-z0-9]{1,13}"
       />
+
+      <div *ngIf="userInput.invalid && userInput.touched" class="errorMensaje">
+        <p *ngIf="userInput.errors?.['required']">El nombre de usuario es obligatorio.</p>
+        <p *ngIf="userInput.errors?.['pattern']">El nombre de usuario debe tener como máximo 13 caracteres y sólo letras y/o números.</p>
+        <p *ngIf="userInput.errors?.['minlength']">El nombre de usuario debe tener como mínimo 4 caracteres.</p>
+      </div>
+
       <input
         type="email"
         placeholder="Email"
         [(ngModel)]="email"
         name="email"
         required
+        #emailInput="ngModel"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,4}"
       />
+
+      <div *ngIf="emailInput.invalid && emailInput.touched" class="errorMensaje">
+        <p *ngIf="emailInput.errors?.['required']">El correo electrónico es obligatorio.</p>
+        <p *ngIf="emailInput.errors?.['pattern']">Ingresá un correo electrónico válido.</p>
+      </div>
+
       <input
         type="password"
         placeholder="Contraseña"
         [(ngModel)]="password"
         name="password"
+        #passwordInput="ngModel"
+        minlength="6"
         required
       />
-      <button type="submit">Crear Cuenta</button>
+
+      <div *ngIf="passwordInput.invalid && passwordInput.touched" class="errorMensaje">
+        <p *ngIf="passwordInput.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</p>
+      </div>
+
+
+      <button type="submit" [disabled]="registroForm.invalid">Crear Cuenta</button>
+
       <div *ngIf="error" class="errorMensaje">{{ error }}</div>
+
       <p class="redireccionInicioDeSesion">
         ¿Ya tenés cuenta?
         <a class="linkRedirInicioDeSesion" routerLink="/login">Iniciar Sesión</a>
       </p>
+      
     </form>
   </div>
 </div>
