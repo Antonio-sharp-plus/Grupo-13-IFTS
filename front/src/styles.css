@@ -30,7 +30,7 @@ body {
     background-color: #2E005D;
 }
 
-body.usar-dislexia :where(p, a, button, input, textarea, label, li, span, h1, h2, h3, h4, h5, h6):not(.fas):not(.fa) {
+body.usar-dislexia :where(div, b, p, a, button, input, textarea, label, li, span, h1, h2, h3, h4, h5, h6):not(.fas):not(.fa) {
     font-family: 'SylexiadSans', sans-serif !important;
 }
 
