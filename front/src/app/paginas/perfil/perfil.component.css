@@ -63,43 +63,53 @@ h3 {
     gap: 1.5rem;
 }
 
+.fondo-tarjetas {
+    background: rgb(128, 2, 190); /* violeta más clarito */
+    border-radius: 1em;
+    padding: 1em;
+}
+
 .resenas-section {
-    margin-top: 2.5em;
-    background: rgba(92, 0, 139, 0.10);
+    margin-top: 1em;
+    background: rgb(128, 2, 190); /* violeta más clarito */
     border-radius: 1em;
     padding: 1.5em;
     box-shadow: 0 2px 8px rgba(92,0,139,0.08);
-    max-width: 38em;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.tituloResenas {
-    color: var(--alternative-color1);
-    font-size: 1.3em;
-    font-weight: bold;
-    margin-bottom: 1em;
-    letter-spacing: 1px;
-    text-align: left;
-}
-
 .resena-perfil {
     border-bottom: 1px solid var(--alternative-color1);
-    padding: 0.7em 0;
+    border-top: 1px solid var(--alternative-color1);;
+    padding: 0.9em 0;
     color: var(--light-color);
-    display: flex;
-    align-items: flex-start;
-    gap: 1em;
+    gap: 3em;
     max-width: 100%;
     word-break: break-word;
     white-space: pre-line;
-    flex-wrap: wrap;
+}
+
+.resena-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botones {
+    display: flex;
+    gap: 0.5em;
+}
+
+.resena-body {
+    margin-top: 0.5em;
 }
 
 .resena-perfil input {
     flex: 1 1 10em;
     min-width: 8em;
+    width: 100%;
     padding: 0.3em 0.7em;
     border-radius: 0.5em;
     border: 1px solid var(--alternative-color1);
@@ -149,7 +159,7 @@ h3 {
     }
     
     .resenas-section {
-        max-width: 90%;
+        max-width: 100%;
         padding: 1.3em;
     }
 }
@@ -196,7 +206,7 @@ h3 {
     
     .resenas-section {
         margin-top: 2em;
-        max-width: 95%;
+        max-width: 100%;
         padding: 1.2em;
     }
     

@@ -2,51 +2,64 @@
   <div class="header-perfil">
     <h2>¡Hola, {{ username }}! 🍿</h2>
     <button class="logout-btn" (click)="cerrarSesion()">Cerrar sesión</button>
-  </div>
+</div>
 
-  <h3>Estos son tus favoritos</h3>
+<h3>Mis favoritos 💯</h3>
 
-  <div *ngIf="favoritos.length === 0" class="sin-favs">No tenés favoritos aún. 😓</div>
+<div *ngIf="favoritos.length === 0" class="sin-favs">No tenés favoritos aún. 😓</div>
 
+<div class="fondo-tarjetas">
   <div class="tarjeta-grid">
-  @for (fav of favoritos; track fav.id) {
-    <app-tarjeta
-      [id]="fav.id"
-      [tipo]="fav.tipo"
-      [titulo]="fav.titulo ?? fav.name"
-      [anio]="(fav.anio ?? fav.anio) | date: 'yyyy'"
-      [puntuacion]="fav.puntaje"
-      [poster]="'https://image.tmdb.org/t/p/w500' + fav.poster"
-    ></app-tarjeta>
-  }
+    @for (fav of favoritos; track fav.id) {
+      <app-tarjeta
+        [id]="fav.id"
+        [tipo]="fav.tipo"
+        [titulo]="fav.titulo ?? fav.name"
+        [anio]="(fav.anio ?? fav.anio) | date: 'yyyy'"
+        [puntuacion]="fav.puntaje"
+        [poster]="'https://image.tmdb.org/t/p/w500' + fav.poster"
+      ></app-tarjeta>
+    }
+  </div>
 </div>
 
-  <h3>Pochi recomienda</h3>
-  <div *ngIf="!cargandoRecomendaciones && recomendados.length === 0" class="sin-favs">No hay recomendaciones por ahora.</div>
-  <div class="tarjeta-grid" *ngIf="recomendados.length > 0">
-  @for (rec of recomendados; track rec.id) {
-    <app-tarjeta
-      [id]="rec.id"
-      [tipo]="rec.tipo || rec.media_type"
-      [titulo]="rec.title ?? rec.name"
-      [anio]="(rec.release_date ?? rec.first_air_date) | date: 'yyyy'"
-      [puntuacion]="rec.vote_average ?? rec.puntaje"
-      [poster]="'https://image.tmdb.org/t/p/w500' + rec.poster_path"
-    ></app-tarjeta>
-  }
-</div>
+<h3>Pochi recomienda ✅</h3>
+<div *ngIf="!cargandoRecomendaciones && recomendados.length === 0" class="sin-favs">No hay recomendaciones por ahora.</div>
   
-  <div class="resenas-section">
-  <h3 class="tituloResenas">Mis reseñas</h3>
+<div class="fondo-tarjetas">
+  <div class="tarjeta-grid" *ngIf="recomendados.length > 0">
+    @for (rec of recomendados; track rec.id) {
+      <app-tarjeta
+        [id]="rec.id"
+        [tipo]="rec.tipo || rec.media_type"
+        [titulo]="rec.title ?? rec.name"
+        [anio]="(rec.release_date ?? rec.first_air_date) | date: 'yyyy'"
+        [puntuacion]="rec.vote_average ?? rec.puntaje"
+        [poster]="'https://image.tmdb.org/t/p/w500' + rec.poster_path"
+      ></app-tarjeta>
+    }
+  </div>
+</div>
+
+<h3>Mis reseñas 📝</h3>
+<div class="resenas-section">
   @for (r of resenas; track r._id) {
     <div class="resena-perfil">
-      <b>{{ r.titulo }}</b>:
-      <span *ngIf="editandoResenaId !== r._id">{{ r.comentario }}</span>
-      <input *ngIf="editandoResenaId === r._id" [(ngModel)]="nuevoComentario" />
-      <button class="boton-eliminar" (click)="eliminarResena(r)">Eliminar</button>
-      <button *ngIf="editandoResenaId !== r._id" (click)="empezarEditarResena(r)">Editar</button>
-      <button *ngIf="editandoResenaId === r._id" (click)="guardarEdicionResena(r)">Guardar</button>
-      <button *ngIf="editandoResenaId === r._id" (click)="cancelarEdicion()">Cancelar</button>
+
+      <div class="resena-header">
+          <b>"{{ r.titulo }}"</b>
+        <div class="botones">
+          <button class="boton-eliminar" (click)="eliminarResena(r)">Eliminar</button>
+          <button *ngIf="editandoResenaId !== r._id" (click)="empezarEditarResena(r)">Editar</button>
+          <button *ngIf="editandoResenaId === r._id" (click)="guardarEdicionResena(r)">Guardar</button>
+          <button *ngIf="editandoResenaId === r._id" (click)="cancelarEdicion()">Cancelar</button>
+        </div>
+      </div>
+
+      <div class="resena-body">
+        <span *ngIf="editandoResenaId !== r._id">{{ r.comentario }}</span>
+        <input *ngIf="editandoResenaId === r._id" [(ngModel)]="nuevoComentario" />
+      </div>
     </div>
   }
 </div>
