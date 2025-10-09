@@ -18,18 +18,22 @@ export class SeriesComponent implements OnInit{
   tituloSeccion = "Series populares";
   tipo = 'tv';
 
+  paginaActual: number = 1;
+  totalPaginas: number = 10;
+  categoriaActual: string = 'populares';
+
   constructor(
     private snackBar: MatSnackBar, 
     private seriesService: SeriesService,
   ) {}
 
   async ngOnInit() {
-    this.seriesService.getSeriesPopulares().subscribe(data => this.datos = data);
+    this.seriesService.getSeriesPopulares(1).subscribe(data => this.datos = data);
   }
 
   botones = ["filter-btn active", "filter-btn", "filter-btn", "filter-btn", "filter-btn", "filter-btn", "filter-btn"]
 
-  async SeriesPopulares(boton: number): Promise<void>{
+  async SeriesPopulares(boton: number, page: number = 1): Promise<void>{
     this.tituloSeccion = "Series populares";
 
     for (let i = 0; i <= 3; i++) {
@@ -37,10 +41,13 @@ export class SeriesComponent implements OnInit{
     }
     this.botones[boton] = "filter-btn active";
 
-    this.seriesService.getSeriesPopulares().subscribe(data => this.datos = data);
+    this.categoriaActual = 'populares';
+    this.paginaActual = page;
+
+    this.seriesService.getSeriesPopulares(page).subscribe(data => this.datos = data);
   }
 
-  async SeriesMejorValoradas(boton: number): Promise<void>{
+  async SeriesMejorValoradas(boton: number, page: number = 1): Promise<void>{
     this.tituloSeccion = "Series mejor valoradas";
 
     for (let i = 0; i <= 3; i++) {
@@ -48,10 +55,13 @@ export class SeriesComponent implements OnInit{
     }
     this.botones[boton] = "filter-btn active";
 
-   this.seriesService.getSeriesValoradas().subscribe(data => this.datos = data);
+    this.categoriaActual = 'valoradas';
+    this.paginaActual = page;
+
+   this.seriesService.getSeriesValoradas(page).subscribe(data => this.datos = data);
   }
 
-  async SeriesComedia(boton: number): Promise<void>{
+  async SeriesComedia(boton: number, page: number = 1): Promise<void>{
     this.tituloSeccion = "Series de comedia";
 
     for (let i = 0; i <= 3; i++) {
@@ -59,10 +69,13 @@ export class SeriesComponent implements OnInit{
     }
     this.botones[boton] = "filter-btn active";
 
-    this.seriesService.getSeriesComedia().subscribe(data => this.datos = data);
+    this.categoriaActual = 'comedia';
+    this.paginaActual = page;
+
+    this.seriesService.getSeriesComedia(page).subscribe(data => this.datos = data);
   }
 
-  async SeriesDrama(boton: number): Promise<void>{
+  async SeriesDrama(boton: number, page: number = 1): Promise<void>{
     this.tituloSeccion = "Series de drama";
 
     for (let i = 0; i <= 3; i++) {
@@ -70,7 +83,10 @@ export class SeriesComponent implements OnInit{
     }
     this.botones[boton] = "filter-btn active";
 
-   this.seriesService.getSeriesDrama().subscribe(data => this.datos = data);
+    this.categoriaActual = 'drama';
+    this.paginaActual = page;
+
+   this.seriesService.getSeriesDrama(page).subscribe(data => this.datos = data);
   }
   
   procesarResultados(resultados: any[]) {
@@ -79,6 +95,39 @@ export class SeriesComponent implements OnInit{
 
   actualizarTituloBusqueda(busqueda: string): void {
     this.tituloSeccion = `Resultados para "${busqueda}"`;
+  }
+
+    irAPagina(page: number) {
+    if (page < 1 || page > this.totalPaginas) return;
+
+    const botonActivo = this.botones.findIndex(b => b.includes('active'));
+
+    switch(this.categoriaActual) {
+      case 'populares':
+        this.SeriesPopulares(botonActivo, page);
+        break;
+      case 'valoradas':
+        this.SeriesMejorValoradas(botonActivo, page);
+        break;
+      case 'comedia':
+        this.SeriesComedia(botonActivo, page);
+        break;
+      case 'drama':
+        this.SeriesDrama(botonActivo, page);
+        break;
+    }
+  }
+
+  paginaAnterior() {
+    if (this.paginaActual > 1) {
+      this.irAPagina(this.paginaActual - 1);
+    }
+  }
+
+  paginaSiguiente() {
+    if (this.paginaActual < this.totalPaginas) {
+      this.irAPagina(this.paginaActual + 1);
+    }
   }
 
 }

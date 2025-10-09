@@ -53,9 +53,9 @@ async function BuscarSeries(nombre) {
     }
 }
 
-async function BuscarPelículasPopulares() {
+async function BuscarPelículasPopulares(page) {
     try {
-        const datos = await repoTMDB.PelisPopulares();
+        const datos = await repoTMDB.PelisPopulares(page);
         return datos.results;
     }
     catch {
@@ -63,9 +63,9 @@ async function BuscarPelículasPopulares() {
     }
 }
 
-async function BuscarPelículasValoradas() {
+async function BuscarPelículasValoradas(page) {
     try {
-        const datos = await repoTMDB.PelisValoradas();
+        const datos = await repoTMDB.PelisValoradas(page);
         return datos.results;
     }
     catch {
@@ -73,9 +73,9 @@ async function BuscarPelículasValoradas() {
     }
 }
 
-async function BuscarPelículasEstreno() {
+async function BuscarPelículasEstreno(page) {
     try {
-        const datos = await repoTMDB.PelisEstreno();
+        const datos = await repoTMDB.PelisEstreno(page);
         return datos.results;
     }
     catch {
@@ -83,9 +83,9 @@ async function BuscarPelículasEstreno() {
     }
 }
 
-async function BuscarPelículasAccion() {
+async function BuscarPelículasAccion(page) {
     try {
-        const datos = await repoTMDB.PelisAccion();
+        const datos = await repoTMDB.PelisAccion(page);
         return datos.results;
     }
     catch {
@@ -93,9 +93,9 @@ async function BuscarPelículasAccion() {
     }
 }
 
-async function BuscarPelículasComedia() {
+async function BuscarPelículasComedia(page) {
     try {
-        const datos = await repoTMDB.PelisComedia();
+        const datos = await repoTMDB.PelisComedia(page);
         return datos.results;
     }
     catch {
@@ -103,9 +103,9 @@ async function BuscarPelículasComedia() {
     }
 }
 
-async function BuscarPelículasDrama() {
+async function BuscarPelículasDrama(page) {
     try {
-        const datos = await repoTMDB.PelisDrama();
+        const datos = await repoTMDB.PelisDrama(page);
         return datos.results;
     }
     catch {
@@ -113,9 +113,9 @@ async function BuscarPelículasDrama() {
     }
 }
 
-async function BuscarPelículasSciFi() {
+async function BuscarPelículasSciFi(page) {
     try {
-        const datos = await repoTMDB.PelisSciFi();
+        const datos = await repoTMDB.PelisSciFi(page);
         return datos.results;
     }
     catch {
@@ -123,9 +123,9 @@ async function BuscarPelículasSciFi() {
     }
 }
 
-async function BuscarSeriesPopulares() {
+async function BuscarSeriesPopulares(page) {
     try {
-        const datos = await repoTMDB.SeriesPopulares();
+        const datos = await repoTMDB.SeriesPopulares(page);
         return datos.results;
     }
     catch {
@@ -133,9 +133,9 @@ async function BuscarSeriesPopulares() {
     }
 }
 
-async function BuscarSeriesValoradas() {
+async function BuscarSeriesValoradas(page) {
     try {
-        const datos = await repoTMDB.SeriesValoradas();
+        const datos = await repoTMDB.SeriesValoradas(page);
         return datos.results;
     }
     catch {
@@ -143,9 +143,9 @@ async function BuscarSeriesValoradas() {
     }
 }
 
-async function BuscarSeriesComedia() {
+async function BuscarSeriesComedia(page) {
     try {
-        const datos = await repoTMDB.SeriesComedia();
+        const datos = await repoTMDB.SeriesComedia(page);
         return datos.results;
     }
     catch {
@@ -153,9 +153,9 @@ async function BuscarSeriesComedia() {
     }
 }
 
-async function BuscarSeriesDrama() {
+async function BuscarSeriesDrama(page) {
     try {
-        const datos = await repoTMDB.SeriesDrama();
+        const datos = await repoTMDB.SeriesDrama(page);
         return datos.results;
     }
     catch {

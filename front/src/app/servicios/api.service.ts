@@ -36,8 +36,8 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   // filtro: POPULARES
-  getPeliculasPopulares(): Observable<any> {
-    return this.http.get(`${this.apiGateway}/populares`);
+  getPeliculasPopulares(page: number = 1): Observable<any> {
+    return this.http.get(`${this.apiGateway}/populares?page=${page}`);
   }
 
   // filtro: BUSCAR POR NOMBRE
@@ -47,32 +47,32 @@ export class ApiService {
   }
 
   // filtro: ACCIÓN
-  getPeliculasAccion(): Observable<any> {
-    return this.http.get(`${this.apiGateway}/accion`);
+  getPeliculasAccion(page: number): Observable<any> {
+    return this.http.get(`${this.apiGateway}/accion?page=${page}`);
   }
 
   // filtro: COMEDIA
-  getPeliculasComedia(): Observable<any> {
-    return this.http.get(`${this.apiGateway}/comedia`);
+  getPeliculasComedia(page: number): Observable<any> {
+    return this.http.get(`${this.apiGateway}/comedia?page=${page}`);
   }
 
   // filtro: DRAMA
-  getPeliculasDrama(): Observable<any> {
-    return this.http.get(`${this.apiGateway}/drama`);
+  getPeliculasDrama(page: number): Observable<any> {
+    return this.http.get(`${this.apiGateway}/drama?page=${page}`);
   }
 
   // filtro: CIENCIA FICCIÓN
-  getPeliculasSciFi(): Observable<any> {
-    return this.http.get(`${this.apiGateway}/scifi`);
+  getPeliculasSciFi(page: number): Observable<any> {
+    return this.http.get(`${this.apiGateway}/scifi?page=${page}`);
   }
   // filtro: ESTRENOS
-  getPeliculasEstreno(): Observable<any> {
-    return this.http.get(`${this.apiGateway}/estrenos`);
+  getPeliculasEstreno(page: number): Observable<any> {
+    return this.http.get(`${this.apiGateway}/estrenos?page=${page}`);
   }
 
   // filtro: MEJOR VALORADAS
-  getPeliculasMejorValoradas(): Observable<any> {
-    return this.http.get(`${this.apiGateway}/valoradas`);
+  getPeliculasMejorValoradas(page: number): Observable<any> {
+    return this.http.get(`${this.apiGateway}/valoradas?page=${page}`);
   } 
 
 }
@@ -86,23 +86,23 @@ export class SeriesService {
   constructor(private http: HttpClient) {}
 
   // filtro: SERIES VALORADAS
-  getSeriesValoradas(): Observable<any> {
-    return this.http.get(`${this.apiGateway}/valoradas`);
+  getSeriesValoradas(page: number): Observable<any> {
+    return this.http.get(`${this.apiGateway}/valoradas?page=${page}`);
   }
 
   // filtro: SERIES COMEDIA
-  getSeriesComedia(): Observable<any> {
-    return this.http.get(`${this.apiGateway}/comedia`);
+  getSeriesComedia(page: number): Observable<any> {
+    return this.http.get(`${this.apiGateway}/comedia?page=${page}`);
   }
 
   // filtro: SERIES DRAMA
-  getSeriesDrama(): Observable<any> {
-    return this.http.get(`${this.apiGateway}/drama`);
+  getSeriesDrama(page: number): Observable<any> {
+    return this.http.get(`${this.apiGateway}/drama?page=${page}`);
   }
 
   // filtro: SERIES DRAMA
-  getSeriesPopulares(): Observable<any> {
-    return this.http.get(`${this.apiGateway}/populares`);
+  getSeriesPopulares(page: number): Observable<any> {
+    return this.http.get(`${this.apiGateway}/populares?page=${page}`);
   }
 
    // filtro: BUSCAR POR NOMBRE

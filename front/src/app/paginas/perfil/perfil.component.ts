@@ -153,10 +153,10 @@ cancelarEdicion() {
       const idsTvSec = this.mapearNombreAGeneroIds(generoSecundario, 'tv');
 
       const [pelisPop, pelisVal, seriesPop, seriesVal] = await Promise.all([
-        firstValueFrom(this.apiPeliculas.getPeliculasPopulares()),
-        firstValueFrom(this.apiPeliculas.getPeliculasMejorValoradas()),
-        firstValueFrom(this.seriesService.getSeriesPopulares()),
-        firstValueFrom(this.seriesService.getSeriesValoradas()),
+        firstValueFrom(this.apiPeliculas.getPeliculasPopulares(1)),
+        firstValueFrom(this.apiPeliculas.getPeliculasMejorValoradas(1)), // que vaya a la primera página
+        firstValueFrom(this.seriesService.getSeriesPopulares(1)),
+        firstValueFrom(this.seriesService.getSeriesValoradas(1)),
       ]);
 
       const poolMoviePrincipal = this.shuffle(((pelisPop || []).concat(pelisVal || [])).map((x: any) => ({ ...x, tipo: 'movie' })))
@@ -207,16 +207,16 @@ cancelarEdicion() {
         if (tipoPrincipal === 'movie') {
           fallbackConsultas.push(
             firstValueFrom(this.apiPeliculas.getPeliculasPopulares().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))))),
-            firstValueFrom(this.apiPeliculas.getPeliculasMejorValoradas().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))))),
-            firstValueFrom(this.seriesService.getSeriesPopulares().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))))),
-            firstValueFrom(this.seriesService.getSeriesValoradas().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))))),
+            firstValueFrom(this.apiPeliculas.getPeliculasMejorValoradas(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))))),
+            firstValueFrom(this.seriesService.getSeriesPopulares(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))))),
+            firstValueFrom(this.seriesService.getSeriesValoradas(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))))),
           );
         } else {
           fallbackConsultas.push(
-            firstValueFrom(this.seriesService.getSeriesPopulares().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))))),
-            firstValueFrom(this.seriesService.getSeriesValoradas().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))))),
+            firstValueFrom(this.seriesService.getSeriesPopulares(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))))),
+            firstValueFrom(this.seriesService.getSeriesValoradas(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))))),
             firstValueFrom(this.apiPeliculas.getPeliculasPopulares().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))))),
-            firstValueFrom(this.apiPeliculas.getPeliculasMejorValoradas().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))))),
+            firstValueFrom(this.apiPeliculas.getPeliculasMejorValoradas(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))))),
           );
         }
         const fallbackRes = await Promise.all(fallbackConsultas);
@@ -363,26 +363,26 @@ cancelarEdicion() {
   private peliculasPorCategoria(cat: string) {
     switch (cat) {
       case 'accion':
-        return this.apiPeliculas.getPeliculasAccion().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))));
+        return this.apiPeliculas.getPeliculasAccion(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))));
       case 'comedia':
-        return this.apiPeliculas.getPeliculasComedia().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))));
+        return this.apiPeliculas.getPeliculasComedia(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))));
       case 'drama':
-        return this.apiPeliculas.getPeliculasDrama().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))));
+        return this.apiPeliculas.getPeliculasDrama(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))));
       case 'scifi':
-        return this.apiPeliculas.getPeliculasSciFi().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))));
+        return this.apiPeliculas.getPeliculasSciFi(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))));
       default:
-        return this.apiPeliculas.getPeliculasPopulares().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))));
+        return this.apiPeliculas.getPeliculasPopulares(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'movie' }))));
     }
   }
 
   private seriesPorCategoria(cat: string) {
     switch (cat) {
       case 'comedia':
-        return this.seriesService.getSeriesComedia().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))));
+        return this.seriesService.getSeriesComedia(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))));
       case 'drama':
-        return this.seriesService.getSeriesDrama().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))));
+        return this.seriesService.getSeriesDrama(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))));
       default:
-        return this.seriesService.getSeriesPopulares().pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))));
+        return this.seriesService.getSeriesPopulares(1).pipe(map(arr => (arr || []).map((x: any) => ({ ...x, tipo: 'tv' }))));
     }
   }
 }

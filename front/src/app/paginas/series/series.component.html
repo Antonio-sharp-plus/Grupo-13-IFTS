@@ -49,3 +49,15 @@
   }
 </div>
 </section>
+
+<div class="paginacion">
+  <button (click)="paginaAnterior()" [disabled]="paginaActual === 1">Anterior</button>
+
+  <button *ngFor="let p of [].constructor(totalPaginas); let i = index"
+          (click)="irAPagina(i + 1)"
+          [class.active]="paginaActual === i + 1">
+    {{ i + 1 }}
+  </button>
+
+  <button (click)="paginaSiguiente()" [disabled]="paginaActual === totalPaginas">Siguiente</button>
+</div>

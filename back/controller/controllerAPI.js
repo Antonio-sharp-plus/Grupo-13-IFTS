@@ -57,7 +57,8 @@ async function BuscarSeries(req, res, nombre) {
 
 async function BuscarPelículasPopulares(req, res) {
     try {
-        const datos = await servicioTMDB.BuscarPelículasPopulares();
+        const page = parseInt(req.query.page) || 1;
+        const datos = await servicioTMDB.BuscarPelículasPopulares(page);
         res.json(datos);
     }
     catch (error) {
@@ -67,7 +68,8 @@ async function BuscarPelículasPopulares(req, res) {
 
 async function BuscarPelículasValoradas(req, res) {
     try {
-        const datos = await servicioTMDB.BuscarPelículasValoradas();
+        const page = parseInt(req.query.page) || 1;
+        const datos = await servicioTMDB.BuscarPelículasValoradas(page);
         res.json(datos);
     }
     catch (error) {
@@ -77,7 +79,8 @@ async function BuscarPelículasValoradas(req, res) {
 
 async function BuscarPelículasEstreno(req, res) {
     try {
-        const datos = await servicioTMDB.BuscarPelículasEstreno();
+        const page = parseInt(req.query.page) || 1;
+        const datos = await servicioTMDB.BuscarPelículasEstreno(page);
         res.json(datos);
     }
     catch (error) {
@@ -87,7 +90,8 @@ async function BuscarPelículasEstreno(req, res) {
 
 async function BuscarPelículasAccion(req, res) {
     try {
-        const datos = await servicioTMDB.BuscarPelículasAccion();
+        const page = parseInt(req.query.page) || 1;
+        const datos = await servicioTMDB.BuscarPelículasAccion(page);
         res.json(datos);
     }
     catch (error) {
@@ -97,7 +101,8 @@ async function BuscarPelículasAccion(req, res) {
 
 async function BuscarPelículasComedia(req, res) {
     try {
-        const datos = await servicioTMDB.BuscarPelículasComedia();
+        const page = parseInt(req.query.page) || 1;
+        const datos = await servicioTMDB.BuscarPelículasComedia(page);
         res.json(datos);
     }
     catch (error) {
@@ -107,7 +112,8 @@ async function BuscarPelículasComedia(req, res) {
 
 async function BuscarPelículasDrama(req, res) {
     try {
-        const datos = await servicioTMDB.BuscarPelículasDrama();
+        const page = parseInt(req.query.page) || 1;
+        const datos = await servicioTMDB.BuscarPelículasDrama(page);
         res.json(datos);
     }
     catch (error) {
@@ -117,7 +123,8 @@ async function BuscarPelículasDrama(req, res) {
 
 async function BuscarPelículasSciFi(req, res) {
     try {
-        const datos = await servicioTMDB.BuscarPelículasSciFi();
+        const page = parseInt(req.query.page) || 1;
+        const datos = await servicioTMDB.BuscarPelículasSciFi(page);
         res.json(datos);
     }
     catch (error) {
@@ -127,7 +134,8 @@ async function BuscarPelículasSciFi(req, res) {
 
 async function BuscarSeriesPopulares(req, res) {
     try {
-        const datos = await servicioTMDB.BuscarSeriesPopulares();
+        const page = parseInt(req.query.page) || 1;
+        const datos = await servicioTMDB.BuscarSeriesPopulares(page);
         res.json(datos);
     }
     catch (error) {
@@ -137,7 +145,8 @@ async function BuscarSeriesPopulares(req, res) {
 
 async function BuscarSeriesValoradas(req, res) {
     try {
-        const datos = await servicioTMDB.BuscarSeriesValoradas();
+        const page = parseInt(req.query.page) || 1;
+        const datos = await servicioTMDB.BuscarSeriesValoradas(page);
         res.json(datos);
     }
     catch (error) {
@@ -147,7 +156,8 @@ async function BuscarSeriesValoradas(req, res) {
 
 async function BuscarSeriesComedia(req, res) {
     try {
-        const datos = await servicioTMDB.BuscarSeriesComedia();
+        const page = parseInt(req.query.page) || 1;
+        const datos = await servicioTMDB.BuscarSeriesComedia(page);
         res.json(datos);
     }
     catch (error) {
@@ -157,7 +167,8 @@ async function BuscarSeriesComedia(req, res) {
 
 async function BuscarSeriesDrama(req, res) {
     try {
-        const datos = await servicioTMDB.BuscarSeriesDrama();
+        const page = parseInt(req.query.page) || 1;
+        const datos = await servicioTMDB.BuscarSeriesDrama(page);
         res.json(datos);
     }
     catch (error) {
