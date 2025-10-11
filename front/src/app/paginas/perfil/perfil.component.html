@@ -6,9 +6,8 @@
 
 <h3>Mis favoritos 💯</h3>
 
-<div *ngIf="favoritos.length === 0" class="sin-favs">No tenés favoritos aún. 😓</div>
-
 <div class="fondo-tarjetas">
+  <div *ngIf="favoritos.length === 0" class="sin-favs">No tenés favoritos aún. 😓</div>
   <div class="tarjeta-grid">
     @for (fav of favoritos; track fav.id) {
       <app-tarjeta
@@ -24,9 +23,9 @@
 </div>
 
 <h3>Pochi recomienda ✅</h3>
-<div *ngIf="!cargandoRecomendaciones && recomendados.length === 0" class="sin-favs">No hay recomendaciones por ahora.</div>
   
 <div class="fondo-tarjetas">
+  <div *ngIf="!cargandoRecomendaciones && recomendados.length === 0" class="sin-favs">No hay recomendaciones por ahora.</div>
   <div class="tarjeta-grid" *ngIf="recomendados.length > 0">
     @for (rec of recomendados; track rec.id) {
       <app-tarjeta
@@ -43,6 +42,7 @@
 
 <h3>Mis reseñas 📝</h3>
 <div class="resenas-section">
+  <div *ngIf="resenas.length === 0" class="sin-resenas">No has hecho ninguna reseña.</div>
   @for (r of resenas; track r._id) {
     <div class="resena-perfil">
 
